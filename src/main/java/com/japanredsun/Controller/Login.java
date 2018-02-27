@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Sample implements Initializable {
+public class Login implements Initializable {
 
     private UserService userService = new UserServiceImp();
 
@@ -32,19 +32,19 @@ public class Sample implements Initializable {
 
     @FXML
     public void switchScene(ActionEvent event) throws IOException {
-//       Parent root = FXMLLoader.load(getClass().getResource("/fxml/sample2.fxml"));
-//       Scene scene = new Scene(root);
-//       Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//       stage.hide();
-//       stage.setScene(scene);
-//       stage.show();
-
         String username = txtUserName.getText();
         String password = txtPassword.getText();
         if(!username.equals("") || !password.equals("")){
             if(userService.authenticate(username,password)){
-                AnchorPane pane = FXMLLoader.load(getClass().getResource("/fxml/sample2.fxml"));
-                rootPane.getChildren().setAll(pane);
+//                AnchorPane pane = FXMLLoader.load(getClass().getResource("/fxml/sample2.fxml"));
+//                rootPane.getChildren().setAll(pane);
+                Parent root = FXMLLoader.load(getClass().getResource("/fxml/sample2.fxml"));
+                Scene scene = new Scene(root);
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.hide();
+                stage.setScene(scene);
+                stage.setTitle("Toeic Application");
+                stage.show();
             }else {
                 lbError.setText("Sign in error");
             }
