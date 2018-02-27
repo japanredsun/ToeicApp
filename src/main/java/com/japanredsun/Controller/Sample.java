@@ -1,5 +1,7 @@
 package com.japanredsun.Controller;
 
+import com.japanredsun.Service.Implement.UserServiceImp;
+import com.japanredsun.Service.UserService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,6 +10,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -17,9 +22,13 @@ import java.util.ResourceBundle;
 
 public class Sample implements Initializable {
 
+    private UserService userService = new UserServiceImp();
 
+    public Label lbError;
     public Button btnSwitch;
     public AnchorPane rootPane;
+    public TextField txtUserName;
+    public PasswordField txtPassword;
 
     @FXML
     public void switchScene(ActionEvent event) throws IOException {
@@ -29,8 +38,21 @@ public class Sample implements Initializable {
 //       stage.hide();
 //       stage.setScene(scene);
 //       stage.show();
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("/fxml/sample2.fxml"));
-        rootPane.getChildren().setAll(pane);
+
+        String username = txtUserName.getText();
+        String password = txtPassword.getText();
+        if(!username.equals("") || !password.equals("")){
+            if(userService.authenticate(username,password)){
+                AnchorPane pane = FXMLLoader.load(getClass().getResource("/fxml/sample2.fxml"));
+                rootPane.getChildren().setAll(pane);
+            }else {
+                lbError.setText("Sign in error");
+            }
+        }else {
+            lbError.setText("Fill the blank!");
+        }
+
+
 
     }
 

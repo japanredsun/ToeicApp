@@ -1,13 +1,12 @@
-package com.japanredsun.Service;
+package com.japanredsun.Dao;
 
 import com.japanredsun.Model.User;
-
 import java.util.List;
 
-public interface UserService {
+public interface UserDAO {
+
     List<User> getAllUsers();
 
     User getUserByUsername(String username);
 
-    boolean authenticate(String username, String password);
 }

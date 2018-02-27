@@ -1,5 +1,7 @@
 package com.japanredsun.Dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -12,4 +14,7 @@ public interface DataProvider {
     void finalyCheck();
 
     void closeDB() throws SQLException;
+
+    Connection getConn();
+
 }

@@ -1,6 +1,7 @@
-package com.japanredsun.Dao;
+package com.japanredsun.Dao.Implement;
 
 import com.japanredsun.AppConfig;
+import com.japanredsun.Dao.DataProvider;
 
 import java.sql.*;
 
@@ -9,14 +10,13 @@ public class DataProviderImp implements DataProvider {
     private Connection conn = null;
     private Statement stmt = null;
 
+    public Connection getConn() {
+        return conn;
+    }
+
     public void initializeDB() throws ClassNotFoundException,SQLException{
-
         Class.forName("com.mysql.jdbc.Driver");
-        System.out.println("Driver loaded");
-
         conn = DriverManager.getConnection(AppConfig.DB_URL,AppConfig.USER,AppConfig.PASS);
-        System.out.println("Database connected");
-
         this.stmt = conn.createStatement();
     }
 
@@ -45,6 +45,9 @@ public class DataProviderImp implements DataProvider {
     public void closeDB() throws SQLException {
         stmt.close();
         conn.close();
+        finalyCheck();
     }
+
+
 
 }
