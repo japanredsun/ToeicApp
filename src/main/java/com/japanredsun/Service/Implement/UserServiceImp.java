@@ -1,5 +1,6 @@
 package com.japanredsun.Service.Implement;
 
+import com.japanredsun.AppConfig;
 import com.japanredsun.Dao.Implement.DataProviderImp;
 import com.japanredsun.Dao.Implement.UserDAOImp;
 import com.japanredsun.Dao.UserDAO;
@@ -25,7 +26,19 @@ public class UserServiceImp implements UserService {
 
     public boolean authenticate(String username, String password) {
         User user = this.getUserByUsername(username);
-        return user != null && password.equals(user.getPassword());
+        if(user != null){
+            if(password.equals(user.getPassword())){
+                AppConfig.setLoginUser(user);
+                System.out.println("Login success");
+                return true;
+            }else{
+                System.out.println("Wrong password");
+                return false;
+            }
+        }else {
+            System.out.println("User not found");
+            return false;
+        }
     }
 
 //    public void test(){

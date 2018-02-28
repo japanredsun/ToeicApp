@@ -1,13 +1,40 @@
 package com.japanredsun;
 
+import com.japanredsun.Model.User;
+
 public class AppConfig {
 
-    public static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    public static final String DB_URL = "jdbc:mysql://localhost:3306/javafx";
+    private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/javafx";
 
     //  Database credentials
-    public static final String USER = "root";
-    public static final String PASS = "24635701";
+    private static final String USER = "root";
+    private static final String PASS = "24635701";
 
+    //Principal
+    private static User loginUser;
 
+    public static User getLoginUser() {
+        return loginUser;
+    }
+
+    public static void setLoginUser(User loginUser) {
+        AppConfig.loginUser = loginUser;
+    }
+
+    public static String getJdbcDriver() {
+        return JDBC_DRIVER;
+    }
+
+    public static String getDbUrl() {
+        return DB_URL;
+    }
+
+    public static String getUSER() {
+        return USER;
+    }
+
+    public static String getPASS() {
+        return PASS;
+    }
 }

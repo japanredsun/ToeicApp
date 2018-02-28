@@ -16,7 +16,7 @@ public class DataProviderImp implements DataProvider {
 
     public void initializeDB() throws ClassNotFoundException,SQLException{
         Class.forName("com.mysql.jdbc.Driver");
-        conn = DriverManager.getConnection(AppConfig.DB_URL,AppConfig.USER,AppConfig.PASS);
+        conn = DriverManager.getConnection(AppConfig.getDbUrl(),AppConfig.getUSER(),AppConfig.getPASS());
         this.stmt = conn.createStatement();
     }
 
