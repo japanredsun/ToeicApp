@@ -28,12 +28,19 @@ CREATE TABLE `question_detail` (
   `picture` varchar(255) COLLATE utf8_unicode_ci DEFAULT '',
   `answers` text COLLATE utf8_unicode_ci,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `question_detail` */
 
 insert  into `question_detail`(`id`,`question_id`,`question`,`audio`,`picture`,`answers`) values 
-(1,1,'Blade in the ... ?','','','[{\"id\":1,\"answer\":\"Answer 1\",\"rightAnswer\":false,\"explain\":\"it fail\"},{\"id\":2,\"answer\":\"Answer 2\",\"rightAnswer\":false,\"explain\":\"it fail\"},{\"id\":3,\"answer\":\"Answer 3\",\"rightAnswer\":true,\"explain\":\"it true\"},{\"id\":4,\"answer\":\"Answer 4\",\"rightAnswer\":false,\"explain\":\"it fail\"}]');
+(1,1,'Blade in the ... ?','','','[{\"id\":1,\"answer\":\"Answer 1\",\"rightAnswer\":false,\"explain\":\"it fail\"},{\"id\":2,\"answer\":\"Answer 2\",\"rightAnswer\":false,\"explain\":\"it fail\"},{\"id\":3,\"answer\":\"Answer 3\",\"rightAnswer\":true,\"explain\":\"it true\"},{\"id\":4,\"answer\":\"Answer 4\",\"rightAnswer\":false,\"explain\":\"it fail\"}]'),
+(2,2,'Question 1','','','[{\"id\":1,\"answer\":\"Answer 1\",\"rightAnswer\":false,\"explain\":\"it fail\"},{\"id\":2,\"answer\":\"Answer 2\",\"rightAnswer\":false,\"explain\":\"it fail\"},{\"id\":3,\"answer\":\"Answer 3\",\"rightAnswer\":true,\"explain\":\"it true\"},{\"id\":4,\"answer\":\"Answer 4\",\"rightAnswer\":false,\"explain\":\"it fail\"}]'),
+(3,2,'Question 2','','','[{\"id\":1,\"answer\":\"Answer 1\",\"rightAnswer\":false,\"explain\":\"it fail\"},{\"id\":2,\"answer\":\"Answer 2\",\"rightAnswer\":false,\"explain\":\"it fail\"},{\"id\":3,\"answer\":\"Answer 3\",\"rightAnswer\":true,\"explain\":\"it true\"},{\"id\":4,\"answer\":\"Answer 4\",\"rightAnswer\":false,\"explain\":\"it fail\"}]'),
+(4,2,'Question 3','','','[{\"id\":1,\"answer\":\"Answer 1\",\"rightAnswer\":false,\"explain\":\"it fail\"},{\"id\":2,\"answer\":\"Answer 2\",\"rightAnswer\":false,\"explain\":\"it fail\"},{\"id\":3,\"answer\":\"Answer 3\",\"rightAnswer\":true,\"explain\":\"it true\"},{\"id\":4,\"answer\":\"Answer 4\",\"rightAnswer\":false,\"explain\":\"it fail\"}]'),
+(9,6,'Question 1','','','[{\"id\":1,\"answer\":\"Answer 1\",\"rightAnswer\":false,\"explain\":\"it fail\"},{\"id\":2,\"answer\":\"Answer 2\",\"rightAnswer\":false,\"explain\":\"it fail\"},{\"id\":3,\"answer\":\"Answer 3\",\"rightAnswer\":true,\"explain\":\"it true\"},{\"id\":4,\"answer\":\"Answer 4\",\"rightAnswer\":false,\"explain\":\"it fail\"}]'),
+(10,6,'Question 2','','','[{\"id\":1,\"answer\":\"Answer 1\",\"rightAnswer\":false,\"explain\":\"it fail\"},{\"id\":2,\"answer\":\"Answer 2\",\"rightAnswer\":false,\"explain\":\"it fail\"},{\"id\":3,\"answer\":\"Answer 3\",\"rightAnswer\":true,\"explain\":\"it true\"},{\"id\":4,\"answer\":\"Answer 4\",\"rightAnswer\":false,\"explain\":\"it fail\"}]'),
+(11,8,'Question 1','','','[{\"id\":1,\"answer\":\"Answer 1\",\"rightAnswer\":false,\"explain\":\"it fail\"},{\"id\":2,\"answer\":\"Answer 2\",\"rightAnswer\":false,\"explain\":\"it fail\"},{\"id\":3,\"answer\":\"Answer 3\",\"rightAnswer\":true,\"explain\":\"it true\"},{\"id\":4,\"answer\":\"Answer 4\",\"rightAnswer\":false,\"explain\":\"it fail\"}]'),
+(12,8,'Question 2','','','[{\"id\":1,\"answer\":\"Answer 1\",\"rightAnswer\":false,\"explain\":\"it fail\"},{\"id\":2,\"answer\":\"Answer 2\",\"rightAnswer\":false,\"explain\":\"it fail\"},{\"id\":3,\"answer\":\"Answer 3\",\"rightAnswer\":true,\"explain\":\"it true\"},{\"id\":4,\"answer\":\"Answer 4\",\"rightAnswer\":false,\"explain\":\"it fail\"}]');
 
 /*Table structure for table `questions` */
 
@@ -46,12 +53,15 @@ CREATE TABLE `questions` (
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `status` int(1) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `questions` */
 
 insert  into `questions`(`id`,`type`,`paragraph`,`created_date`,`status`) values 
-(1,'Vocabulary',NULL,'2018-03-08 11:47:03',1);
+(1,'Vocabulary',NULL,'2018-03-08 11:47:03',1),
+(2,'Reading','ParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraphParagraph','2018-03-08 14:57:33',1),
+(6,'Vocabulary',NULL,'2018-03-08 16:21:07',0),
+(8,'Vocabulary',NULL,'2018-03-08 16:24:08',0);
 
 /*Table structure for table `users` */
 
