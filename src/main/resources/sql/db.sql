@@ -26,11 +26,14 @@ CREATE TABLE `question_detail` (
   `question` varchar(255) COLLATE utf8_unicode_ci DEFAULT '',
   `audio` varchar(255) COLLATE utf8_unicode_ci DEFAULT '',
   `picture` varchar(255) COLLATE utf8_unicode_ci DEFAULT '',
-  `answers` varchar(255) COLLATE utf8_unicode_ci DEFAULT '',
+  `answers` text COLLATE utf8_unicode_ci,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `question_detail` */
+
+insert  into `question_detail`(`id`,`question_id`,`question`,`audio`,`picture`,`answers`) values 
+(1,1,'Blade in the ... ?','','','[{\"id\":1,\"answer\":\"Answer 1\",\"rightAnswer\":false,\"explain\":\"it fail\"},{\"id\":2,\"answer\":\"Answer 2\",\"rightAnswer\":false,\"explain\":\"it fail\"},{\"id\":3,\"answer\":\"Answer 3\",\"rightAnswer\":true,\"explain\":\"it true\"},{\"id\":4,\"answer\":\"Answer 4\",\"rightAnswer\":false,\"explain\":\"it fail\"}]');
 
 /*Table structure for table `questions` */
 
@@ -43,9 +46,12 @@ CREATE TABLE `questions` (
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `status` int(1) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `questions` */
+
+insert  into `questions`(`id`,`type`,`paragraph`,`created_date`,`status`) values 
+(1,'Vocabulary',NULL,'2018-03-08 11:47:03',1);
 
 /*Table structure for table `users` */
 
