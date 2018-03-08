@@ -11,9 +11,9 @@ public interface QuestionDAO {
 
     Question getQuestionById(long id);
 
-    String insertQuestion(Question question);
+    boolean insertQuestion(Question question);
 
-    String updateQuestion(Question question);
+    boolean updateQuestion(Question question);
 
-    String deleteQuestion(long id);
+    boolean deleteQuestion(long id);
 }

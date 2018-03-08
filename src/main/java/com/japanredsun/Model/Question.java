@@ -70,4 +70,9 @@ public class Question {
     public void setQuestions(List<QuestionDetails> questions) {
         this.questions = questions;
     }
+
+    @Override
+    public String toString() {
+        return "id: " + id +" type: " +type + " created date: " +createdDate + " status: " + status + "QuestionDetailListSize: " + questions.size();
+    }
 }
