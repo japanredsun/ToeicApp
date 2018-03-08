@@ -14,10 +14,11 @@ public class Question {
     public Question() {
     }
 
-    public Question(long id, String type, String paragraph, int status, List<QuestionDetails> questions) {
+    public Question(long id, String type, String paragraph, Date createdDate, int status, List<QuestionDetails> questions) {
         this.id = id;
         this.type = type;
         this.paragraph = paragraph;
+        this.createdDate = createdDate;
         this.status = status;
         this.questions = questions;
     }
