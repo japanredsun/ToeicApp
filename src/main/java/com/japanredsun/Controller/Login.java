@@ -1,5 +1,7 @@
 package com.japanredsun.Controller;
 
+import com.japanredsun.AppConfig;
+import com.japanredsun.Config.SceneManager;
 import com.japanredsun.Service.Implement.UserServiceImp;
 import com.japanredsun.Service.UserService;
 import javafx.event.ActionEvent;
@@ -25,6 +27,9 @@ public class Login implements Initializable {
 
     private UserService userService = new UserServiceImp();
 
+    private SceneManager sceneManager = new SceneManager();
+
+
     public Label lbError;
     public Button btnSwitch;
     public AnchorPane rootPane;
@@ -40,13 +45,11 @@ public class Login implements Initializable {
                 if(userService.authenticate(username,password)){
     //                AnchorPane pane = FXMLLoader.load(getClass().getResource("/fxml/sample2.fxml"));
     //                rootPane.getChildren().setAll(pane);
-                    Parent root = FXMLLoader.load(getClass().getResource("/fxml/sample2.fxml"));
-                    Scene scene = new Scene(root);
-                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    stage.hide();
-                    stage.setScene(scene);
-                    stage.setTitle("Toeic Application");
-                    stage.show();
+                    if(AppConfig.getLoginUser().getRole().equals("ADMIN")){
+                        sceneManager.openNewWindowAndHide("/fxml/AdminPage.fxml","Admin Panel", event);
+                    }else {
+                        sceneManager.openNewWindowAndHide("/fxml/sample2.fxml","Toeic Application", event);
+                    }
                 }else {
                     lbError.setText("Sign in error");
                 }

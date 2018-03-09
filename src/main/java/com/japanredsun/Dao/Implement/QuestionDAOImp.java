@@ -10,8 +10,12 @@ import com.japanredsun.Model.QuestionDetails;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class QuestionDAOImp implements QuestionDAO {
+
+    private static final Logger LOG = Logger.getLogger(QuestionDAOImp.class.getName());
 
     private DataProvider dataProvider = new DataProviderImp();
 
@@ -31,7 +35,7 @@ public class QuestionDAOImp implements QuestionDAO {
 
                 Question question = new Question(id,type,paragraph,createdDate,status,questionDetailsList);
                 questionList.add(question);
-                System.out.println("Added " +question.toString() +" to list");
+                LOG.log(Level.INFO,"Select " + question.toString());
             }
             rs.close();
             dataProvider.closeDB();
@@ -51,7 +55,7 @@ public class QuestionDAOImp implements QuestionDAO {
 
                 Question question = new Question(id, type, paragraph, createdDate, status, questionDetailsList);
                 questionList.add(question);
-                System.out.println("Added " + question.toString() + " to list");
+                LOG.log(Level.INFO,"Select " + question.toString());
             }
             rs.close();
             dataProvider.closeDB();
@@ -76,7 +80,7 @@ public class QuestionDAOImp implements QuestionDAO {
                 question.setStatus(status);
                 question.setQuestions(questionDetailsList);
 
-                System.out.println("Added " +question.toString() +" to list");
+                LOG.log(Level.INFO,"Select " + question.toString());
             }
             rs.close();
             dataProvider.closeDB();
@@ -107,7 +111,7 @@ public class QuestionDAOImp implements QuestionDAO {
                     ps2.setString(5,new Gson().toJson(item.getAnswers()));
                     ps2.executeUpdate();
                     ps2.close();
-                    System.out.println("Added question details " + item.getQuestion());
+                    LOG.log(Level.INFO,"Added " + item.getQuestion());
                 }
             }
             ps.close();
@@ -136,7 +140,7 @@ public class QuestionDAOImp implements QuestionDAO {
                 ps2.setString(3, item.getPicturePath());
                 ps2.setString(4,new Gson().toJson(item.getAnswers()));
                 ps2.close();
-                System.out.println("Updated question " + item.getQuestion());
+                LOG.log(Level.INFO,"Updated question " + item.getQuestion());
             }
             dataProvider.closeDB();
         return true;
@@ -156,8 +160,7 @@ public class QuestionDAOImp implements QuestionDAO {
             ps2.executeUpdate();
             ps2.close();
 
-            System.out.println("Deleted question " +id);
-
+            LOG.log(Level.INFO,"Deleted question " + id);
             dataProvider.closeDB();
         return true;
     }

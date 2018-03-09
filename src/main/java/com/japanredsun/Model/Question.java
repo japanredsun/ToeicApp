@@ -73,6 +73,6 @@ public class Question {
 
     @Override
     public String toString() {
-        return "id: " + id +" type: " +type + " created date: " +createdDate + " status: " + status + "QuestionDetailListSize: " + questions.size();
+        return "id: " + id +" type: " +type + " created date: " +createdDate + " status: " + status + " Question_Detail_List_Size: " + questions.size();
     }
 }

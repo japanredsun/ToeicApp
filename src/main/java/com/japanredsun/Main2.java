@@ -14,6 +14,7 @@ import com.japanredsun.Service.Implement.UserServiceImp;
 import com.japanredsun.Service.UserService;
 
 import java.lang.reflect.Type;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -36,9 +37,9 @@ public class Main2 {
 //        System.out.println(json);
 //
 //        //From Json Array in DB to Array List
-        String jsonString = "[{\"id\":1,\"answer\":\"Answer 1\",\"rightAnswer\":false,\"explain\":\"it fail\"},{\"id\":2,\"answer\":\"Answer 2\",\"rightAnswer\":false,\"explain\":\"it fail\"},{\"id\":3,\"answer\":\"Answer 3\",\"rightAnswer\":true,\"explain\":\"it true\"},{\"id\":4,\"answer\":\"Answer 4\",\"rightAnswer\":false,\"explain\":\"it fail\"}]\n";
-        Type listType = new TypeToken<ArrayList<Answer>>(){}.getType();
-        ArrayList<Answer> answers1 = new Gson().fromJson(jsonString,listType);
+//        String jsonString = "[{\"id\":1,\"answer\":\"Answer 1\",\"rightAnswer\":false,\"explain\":\"it fail\"},{\"id\":2,\"answer\":\"Answer 2\",\"rightAnswer\":false,\"explain\":\"it fail\"},{\"id\":3,\"answer\":\"Answer 3\",\"rightAnswer\":true,\"explain\":\"it true\"},{\"id\":4,\"answer\":\"Answer 4\",\"rightAnswer\":false,\"explain\":\"it fail\"}]\n";
+//        Type listType = new TypeToken<ArrayList<Answer>>(){}.getType();
+//        ArrayList<Answer> answers1 = new Gson().fromJson(jsonString,listType);
 //        System.out.println(answers1);
 
 //        // test QDDAO
@@ -48,8 +49,15 @@ public class Main2 {
 //        System.out.println(questionDetailsList);
 
 //         test QuestionDAO
-        QuestionDAO questionDAO = new QuestionDAOImp();
-//        List<Question> questionList = questionDAO.getAllQuestions();
+//        QuestionDAO questionDAO = new QuestionDAOImp();
+//        List<Question> questionList = null;
+//        try {
+//            questionList = questionDAO.getAllQuestions();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        } catch (ClassNotFoundException e) {
+//            e.printStackTrace();
+//        }
 //        System.out.println(Arrays.toString(questionList.toArray()));
 //        Question question = new Question();
 //        question.setType("Vocabulary");
