@@ -17,10 +17,9 @@ public class QuestionDAOImp implements QuestionDAO {
 
     private QuestionDetailsDAO questionDetailsDAO= new QuestionDetailsDAOImp();
 
-    public List<Question> getAllQuestions() {
+    public List<Question> getAllQuestions() throws SQLException, ClassNotFoundException {
         List<Question> questionList = new ArrayList<Question>();
         String sql ="SELECT * From questions WHERE status = 1";
-        try {
             ResultSet rs = dataProvider.executeReader(sql);
             while (rs.next()){
                 long id = rs.getLong("id");
@@ -36,50 +35,59 @@ public class QuestionDAOImp implements QuestionDAO {
             }
             rs.close();
             dataProvider.closeDB();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+
 
         return questionList;
     }
 
-    public List<Question> getQuestionsByType(String type) {
+    public List<Question> getQuestionsByType(String type) throws SQLException, ClassNotFoundException {
         List<Question> questionList = new ArrayList<Question>();
         String sql = "SELECT * From questions WHERE type = ?";
-        try {
             ResultSet rs = dataProvider.executeReader(sql);
-            while (rs.next()){
+            while (rs.next()) {
                 long id = rs.getLong("id");
                 String paragraph = rs.getString("paragraph");
                 Date createdDate = rs.getDate("created_date");
                 int status = rs.getInt("status");
                 List<QuestionDetails> questionDetailsList = questionDetailsDAO.getByQuestionId(id);
 
-                Question question = new Question(id,type,paragraph,createdDate,status,questionDetailsList);
+                Question question = new Question(id, type, paragraph, createdDate, status, questionDetailsList);
                 questionList.add(question);
+                System.out.println("Added " + question.toString() + " to list");
+            }
+            rs.close();
+            dataProvider.closeDB();
+        return questionList;
+    }
+
+    public Question getQuestionById(long id) throws SQLException, ClassNotFoundException {
+        Question question = new Question();
+        String sql = "SELECT * From questions WHERE id = ?";
+            ResultSet rs = dataProvider.executeReader(sql);
+            if (rs.next()){
+                String type = rs.getString("type");
+                String paragraph = rs.getString("paragraph");
+                Date createdDate = rs.getDate("created_date");
+                int status = rs.getInt("status");
+                List<QuestionDetails> questionDetailsList = questionDetailsDAO.getByQuestionId(id);
+
+                question.setId(id);
+                question.setType(type);
+                question.setParagraph(paragraph);
+                question.setCreatedDate(createdDate);
+                question.setStatus(status);
+                question.setQuestions(questionDetailsList);
+
                 System.out.println("Added " +question.toString() +" to list");
             }
             rs.close();
             dataProvider.closeDB();
-
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return questionList;
+        return question;
     }
 
-    public Question getQuestionById(long id) {
-        return null;
-    }
-
-    public boolean insertQuestion(Question question) {
+    public boolean insertQuestion(Question question) throws SQLException, ClassNotFoundException {
         String sql = "INSERT INTO questions (type,paragraph,status) VALUES (?,?,?)";
         String sql2 = "INSERT INTO question_detail (question_id,question,audio,picture,answers) VALUES (?,?,?,?,?)";
-        try {
             dataProvider.initializeDB();
             PreparedStatement ps = dataProvider.getConn().prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
             ps.setString(1,question.getType());
@@ -106,21 +114,12 @@ public class QuestionDAOImp implements QuestionDAO {
             }
             ps.close();
             dataProvider.closeDB();
-
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-
         return true;
     }
 
-    public boolean updateQuestion(Question question) {
+    public boolean updateQuestion(Question question) throws SQLException, ClassNotFoundException {
         String sql = "UPDATE questions SET type = ?, paragraph = ?, status = ? WHERE id = ?";
         String sql2 = "UPDATE question_detail SET question = ?, audio = ?, picture = ?, answer = ? WHERE id = ?";
-        try {
             dataProvider.initializeDB();
             PreparedStatement ps = dataProvider.getConn().prepareStatement(sql);
             ps.setString(1,question.getType());
@@ -142,21 +141,12 @@ public class QuestionDAOImp implements QuestionDAO {
                 System.out.println("Updated question " + item.getQuestion());
             }
             dataProvider.closeDB();
-
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-
         return true;
     }
 
-    public boolean deleteQuestion(long id) {
+    public boolean deleteQuestion(long id) throws SQLException, ClassNotFoundException {
         String sql = "DELETE From questions WHERE id = ?";
         String sql2 = "DELETE From question_detail WHERE question_id = ?";
-        try {
             dataProvider.initializeDB();
             PreparedStatement ps = dataProvider.getConn().prepareStatement(sql);
             ps.setLong(1,id);
@@ -171,12 +161,6 @@ public class QuestionDAOImp implements QuestionDAO {
             System.out.println("Deleted question " +id);
 
             dataProvider.closeDB();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
         return true;
     }
 }

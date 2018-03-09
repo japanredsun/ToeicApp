@@ -37,6 +37,7 @@ public class UserDAOImp implements UserDAO {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+       
         return users;
     }
 

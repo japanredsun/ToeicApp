@@ -18,11 +18,9 @@ public class QuestionDetailsDAOImp implements QuestionDetailsDAO{
 
     private DataProvider dataProvider = new DataProviderImp();
 
-    public List<QuestionDetails> getByQuestionId(long questionId) {
+    public List<QuestionDetails> getByQuestionId(long questionId) throws SQLException, ClassNotFoundException {
         List<QuestionDetails> questionDetailsList = new ArrayList<QuestionDetails>();
         String sql ="SELECT question, audio, picture, answers FROM question_detail WHERE question_id = ?";
-
-        try {
             dataProvider.initializeDB();
             PreparedStatement ps = dataProvider.getConn().prepareStatement(sql);
             ps.setLong(1,questionId);
@@ -42,11 +40,6 @@ public class QuestionDetailsDAOImp implements QuestionDetailsDAO{
             rs.close();
             ps.close();
             dataProvider.closeDB();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
         return questionDetailsList;
     }
 
@@ -54,15 +47,4 @@ public class QuestionDetailsDAOImp implements QuestionDetailsDAO{
         return null;
     }
 
-    public String insert(QuestionDetails questionDetails) {
-        return null;
-    }
-
-    public String update(QuestionDetails questionDetails) {
-        return null;
-    }
-
-    public String delete(long id) {
-        return null;
-    }
 }

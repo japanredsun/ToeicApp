@@ -1,20 +1,18 @@
-package com.japanredsun.Dao;
+package com.japanredsun.Service;
 
 import com.japanredsun.Model.Question;
 
 import java.sql.SQLException;
 import java.util.List;
 
-public interface QuestionDAO {
+public interface QuestionService {
     List<Question> getAllQuestions() throws SQLException, ClassNotFoundException;
 
     List<Question> getQuestionsByType(String type) throws SQLException, ClassNotFoundException;
 
     Question getQuestionById(long id) throws SQLException, ClassNotFoundException;
 
-    boolean insertQuestion(Question question) throws SQLException, ClassNotFoundException;
+    void saveQuestion(Question question) throws SQLException, ClassNotFoundException;
 
-    boolean updateQuestion(Question question) throws SQLException, ClassNotFoundException;
-
-    boolean deleteQuestion(long id) throws SQLException, ClassNotFoundException;
+    void deleteQuestion(long id) throws SQLException, ClassNotFoundException;
 }
