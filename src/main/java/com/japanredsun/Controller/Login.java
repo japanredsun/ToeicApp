@@ -18,6 +18,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class Login implements Initializable {
@@ -35,18 +36,24 @@ public class Login implements Initializable {
         String username = txtUserName.getText();
         String password = txtPassword.getText();
         if(!username.equals("") || !password.equals("")){
-            if(userService.authenticate(username,password)){
-//                AnchorPane pane = FXMLLoader.load(getClass().getResource("/fxml/sample2.fxml"));
-//                rootPane.getChildren().setAll(pane);
-                Parent root = FXMLLoader.load(getClass().getResource("/fxml/sample2.fxml"));
-                Scene scene = new Scene(root);
-                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                stage.hide();
-                stage.setScene(scene);
-                stage.setTitle("Toeic Application");
-                stage.show();
-            }else {
-                lbError.setText("Sign in error");
+            try {
+                if(userService.authenticate(username,password)){
+    //                AnchorPane pane = FXMLLoader.load(getClass().getResource("/fxml/sample2.fxml"));
+    //                rootPane.getChildren().setAll(pane);
+                    Parent root = FXMLLoader.load(getClass().getResource("/fxml/sample2.fxml"));
+                    Scene scene = new Scene(root);
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    stage.hide();
+                    stage.setScene(scene);
+                    stage.setTitle("Toeic Application");
+                    stage.show();
+                }else {
+                    lbError.setText("Sign in error");
+                }
+            } catch (SQLException e) {
+               lbError.setText(e.getMessage());
+            } catch (ClassNotFoundException e) {
+                lbError.setText(e.getMessage());
             }
         }else {
             lbError.setText("Fill the blank!");

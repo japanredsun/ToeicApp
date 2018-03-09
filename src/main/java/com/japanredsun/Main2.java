@@ -66,7 +66,7 @@ public class Main2 {
 
 
             // test Delete
-            questionDAO.deleteQuestion(9);
+//            questionDAO.deleteQuestion(9);
 
     }
 }

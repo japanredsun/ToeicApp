@@ -5,6 +5,7 @@ import com.japanredsun.Dao.Implement.DataProviderImp;
 import com.japanredsun.Dao.Implement.UserDAOImp;
 import com.japanredsun.Dao.UserDAO;
 import com.japanredsun.Model.User;
+import com.japanredsun.Model.UserInfo;
 import com.japanredsun.Service.UserService;
 import javafx.scene.control.Label;
 
@@ -16,15 +17,15 @@ public class UserServiceImp implements UserService {
 
     private UserDAO userDAO = new UserDAOImp();
 
-    public List<User> getAllUsers(){
+    public List<User> getAllUsers() throws SQLException, ClassNotFoundException {
         return userDAO.getAllUsers();
     }
 
-    public User getUserByUsername(String username) {
+    public User getUserByUsername(String username) throws SQLException, ClassNotFoundException {
         return userDAO.getUserByUsername(username);
     }
 
-    public boolean authenticate(String username, String password) {
+    public boolean authenticate(String username, String password) throws SQLException, ClassNotFoundException {
         User user = this.getUserByUsername(username);
         if(user != null){
             if(password.equals(user.getPassword())){
@@ -39,6 +40,10 @@ public class UserServiceImp implements UserService {
             System.out.println("User not found");
             return false;
         }
+    }
+
+    public UserInfo getUserInfo(String username) throws SQLException, ClassNotFoundException {
+        return userDAO.getUserInfo(username);
     }
 
 //    public void test(){

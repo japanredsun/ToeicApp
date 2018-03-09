@@ -1,12 +1,17 @@
 package com.japanredsun.Dao;
 
 import com.japanredsun.Model.User;
+import com.japanredsun.Model.UserInfo;
+
+import java.sql.SQLException;
 import java.util.List;
 
 public interface UserDAO {
 
-    List<User> getAllUsers();
+    List<User> getAllUsers() throws SQLException, ClassNotFoundException;
 
-    User getUserByUsername(String username);
+    User getUserByUsername(String username) throws SQLException, ClassNotFoundException;
+
+    UserInfo getUserInfo(String username) throws SQLException, ClassNotFoundException;
 
 }

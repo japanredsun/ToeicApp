@@ -3,6 +3,7 @@ package com.japanredsun.Dao.Implement;
 import com.japanredsun.Dao.DataProvider;
 import com.japanredsun.Dao.UserDAO;
 import com.japanredsun.Model.User;
+import com.japanredsun.Model.UserInfo;
 
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -15,11 +16,10 @@ public class UserDAOImp implements UserDAO {
 
     private DataProvider dataProvider = new DataProviderImp();
 
-    public List<User> getAllUsers(){
+    public List<User> getAllUsers() throws SQLException, ClassNotFoundException {
         List<User> users = new ArrayList<User>();
         String sql = "SELECT * From users WHERE active = 1";
         ResultSet rs = null;
-        try {
             rs = dataProvider.executeReader(sql);
             while (rs.next()){
                 long id = rs.getLong("id");
@@ -32,18 +32,11 @@ public class UserDAOImp implements UserDAO {
             }
             rs.close();
             dataProvider.closeDB();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-       
         return users;
     }
 
-    public User getUserByUsername(String username) {
+    public User getUserByUsername(String username) throws SQLException, ClassNotFoundException {
         User user = null;
-        try {
             dataProvider.initializeDB();
             String sql = "SELECT * FROM users WHERE active = 1 AND username = ?";
             PreparedStatement ps = dataProvider.getConn().prepareStatement(sql);
@@ -59,13 +52,23 @@ public class UserDAOImp implements UserDAO {
             rs.close();
             ps.close();
             dataProvider.closeDB();
-
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
         return user;
+    }
+
+    public UserInfo getUserInfo(String username) throws SQLException, ClassNotFoundException {
+        dataProvider.initializeDB();
+        String sql = "SELECT totalpoint,grade FROM users WHERE username = ?";
+        PreparedStatement ps = dataProvider.getConn().prepareStatement(sql);
+        ps.setString(1,username);
+        ResultSet rs = ps.executeQuery();
+        UserInfo userInfo = null;
+        if(rs.next()){
+            Integer totalPoint = rs.getInt("total_point");
+            String grade = rs.getString("grade");
+            userInfo = new UserInfo(username,totalPoint,grade);
+        }
+        rs.close();
+        ps.close();
+        return userInfo;
     }
 }

@@ -35,8 +35,6 @@ public class QuestionDAOImp implements QuestionDAO {
             }
             rs.close();
             dataProvider.closeDB();
-
-
         return questionList;
     }
 
