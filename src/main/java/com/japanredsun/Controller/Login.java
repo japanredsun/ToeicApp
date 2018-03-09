@@ -4,6 +4,7 @@ import com.japanredsun.AppConfig;
 import com.japanredsun.Config.SceneManager;
 import com.japanredsun.Service.Implement.UserServiceImp;
 import com.japanredsun.Service.UserService;
+import com.japanredsun.View.FxmlView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -46,9 +47,9 @@ public class Login implements Initializable {
     //                AnchorPane pane = FXMLLoader.load(getClass().getResource("/fxml/sample2.fxml"));
     //                rootPane.getChildren().setAll(pane);
                     if(AppConfig.getLoginUser().getRole().equals("ADMIN")){
-                        sceneManager.openNewWindowAndHide("/fxml/AdminPage.fxml","Admin Panel", event);
+                        sceneManager.openNewWindowAndHide(FxmlView.ADMIN, event);
                     }else {
-                        sceneManager.openNewWindowAndHide("/fxml/sample2.fxml","Toeic Application", event);
+                        sceneManager.openNewWindowAndHide(FxmlView.HOME, event);
                     }
                 }else {
                     lbError.setText("Sign in error");

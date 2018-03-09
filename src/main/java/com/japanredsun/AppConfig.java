@@ -14,6 +14,9 @@ public class AppConfig {
     //Principal
     private static User loginUser;
 
+    //Fxml Resource path
+    public static final String FXMLPATH = "/fxml/";
+
     public static User getLoginUser() {
         return loginUser;
     }
