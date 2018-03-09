@@ -22,6 +22,7 @@ public class SceneManager {
         stage.hide();
         stage.setScene(scene);
         stage.setTitle(title);
+        stage.setResizable(true);
         stage.show();
         LOG.log(Level.INFO,"Switch to " +fxmlPath);
     }

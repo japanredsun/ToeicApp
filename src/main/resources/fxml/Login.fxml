@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="rootPane" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.japanredsun.Controller.Login">
-   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="293.0" stroke="BLACK" strokeType="INSIDE" width="400.0" />
+   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="300.0" stroke="BLACK" strokeType="INSIDE" width="425.0" />
     <Button fx:id="btnSwitch" layoutX="131.0" layoutY="211.0" mnemonicParsing="false" onAction="#switchScene" prefHeight="55.0" prefWidth="122.0" styleClass="btnGreen" text="Login" textFill="WHITE">
       <effect>
          <Glow />

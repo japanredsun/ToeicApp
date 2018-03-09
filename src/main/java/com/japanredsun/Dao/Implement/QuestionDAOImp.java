@@ -30,7 +30,7 @@ public class QuestionDAOImp implements QuestionDAO {
                 String type = rs.getString("type");
                 String paragraph = rs.getString("paragraph");
                 Date createdDate = rs.getDate("created_date");
-                int status = rs.getInt("status");
+                String status = rs.getString("status");
                 List<QuestionDetails> questionDetailsList = questionDetailsDAO.getByQuestionId(id);
 
                 Question question = new Question(id,type,paragraph,createdDate,status,questionDetailsList);
@@ -50,7 +50,7 @@ public class QuestionDAOImp implements QuestionDAO {
                 long id = rs.getLong("id");
                 String paragraph = rs.getString("paragraph");
                 Date createdDate = rs.getDate("created_date");
-                int status = rs.getInt("status");
+                String status = rs.getString("status");
                 List<QuestionDetails> questionDetailsList = questionDetailsDAO.getByQuestionId(id);
 
                 Question question = new Question(id, type, paragraph, createdDate, status, questionDetailsList);
@@ -70,7 +70,7 @@ public class QuestionDAOImp implements QuestionDAO {
                 String type = rs.getString("type");
                 String paragraph = rs.getString("paragraph");
                 Date createdDate = rs.getDate("created_date");
-                int status = rs.getInt("status");
+                String status = rs.getString("status");
                 List<QuestionDetails> questionDetailsList = questionDetailsDAO.getByQuestionId(id);
 
                 question.setId(id);
@@ -94,7 +94,7 @@ public class QuestionDAOImp implements QuestionDAO {
             PreparedStatement ps = dataProvider.getConn().prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
             ps.setString(1,question.getType());
             ps.setString(2,question.getParagraph());
-            ps.setInt(3,question.getStatus());
+            ps.setString(3,question.getStatus());
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
             if(rs.next()){
@@ -126,7 +126,7 @@ public class QuestionDAOImp implements QuestionDAO {
             PreparedStatement ps = dataProvider.getConn().prepareStatement(sql);
             ps.setString(1,question.getType());
             ps.setString(2,question.getParagraph());
-            ps.setInt(3,question.getStatus());
+            ps.setString(3,question.getStatus());
             ps.setLong(4,question.getId());
             ps.executeUpdate();
             ps.close();

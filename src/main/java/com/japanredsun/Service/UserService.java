@@ -14,4 +14,6 @@ public interface UserService {
     boolean authenticate(String username, String password) throws SQLException, ClassNotFoundException;
 
     UserInfo getUserInfo(String username) throws SQLException, ClassNotFoundException;
+
+
 }

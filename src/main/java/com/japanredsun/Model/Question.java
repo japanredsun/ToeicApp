@@ -8,13 +8,13 @@ public class Question {
     private String type;
     private String paragraph;
     private Date createdDate;
-    private int status;
+    private String status;
     private List<QuestionDetails> questions;
 
     public Question() {
     }
 
-    public Question(long id, String type, String paragraph, Date createdDate, int status, List<QuestionDetails> questions) {
+    public Question(long id, String type, String paragraph, Date createdDate, String status, List<QuestionDetails> questions) {
         this.id = id;
         this.type = type;
         this.paragraph = paragraph;
@@ -55,11 +55,11 @@ public class Question {
         this.createdDate = createdDate;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
