@@ -23,7 +23,7 @@ public enum FxmlView {
 
         @Override
         public String getFxmlFile() {
-            return AppConfig.FXMLPATH + "sample2.fxml";
+            return AppConfig.FXMLPATH + "MainPage.fxml";
         }
     },
     LOGIN{
