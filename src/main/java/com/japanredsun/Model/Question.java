@@ -4,7 +4,7 @@ import java.sql.Date;
 import java.util.List;
 
 public class Question {
-    private long id;
+    private long id = 0;
     private String type;
     private String paragraph;
     private Date createdDate;

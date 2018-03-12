@@ -59,8 +59,8 @@ public class Main2 {
 //            e.printStackTrace();
 //        }
 //        System.out.println(Arrays.toString(questionList.toArray()));
-//        Question question = new Question();
-//        question.setType("Vocabulary");
+        Question question = new Question();
+        question.setType("Vocabulary");
 //
 //
 //        List<QuestionDetails> list = new ArrayList<QuestionDetails>();

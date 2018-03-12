@@ -1,15 +1,21 @@
 package com.japanredsun.Controller;
 
 import com.japanredsun.AppConfig;
+import com.japanredsun.Config.SceneManager;
 import com.japanredsun.Model.Question;
 import com.japanredsun.Service.Implement.QuestionServiceImp;
 import com.japanredsun.Service.QuestionService;
+import com.japanredsun.View.FxmlView;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -24,12 +30,31 @@ public class AdminPageController implements Initializable{
     public TableColumn<Question,String> colParagraph;
     public TableColumn<Question,Date> colCreatedDate;
     public TableColumn<Question,String> colStatus;
-
+    public Button btnNew;
+    public Button btnUpdate;
+    public Button btnDelete;
 
     private QuestionService service = new QuestionServiceImp();
 
+    private static Question selectedQuestion;
+
+    public Question getSelectedQuestion() {
+        return selectedQuestion;
+    }
+
+    public void setSelectedQuestion(Question selectedQuestion) {
+        AdminPageController.selectedQuestion = selectedQuestion;
+    }
+
     public void initialize(URL location, ResourceBundle resources) {
         loadData();
+        tbQuestion.setOnMousePressed(new EventHandler<MouseEvent>() {
+            public void handle(MouseEvent event) {
+                selectedQuestion = tbQuestion.getSelectionModel().getSelectedItem();
+                btnUpdate.setDisable(false);
+                btnDelete.setDisable(false);
+            }
+        });
     }
 
     public void loadData(){
@@ -55,5 +80,11 @@ public class AdminPageController implements Initializable{
             alert.showAndWait();
         }
         return list;
+    }
+
+    //btn Update
+    public void ShowUpdateBox(ActionEvent event) throws IOException {
+        SceneManager sceneManager = new SceneManager();
+        sceneManager.openNewWindow(FxmlView.UPDATE,event);
     }
 }

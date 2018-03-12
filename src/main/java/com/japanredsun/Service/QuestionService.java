@@ -12,7 +12,7 @@ public interface QuestionService {
 
     Question getQuestionById(long id) throws SQLException, ClassNotFoundException;
 
-    void saveQuestion(Question question) throws SQLException, ClassNotFoundException;
+    void saveQuestion(Question question);
 
     void deleteQuestion(long id) throws SQLException, ClassNotFoundException;
 }

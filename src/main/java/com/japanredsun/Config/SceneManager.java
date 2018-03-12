@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -28,13 +29,15 @@ public class SceneManager {
         LOG.log(Level.INFO,"Switch to " + fxmlView.getFxmlFile());
     }
 
-    public void openNewWindow(String fxmlPath, String title, ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource(fxmlPath));
+    public void openNewWindow(FxmlView fxmlView, ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource(fxmlView.getFxmlFile()));
         Scene scene = new Scene(root);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Stage stage = new Stage();
+        stage.initModality(Modality.WINDOW_MODAL);
+        stage.initOwner(((Node) event.getSource()).getScene().getWindow());
         stage.setScene(scene);
-        stage.setTitle(title);
+        stage.setTitle(fxmlView.getTitle());
         stage.show();
-        LOG.log(Level.INFO,"Switch to " +fxmlPath);
+        LOG.log(Level.INFO,"Switch to " +fxmlView.getFxmlFile());
     }
 }

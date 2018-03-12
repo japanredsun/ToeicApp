@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane prefHeight="629.0" prefWidth="915.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.japanredsun.Controller.UpdateDetailController">
+   <children>
+      <BorderPane prefHeight="629.0" prefWidth="915.0">
+         <top>
+            <GridPane BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="387.0" minWidth="10.0" prefWidth="125.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="681.0" minWidth="10.0" prefWidth="662.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Question" />
+                  <Label text="Audio" GridPane.rowIndex="1" />
+                  <Label text="Picture" GridPane.rowIndex="2" />
+                  <TextField fx:id="txtQuestion" GridPane.columnIndex="1" />
+                  <TextField fx:id="txtAudio" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="txtPicture" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+               </children>
+            </GridPane>
+         </top>
+         <center>
+            <GridPane gridLinesVisible="true" BorderPane.alignment="CENTER">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="ID" />
+                  <Label text="Answer 1" GridPane.rowIndex="1" />
+                  <Label text="Answer 2" GridPane.rowIndex="2" />
+                  <Label text="Answer 3" GridPane.rowIndex="3" />
+                  <Label text="Answer 4" GridPane.rowIndex="4" />
+                  <Label text="Answer" GridPane.columnIndex="1" />
+                  <Label text="Accuracy" GridPane.columnIndex="2" />
+                  <Label text="Explain" GridPane.columnIndex="3" />
+                  <TextField fx:id="txtAnswer1" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="txtAnswer2" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="txtAnswer3" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="txtAnswer4" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <ToggleButton fx:id="btnTrue1" mnemonicParsing="false" text="ToggleButton" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <ToggleButton fx:id="btnTrue2" mnemonicParsing="false" text="ToggleButton" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <ToggleButton fx:id="btnTrue3" mnemonicParsing="false" text="ToggleButton" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  <ToggleButton fx:id="btnTrue4" mnemonicParsing="false" text="ToggleButton" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                  <TextArea fx:id="txtExplain1" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <TextArea fx:id="txtExplain2" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                  <TextArea fx:id="txtExplain3" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                  <TextArea fx:id="txtExplain4" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+               </children>
+            </GridPane>
+         </center>
+         <bottom>
+            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button mnemonicParsing="false" text="Save" />
+                  <Button mnemonicParsing="false" text="Close" />
+               </children></HBox>
+         </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>

@@ -46,13 +46,13 @@ public class QuestionServiceImp implements QuestionService{
         return questionDAO.getQuestionById(id);
     }
 
-    public void saveQuestion(Question question) throws SQLException, ClassNotFoundException {
-        Question question1 = questionDAO.getQuestionById(question.getId());
+    public void saveQuestion(Question question){
         try {
-            if(question1 != null){
+            if(question.getId() > 0){
                 if(questionDAO.updateQuestion(question))
                     System.out.println("Update success");
-            }else{
+            }else
+            {
                 if(questionDAO.insertQuestion(question))
                     System.out.println("Insert success");
             }

@@ -36,6 +36,28 @@ public enum FxmlView {
         public String getFxmlFile() {
             return AppConfig.FXMLPATH + "Login.fxml";
         }
+    },
+    UPDATE{
+        @Override
+        public String getFxmlFile() {
+            return AppConfig.FXMLPATH + "UpdateBox.fxml";
+        }
+
+        @Override
+        public String getTitle() {
+            return "Update Box";
+        }
+    },
+    UPDATE_DETAIL{
+        @Override
+        public String getTitle() {
+            return "Question Detail";
+        }
+
+        @Override
+        public String getFxmlFile() {
+            return AppConfig.FXMLPATH + "questionDetail.fxml";
+        }
     };
 
     public abstract String getFxmlFile();

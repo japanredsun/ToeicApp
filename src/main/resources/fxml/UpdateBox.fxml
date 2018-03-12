@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="528.0" prefWidth="838.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.japanredsun.Controller.UpdateBoxController">
+   <children>
+      <BorderPane prefHeight="528.0" prefWidth="838.0">
+         <top>
+            <GridPane prefHeight="161.0" prefWidth="838.0" BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="413.0" minWidth="10.0" prefWidth="177.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="744.0" minWidth="10.0" prefWidth="691.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="743.0" minWidth="10.0" prefWidth="64.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="73.0" minHeight="10.0" prefHeight="73.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="31.0" minHeight="1.0" prefHeight="1.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Type" />
+                  <Label text="Paragraph" GridPane.rowIndex="1" />
+                  <Label text="Status" GridPane.rowIndex="2" />
+                  <TextField fx:id="txtType" GridPane.columnIndex="1" />
+                  <TextArea fx:id="txtPara" prefHeight="74.0" prefWidth="660.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <ComboBox fx:id="cbStatus" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+               </children>
+            </GridPane>
+         </top>
+         <bottom>
+            <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="btnUBSave" mnemonicParsing="false" text="Save" />
+                  <Button fx:id="btnUBCLose" mnemonicParsing="false" text="Close" />
+               </children></HBox>
+         </bottom>
+         <center>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label text="Question Detail List" />
+                  <TableView fx:id="tbQuestionDetail" prefHeight="200.0" prefWidth="200.0">
+                      <columns>
+                          <TableColumn fx:id="colQdQuestion" minWidth="300.0" text="Question" />
+                          <TableColumn fx:id="colAudio" minWidth="200" text="Audio" />
+                          <TableColumn fx:id="colPicture" minWidth="200" text="Picture" />
+                      </columns>
+                  </TableView>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="btnEdit" disable="true" mnemonicParsing="false" onAction="#editQuestionDetail" text="Edit" />
+                        <Button fx:id="btnReview" mnemonicParsing="false" text="Review" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
