@@ -28,7 +28,7 @@ CREATE TABLE `question_detail` (
   `picture` varchar(255) COLLATE utf8_unicode_ci DEFAULT '',
   `answers` text COLLATE utf8_unicode_ci,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `question_detail` */
 
@@ -53,7 +53,7 @@ CREATE TABLE `questions` (
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `status` int(1) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `questions` */
 
@@ -77,12 +77,13 @@ CREATE TABLE `users` (
   `total_point` int(10) DEFAULT '0',
   `grade` varchar(255) COLLATE utf8_unicode_ci DEFAULT '',
   PRIMARY KEY (`id`,`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `users` */
 
 insert  into `users`(`id`,`username`,`password`,`created_date`,`active`,`role`,`total_point`,`grade`) values 
-(1,'japanredsun','12345','2018-02-27 10:03:19',1,'USER',0,'');
+(1,'japanredsun','12345','2018-02-27 10:03:19',1,'USER',0,''),
+(2,'admin','12345','2018-03-09 11:11:29',1,'ADMIN',0,'');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
