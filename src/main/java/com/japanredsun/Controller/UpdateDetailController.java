@@ -8,6 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class UpdateDetailController implements Initializable{
@@ -42,8 +43,12 @@ public class UpdateDetailController implements Initializable{
         txtQuestion.setText(questionDetails.getQuestion());
         txtAudio.setText(questionDetails.getAudioPath());
         txtPicture.setText(questionDetails.getPicturePath());
-        for (Answer answer:questionDetails.getAnswers()){
-            
+        List<Answer> answerList = questionDetails.getAnswers();
+        for (Answer answer :
+                answerList) {
+            TextField textField = new TextField();
+            textField.setText(answer.getAnswer());
+            textField.setId("txt");
         }
     }
 }
