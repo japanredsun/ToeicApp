@@ -116,6 +116,7 @@ public class UpdateDetailController implements Initializable{
            newAnswerList.add(newAnswer);
         }
 
-        questionDetails.setAnswers(newAnswerList);
+        newQuestionDetail.setAnswers(newAnswerList);
+        questionDetails = newQuestionDetail;
     }
 }
