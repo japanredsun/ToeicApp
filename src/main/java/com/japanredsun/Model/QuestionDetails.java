@@ -3,6 +3,7 @@ package com.japanredsun.Model;
 import java.util.List;
 
 public class QuestionDetails {
+    private long id;
     private String question;
     private String audioPath;
     private String picturePath;
@@ -11,11 +12,20 @@ public class QuestionDetails {
     public QuestionDetails() {
     }
 
-    public QuestionDetails(String question, String audioPath, String picturePath, List<Answer> answers) {
+    public QuestionDetails(long id, String question, String audioPath, String picturePath, List<Answer> answers) {
+        this.id = id;
         this.question = question;
         this.audioPath = audioPath;
         this.picturePath = picturePath;
         this.answers = answers;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getQuestion() {
@@ -49,4 +59,6 @@ public class QuestionDetails {
     public void setAnswers(List<Answer> answers) {
         this.answers = answers;
     }
+
+
 }

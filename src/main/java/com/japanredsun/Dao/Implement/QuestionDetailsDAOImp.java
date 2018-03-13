@@ -20,12 +20,13 @@ public class QuestionDetailsDAOImp implements QuestionDetailsDAO{
 
     public List<QuestionDetails> getByQuestionId(long questionId) throws SQLException, ClassNotFoundException {
         List<QuestionDetails> questionDetailsList = new ArrayList<QuestionDetails>();
-        String sql ="SELECT question, audio, picture, answers FROM question_detail WHERE question_id = ?";
+        String sql ="SELECT id,question, audio, picture, answers FROM question_detail WHERE question_id = ?";
             dataProvider.initializeDB();
             PreparedStatement ps = dataProvider.getConn().prepareStatement(sql);
             ps.setLong(1,questionId);
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
+                long id = rs.getLong("id");
                 String question = rs.getString("question");
                 String audio = rs.getString("audio");
                 String picture = rs.getString("picture");
@@ -34,7 +35,7 @@ public class QuestionDetailsDAOImp implements QuestionDetailsDAO{
                 Type listType = new TypeToken<ArrayList<Answer>>(){}.getType();
                 List<Answer> answerList = new Gson().fromJson(answers, listType);
 
-                QuestionDetails questionDetail = new QuestionDetails(question,audio,picture,answerList);
+                QuestionDetails questionDetail = new QuestionDetails(id,question,audio,picture,answerList);
                 questionDetailsList.add(questionDetail);
             }
             rs.close();

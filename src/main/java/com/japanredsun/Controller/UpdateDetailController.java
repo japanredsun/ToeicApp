@@ -3,11 +3,13 @@ package com.japanredsun.Controller;
 import com.japanredsun.Model.Answer;
 import com.japanredsun.Model.QuestionDetails;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -77,6 +79,12 @@ public class UpdateDetailController implements Initializable{
 
     public void closeWindows() {
         Stage stage = (Stage) btnClose.getScene().getWindow();
+        stage.setOnHidden(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent event) {
+                new UpdateBoxController().updateList(questionDetails);
+            }
+        });
         stage.close();
     }
 

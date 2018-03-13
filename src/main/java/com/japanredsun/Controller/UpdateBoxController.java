@@ -21,6 +21,7 @@ import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -38,7 +39,9 @@ public class UpdateBoxController extends AdminPageController implements Initiali
     public Button btnEdit;
     public Button btnReview;
 
+    private static List<QuestionDetails> list = new ArrayList<>();
     private static QuestionDetails selectedQuestionDetail;
+    private List<QuestionDetails> newList = new ArrayList<>();
 
     public static QuestionDetails getSelectedQuestionDetail() {
         return selectedQuestionDetail;
@@ -57,6 +60,18 @@ public class UpdateBoxController extends AdminPageController implements Initiali
                 btnEdit.setDisable(false);
             }
         });
+
+    }
+
+    public void updateList(QuestionDetails newQuestionDetail){
+        while (list.iterator().hasNext()){
+            if(newQuestionDetail.getId() == list.iterator().next().getId()){
+                list.remove(list.iterator().next());
+            }
+        }
+        newList.addAll(list);
+        newList.add(selectedQuestionDetail);
+        LoadData();
     }
 
     public void LoadData(){
@@ -66,7 +81,7 @@ public class UpdateBoxController extends AdminPageController implements Initiali
         colAudio.setCellValueFactory(new PropertyValueFactory<QuestionDetails, String>("audio"));
         colPicture.setCellValueFactory(new PropertyValueFactory<QuestionDetails, String>("picture"));
         tbQuestionDetail.setItems(getQuestionDetailList());
-
+        list.addAll(getSelectedQuestion().getQuestions());
     }
 
     private ObservableList<QuestionDetails> getQuestionDetailList(){
