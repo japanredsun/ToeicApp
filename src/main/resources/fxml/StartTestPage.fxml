@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="344.0" prefWidth="542.0" styleClass="background" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller=".StarTestPageController">
+   <children>
+      <VBox layoutX="-4.0" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="105.0" prefWidth="600.0" text="Start Test">
+               <font>
+                  <Font name="Tahoma Bold" size="55.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="210.0" prefWidth="600.0" spacing="15.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="250.0" styleClass="btnGreen" text="Start Listening Test" textFill="WHITE">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="54.0" prefWidth="250.0" styleClass="btnGreen" text="Start Reading Test" textFill="WHITE">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
