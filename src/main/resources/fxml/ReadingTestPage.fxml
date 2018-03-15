@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root id="AnchorPane" prefHeight="600.0" prefWidth="900.0" styleClass="background" stylesheets="@../style/style.css" type="AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxml.ReadingTestPageController">
+   <children>
+      <VBox layoutY="2.0" prefHeight="600.0" prefWidth="895.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="45.0" prefWidth="895.0" text="Reading Test">
+               <font>
+                  <Font name="Tahoma Bold" size="40.0" />
+               </font>
+            </Label>
+            <Text id="quesNum" strokeType="OUTSIDE" strokeWidth="0.0" text="Question" wrappingWidth="158.341796875">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Text>
+            <BorderPane prefHeight="310.0" prefWidth="891.0" styleClass="backgroundlight">
+               <top>
+                  <Text id="question" strokeType="OUTSIDE" strokeWidth="0.0" text="Question Area" wrappingWidth="890.47509765625" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+               </top>
+            </BorderPane>
+            <Label prefHeight="38.0" prefWidth="92.0" text="Answer:">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <GridPane alignment="CENTER" prefHeight="100.0" prefWidth="891.0" styleClass="nobackground">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="209.0" minWidth="10.0" prefWidth="29.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="209.0" minWidth="0.0" prefWidth="23.0" />
+                <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="462.0" minWidth="10.0" prefWidth="392.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="158.0" minWidth="10.0" prefWidth="23.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="158.0" minWidth="0.0" prefWidth="23.0" />
+                  <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="438.0" minWidth="10.0" prefWidth="398.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="A." GridPane.columnIndex="1">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label text="C." GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label text="B." GridPane.columnIndex="4">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label text="D." GridPane.columnIndex="4" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="2">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="5">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="42.89453125" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+                  <RadioButton id="radA" mnemonicParsing="false" />
+                  <RadioButton id="radC" mnemonicParsing="false" GridPane.rowIndex="1" />
+                  <RadioButton id="radB" mnemonicParsing="false" GridPane.columnIndex="3" />
+                  <RadioButton id="radD" mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+            <HBox alignment="BOTTOM_RIGHT" prefHeight="70.0" prefWidth="891.0" spacing="15.0">
+               <children>
+                  <Button mnemonicParsing="false" styleClass="btnGreen" text="Stop" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" styleClass="btnGreen" text="Close" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</fx:root>

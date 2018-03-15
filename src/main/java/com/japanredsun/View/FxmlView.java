@@ -58,7 +58,45 @@ public enum FxmlView {
         public String getFxmlFile() {
             return AppConfig.FXMLPATH + "questionDetail.fxml";
         }
+    },
+    START_TEST_PAGE{
+        @Override
+        public String getFxmlFile() {
+            return AppConfig.FXMLPATH + "StartTestPage.fxml";
+        }
+
+        @Override
+        public String getTitle() {
+            return "Start Test";
+        }
+        
+    },
+    READING_TEST_PAGE{
+        @Override
+        public String getFxmlFile() {
+            return AppConfig.FXMLPATH + "ReadingTestPage.fxml";
+        }
+
+        @Override
+        public String getTitle() {
+            return "Reading Test";
+        }
+    
+    },
+    LISTENING_TEST_PAGE{
+        @Override
+        public String getFxmlFile() {
+            return AppConfig.FXMLPATH + "ListeningTestPage.fxml";
+        }
+
+        @Override
+        public String getTitle() {
+            return "Listening Test";
+        }
     };
+    
+    
+
 
     public abstract String getFxmlFile();
     public abstract String getTitle();
