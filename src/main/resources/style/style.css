@@ -5,6 +5,13 @@
 }
 
 .background{
-    -fx-background-color: DODGERBLUE;
+    -fx-background-color: dodgerblue;
 }
 
+.backgroundlight{
+    -fx-background-color: lightgrey;
+}
+
+.nobackground{
+    -fx-background-color: white;
+}
