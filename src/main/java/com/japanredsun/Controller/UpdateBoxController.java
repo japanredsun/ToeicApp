@@ -39,7 +39,7 @@ public class UpdateBoxController extends AdminPageController implements Initiali
     public Button btnEdit;
     public Button btnReview;
 
-    private static List<QuestionDetails> list = new ArrayList<>();
+    private ObservableList<QuestionDetails> list = getQuestionDetailList();
     private static QuestionDetails selectedQuestionDetail;
     private List<QuestionDetails> newList = new ArrayList<>();
 
@@ -64,14 +64,15 @@ public class UpdateBoxController extends AdminPageController implements Initiali
     }
 
     public void updateList(QuestionDetails newQuestionDetail){
-        while (list.iterator().hasNext()){
-            if(newQuestionDetail.getId() == list.iterator().next().getId()){
-                list.remove(list.iterator().next());
+        for (QuestionDetails one :
+                list) {
+            if (one.getId() == newQuestionDetail.getId()){
+                list.remove(one);
             }
         }
         newList.addAll(list);
-        newList.add(selectedQuestionDetail);
-        LoadData();
+        newList.add(newQuestionDetail);
+        list = FXCollections.observableList(newList);
     }
 
     public void LoadData(){
@@ -80,8 +81,7 @@ public class UpdateBoxController extends AdminPageController implements Initiali
         colQdQuestion.setCellValueFactory(new PropertyValueFactory<QuestionDetails, String>("question"));
         colAudio.setCellValueFactory(new PropertyValueFactory<QuestionDetails, String>("audio"));
         colPicture.setCellValueFactory(new PropertyValueFactory<QuestionDetails, String>("picture"));
-        tbQuestionDetail.setItems(getQuestionDetailList());
-        list.addAll(getSelectedQuestion().getQuestions());
+        tbQuestionDetail.setItems(list);
     }
 
     private ObservableList<QuestionDetails> getQuestionDetailList(){

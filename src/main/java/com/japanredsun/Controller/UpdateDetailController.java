@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class UpdateDetailController implements Initializable{
+public class UpdateDetailController extends UpdateBoxController implements Initializable{
 
 
     public TextField txtQuestion;
@@ -27,7 +27,7 @@ public class UpdateDetailController implements Initializable{
     public Button btnSave;
     public Button btnClose;
 
-    private QuestionDetails questionDetails = UpdateBoxController.getSelectedQuestionDetail();
+    private QuestionDetails questionDetails = getSelectedQuestionDetail();
 
     List<TextArea> txtAnswerList = new ArrayList<>();
     List<ToggleButton> btnTrueList = new ArrayList<>();
@@ -79,13 +79,8 @@ public class UpdateDetailController implements Initializable{
 
     public void closeWindows() {
         Stage stage = (Stage) btnClose.getScene().getWindow();
-        stage.setOnHidden(new EventHandler<WindowEvent>() {
-            @Override
-            public void handle(WindowEvent event) {
-                new UpdateBoxController().updateList(questionDetails);
-            }
-        });
         stage.close();
+
     }
 
     public void openDialog(ActionEvent event) {
@@ -120,11 +115,12 @@ public class UpdateDetailController implements Initializable{
                accurary = true;
            String explain = txtExplain.getText();
 
-           Answer newAnswer = new Answer(i + 1,answer,accurary,explain);
+           Answer newAnswer = new Answer(i+1,answer,accurary,explain);
            newAnswerList.add(newAnswer);
         }
 
         newQuestionDetail.setAnswers(newAnswerList);
         questionDetails = newQuestionDetail;
+        updateList(questionDetails);
     }
 }

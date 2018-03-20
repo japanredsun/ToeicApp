@@ -36,6 +36,8 @@ public class AdminPageController implements Initializable{
 
     private QuestionService service = new QuestionServiceImp();
 
+    private ObservableList<Question> list = getQuestionList();
+
     private static Question selectedQuestion;
 
     public Question getSelectedQuestion() {
@@ -63,12 +65,10 @@ public class AdminPageController implements Initializable{
         colParagraph.setCellValueFactory(new PropertyValueFactory<Question, String>("paragraph"));
         colCreatedDate.setCellValueFactory(new PropertyValueFactory<Question, Date>("createdDate"));
         colStatus.setCellValueFactory(new PropertyValueFactory<Question, String>("status"));
-        ObservableList<Question> list = getQuestionList();
         tbQuestion.setItems(list);
     }
 
     private ObservableList<Question> getQuestionList(){
-        ObservableList<Question> list = null;
         try {
             List<Question> questionList = service.getAllQuestions();
             list = FXCollections.observableList(questionList);
