@@ -3,6 +3,7 @@ package com.japanredsun.Controller;
 import com.japanredsun.AppConfig;
 import com.japanredsun.Config.SceneManager;
 import com.japanredsun.Model.Question;
+import com.japanredsun.Model.Status;
 import com.japanredsun.Service.Implement.QuestionServiceImp;
 import com.japanredsun.Service.QuestionService;
 import com.japanredsun.View.FxmlView;
@@ -34,7 +35,11 @@ public class AdminPageController implements Initializable{
     public Button btnUpdate;
     public Button btnDelete;
 
-    private QuestionService service = new QuestionServiceImp();
+    protected QuestionService service = new QuestionServiceImp();
+
+    protected ObservableList<Status> statuses = service.getStatusList();
+
+    private ObservableList<Question> list = getQuestionList();
 
     private static Question selectedQuestion;
 
@@ -63,12 +68,10 @@ public class AdminPageController implements Initializable{
         colParagraph.setCellValueFactory(new PropertyValueFactory<Question, String>("paragraph"));
         colCreatedDate.setCellValueFactory(new PropertyValueFactory<Question, Date>("createdDate"));
         colStatus.setCellValueFactory(new PropertyValueFactory<Question, String>("status"));
-        ObservableList<Question> list = getQuestionList();
         tbQuestion.setItems(list);
     }
 
     private ObservableList<Question> getQuestionList(){
-        ObservableList<Question> list = null;
         try {
             List<Question> questionList = service.getAllQuestions();
             list = FXCollections.observableList(questionList);

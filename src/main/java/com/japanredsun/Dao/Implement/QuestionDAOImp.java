@@ -121,7 +121,7 @@ public class QuestionDAOImp implements QuestionDAO {
 
     public boolean updateQuestion(Question question) throws SQLException, ClassNotFoundException {
         String sql = "UPDATE questions SET type = ?, paragraph = ?, status = ? WHERE id = ?";
-        String sql2 = "UPDATE question_detail SET question = ?, audio = ?, picture = ?, answer = ? WHERE id = ?";
+        String sql2 = "UPDATE question_detail SET question = ?, audio = ?, picture = ?, answers = ? WHERE id = ?";
             dataProvider.initializeDB();
             PreparedStatement ps = dataProvider.getConn().prepareStatement(sql);
             ps.setString(1,question.getType());
@@ -139,6 +139,8 @@ public class QuestionDAOImp implements QuestionDAO {
                 ps2.setString(2, item.getAudioPath());
                 ps2.setString(3, item.getPicturePath());
                 ps2.setString(4,new Gson().toJson(item.getAnswers()));
+                ps2.setLong(5,item.getId());
+                ps2.executeUpdate();
                 ps2.close();
                 LOG.log(Level.INFO,"Updated question " + item.getQuestion());
             }

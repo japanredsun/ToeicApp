@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -19,12 +13,13 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="528.0" prefWidth="838.0" styleClass="background" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.japanredsun.Controller.UpdateBoxController">
+<AnchorPane fx:id="paneUpdateBox" prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.japanredsun.Controller.UpdateBoxController">
    <children>
-      <BorderPane prefHeight="528.0" prefWidth="838.0" AnchorPane.leftAnchor="0.0">
+      <BorderPane prefHeight="720.0" prefWidth="1280.0" AnchorPane.leftAnchor="0.0">
          <top>
-            <GridPane alignment="CENTER" prefHeight="164.0" prefWidth="838.0" BorderPane.alignment="CENTER">
+            <GridPane alignment="CENTER" prefHeight="164.0" prefWidth="977.0" BorderPane.alignment="CENTER">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="413.0" minWidth="10.0" prefWidth="136.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="744.0" minWidth="10.0" prefWidth="668.0" />
@@ -55,13 +50,13 @@
             </GridPane>
          </top>
          <bottom>
-            <HBox alignment="BOTTOM_RIGHT" prefHeight="39.0" prefWidth="838.0" spacing="10.0" BorderPane.alignment="CENTER">
+            <HBox alignment="BOTTOM_CENTER" prefHeight="39.0" prefWidth="838.0" spacing="10.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="btnUBSave" mnemonicParsing="false" styleClass="btnGreen" text="Save" textFill="WHITE">
+                  <Button fx:id="btnUBSave" mnemonicParsing="false" onAction="#saveQuestion" styleClass="btnGreen" text="Save" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font></Button>
-                  <Button fx:id="btnUBCLose" mnemonicParsing="false" styleClass="btnGreen" text="Close" textFill="WHITE">
+                  <Button fx:id="btnUBCLose" mnemonicParsing="false" onAction="#closeUpdateBox" styleClass="btnGreen" text="Close" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font></Button>
@@ -74,25 +69,9 @@
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font></Label>
-                  <TableView fx:id="tbQuestionDetail" prefHeight="306.0" prefWidth="838.0" styleClass="backgroundlight">
-                      <columns>
-                          <TableColumn fx:id="colQdQuestion" minWidth="300.0" text="Question" />
-                          <TableColumn fx:id="colAudio" minWidth="200" text="Audio" />
-                          <TableColumn fx:id="colPicture" minWidth="200" text="Picture" />
-                      </columns>
-                  </TableView>
-                  <HBox alignment="TOP_CENTER" prefHeight="70.0" prefWidth="838.0" spacing="15.0">
-                     <children>
-                        <Button fx:id="btnEdit" disable="true" mnemonicParsing="false" onAction="#editQuestionDetail" styleClass="btnGreen" text="Edit" textFill="WHITE">
-                           <font>
-                              <Font size="15.0" />
-                           </font></Button>
-                        <Button fx:id="btnReview" mnemonicParsing="false" styleClass="btnGreen" text="Review" textFill="WHITE">
-                           <font>
-                              <Font size="15.0" />
-                           </font></Button>
-                     </children>
-                  </HBox>
+                  <TabPane fx:id="tabPane" prefHeight="500.0" prefWidth="1280.0" tabClosingPolicy="UNAVAILABLE">
+                   
+                  </TabPane>
                </children>
             </VBox>
          </center>
