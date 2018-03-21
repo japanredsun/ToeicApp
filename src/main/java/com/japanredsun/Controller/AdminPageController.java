@@ -88,6 +88,6 @@ public class AdminPageController implements Initializable{
     //btn Update
     public void ShowUpdateBox(ActionEvent event) throws IOException {
         SceneManager sceneManager = new SceneManager();
-        sceneManager.openNewWindow(FxmlView.UPDATE,event);
+        sceneManager.openNewWindowAndHide(FxmlView.UPDATE,event);
     }
 }

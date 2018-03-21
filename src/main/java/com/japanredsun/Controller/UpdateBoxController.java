@@ -1,14 +1,17 @@
 package com.japanredsun.Controller;
 
+import com.japanredsun.Config.SceneManager;
 import com.japanredsun.Model.Answer;
 
 import com.japanredsun.Model.QuestionDetails;
 import com.japanredsun.Model.Status;
 
+import com.japanredsun.View.FxmlView;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 
+import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -19,8 +22,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,20 +53,7 @@ public class UpdateBoxController extends AdminPageController implements Initiali
     public void initialize(URL location, ResourceBundle resources) {
         LoadData();
     }
-
-    public void updateList(QuestionDetails newQuestionDetail){
-        for (QuestionDetails one :
-                list) {
-            if (one.getId() == newQuestionDetail.getId()){
-                list.remove(one);
-            }
-        }
-        newList.addAll(list);
-        newList.add(newQuestionDetail);
-        list = FXCollections.observableList(newList);
-    }
-
-    public void LoadData(){
+    private void LoadData(){
         txtType.setText(getSelectedQuestion().getType());
         txtPara.setText(getSelectedQuestion().getParagraph());
         cbStatus.setItems(statuses);
@@ -171,6 +163,12 @@ public class UpdateBoxController extends AdminPageController implements Initiali
             saveQuestion();
             Stage stage = (Stage) btnUBSave.getScene().getWindow();
             stage.close();
+            SceneManager sceneManager = new SceneManager();
+            try {
+                sceneManager.openNewWindowAndHide(FxmlView.ADMIN,event);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -233,5 +231,11 @@ public class UpdateBoxController extends AdminPageController implements Initiali
     public void closeUpdateBox(ActionEvent event) {
         Stage stage = (Stage) btnUBSave.getScene().getWindow();
         stage.close();
+        SceneManager sceneManager = new SceneManager();
+        try {
+            sceneManager.openNewWindowAndHide(FxmlView.ADMIN,event);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
