@@ -169,7 +169,6 @@ public class UpdateBoxController extends AdminPageController implements Initiali
 
         if((result.isPresent()) && (result.get() == ButtonType.OK)){
             saveQuestion();
-            loadData();
             Stage stage = (Stage) btnUBSave.getScene().getWindow();
             stage.close();
         }
@@ -191,31 +190,32 @@ public class UpdateBoxController extends AdminPageController implements Initiali
                 }
             }
             List<Answer> newAnswerList = new ArrayList<>();
-            int i = 1;
-            String answer;
-            boolean accuracy;
-            String explain;
-            for (TextArea txtAnswer :
-                    txtAnswerList) {
-                if(txtAnswer.getId().equals(String.format("txtAnswer_%d_%d",questionNumber,i))){
-                    answer = txtAnswer.getText();
-                    for (ToggleButton btnTrue :
-                            btnTrueList) {
-                        if (btnTrue.getId().equals(String.format("btnTrue_%d_%d", questionNumber, i))){
-                            accuracy = btnTrue.isSelected();
-                            for (TextArea txtExplain :
-                                    txtExplainList) {
-                                if(txtExplain.getId().equals(String.format("txtExplain_%d_%d",questionNumber,i))){
-                                    explain = txtExplain.getText();
-                                    i++;
-                                    Answer newAnswer = new Answer(i,answer,accuracy,explain);
-                                    newAnswerList.add(newAnswer);
-                                }
-                            }
-                        }
+            String answer = null;
+            boolean accuracy = false;
+            String explain = null;
+            for (int j = 1; j <= 4;j++){
+                for (TextArea txtAnswer :
+                        txtAnswerList) {
+                    if (txtAnswer.getId().equals(String.format("txtAnswer_%d_%d", questionNumber, j))) {
+                        answer = txtAnswer.getText();
                     }
                 }
+                for (ToggleButton btnTrue :
+                        btnTrueList) {
+                    if (btnTrue.getId().equals(String.format("btnTrue_%d_%d", questionNumber, j))){
+                        accuracy = btnTrue.isSelected();
+                    }
+                }
+                for (TextArea txtExplain :
+                        txtExplainList) {
+                    if(txtExplain.getId().equals(String.format("txtExplain_%d_%d",questionNumber,j))){
+                        explain = txtExplain.getText();
+                    }
+                }
+                Answer newAnswer = new Answer(j,answer,accuracy,explain);
+                newAnswerList.add(newAnswer);
             }
+
             question.setAnswers(newAnswerList);
             newQuestionDetailList.add(question);
 
@@ -227,6 +227,7 @@ public class UpdateBoxController extends AdminPageController implements Initiali
         getSelectedQuestion().setStatus(String.valueOf(cbStatus.getSelectionModel().getSelectedItem().getCode()));
         getSelectedQuestion().setQuestions(newQuestionDetailList);
         service.saveQuestion(getSelectedQuestion());
+        getSelectedQuestion().setStatus(cbStatus.getSelectionModel().getSelectedItem().toString());
     }
 
     public void closeUpdateBox(ActionEvent event) {
