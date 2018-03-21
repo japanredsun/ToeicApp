@@ -1,31 +1,26 @@
 package com.japanredsun.Controller;
 
-import com.japanredsun.Config.SceneManager;
-import com.japanredsun.Main;
 import com.japanredsun.Model.Answer;
-import com.japanredsun.Model.Question;
+
 import com.japanredsun.Model.QuestionDetails;
 import com.japanredsun.Model.Status;
-import com.japanredsun.View.FxmlView;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
+
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
-import javafx.scene.Scene;
+
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
+
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,40 +34,19 @@ public class UpdateBoxController extends AdminPageController implements Initiali
     public ComboBox<Status> cbStatus;
     public Button btnUBSave;
     public Button btnUBCLose;
-//    public TableView<QuestionDetails> tbQuestionDetail;
-//    public TableColumn<QuestionDetails,String> colQdQuestion;
-//    public TableColumn<QuestionDetails,String> colAudio;
-//    public TableColumn<QuestionDetails,String> colPicture;
     public AnchorPane paneUpdateBox;
     public TabPane tabPane;
 
     private ObservableList<QuestionDetails> list = getQuestionDetailList();
-    private static QuestionDetails selectedQuestionDetail;
     private List<QuestionDetails> newList = new ArrayList<>();
-
     private List<TextField> txtTextFieldList = new ArrayList<>();
     private List<TextArea> txtAnswerList = new ArrayList<>();
     private List<ToggleButton> btnTrueList = new ArrayList<>();
     private List<TextArea> txtExplainList = new ArrayList<>();
 
-    public static QuestionDetails getSelectedQuestionDetail() {
-        return selectedQuestionDetail;
-    }
-
-    public static void setSelectedQuestionDetail(QuestionDetails selectedQuestionDetail) {
-        UpdateBoxController.selectedQuestionDetail = selectedQuestionDetail;
-    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         LoadData();
-//        tbQuestionDetail.setOnMousePressed(new EventHandler<MouseEvent>() {
-//            public void handle(MouseEvent event) {
-//                selectedQuestionDetail = tbQuestionDetail.getSelectionModel().getSelectedItem();
-//                btnEdit.setDisable(false);
-//            }
-//        });
-
     }
 
     public void updateList(QuestionDetails newQuestionDetail){
@@ -180,10 +154,6 @@ public class UpdateBoxController extends AdminPageController implements Initiali
             tabPane.getTabs().add(tab);
             questionNumber ++;
         }
-//        colQdQuestion.setCellValueFactory(new PropertyValueFactory<QuestionDetails, String>("question"));
-//        colAudio.setCellValueFactory(new PropertyValueFactory<QuestionDetails, String>("audio"));
-//        colPicture.setCellValueFactory(new PropertyValueFactory<QuestionDetails, String>("picture"));
-//        tbQuestionDetail.setItems(list);
     }
 
     private ObservableList<QuestionDetails> getQuestionDetailList(){
@@ -220,43 +190,44 @@ public class UpdateBoxController extends AdminPageController implements Initiali
                 }
             }
             List<Answer> newAnswerList = new ArrayList<>();
-            int i = 1;
-            String answer;
-            boolean accuracy;
-            String explain;
-            for (TextArea txtAnswer :
-                    txtAnswerList) {
-                if(txtAnswer.getId().equals(String.format("txtAnswer_%d_%d",questionNumber,i))){
-                    answer = txtAnswer.getText();
-                    for (ToggleButton btnTrue :
-                            btnTrueList) {
-                        if (btnTrue.getId().equals(String.format("btnTrue_%d_%d", questionNumber, i))){
-                            accuracy = btnTrue.isSelected();
-                            for (TextArea txtExplain :
-                                    txtExplainList) {
-                                if(txtExplain.getId().equals(String.format("txtExplain_%d_%d",questionNumber,i))){
-                                    explain = txtExplain.getText();
-                                    i++;
-                                    Answer newAnswer = new Answer(i,answer,accuracy,explain);
-                                    newAnswerList.add(newAnswer);
-                                }
-                            }
-                        }
+            String answer = null;
+            boolean accuracy = false;
+            String explain = null;
+            for (int j = 1; j <= 4;j++){
+                for (TextArea txtAnswer :
+                        txtAnswerList) {
+                    if (txtAnswer.getId().equals(String.format("txtAnswer_%d_%d", questionNumber, j))) {
+                        answer = txtAnswer.getText();
                     }
                 }
+                for (ToggleButton btnTrue :
+                        btnTrueList) {
+                    if (btnTrue.getId().equals(String.format("btnTrue_%d_%d", questionNumber, j))){
+                        accuracy = btnTrue.isSelected();
+                    }
+                }
+                for (TextArea txtExplain :
+                        txtExplainList) {
+                    if(txtExplain.getId().equals(String.format("txtExplain_%d_%d",questionNumber,j))){
+                        explain = txtExplain.getText();
+                    }
+                }
+                Answer newAnswer = new Answer(j,answer,accuracy,explain);
+                newAnswerList.add(newAnswer);
             }
+
             question.setAnswers(newAnswerList);
             newQuestionDetailList.add(question);
 
             questionNumber++;
         }
 
-//        Question selectedQuestion = getSelectedQuestion();
         getSelectedQuestion().setType(txtType.getText());
         getSelectedQuestion().setParagraph(txtPara.getText());
         getSelectedQuestion().setStatus(String.valueOf(cbStatus.getSelectionModel().getSelectedItem().getCode()));
         getSelectedQuestion().setQuestions(newQuestionDetailList);
         service.saveQuestion(getSelectedQuestion());
+        getSelectedQuestion().setStatus(cbStatus.getSelectionModel().getSelectedItem().toString());
     }
 
     public void closeUpdateBox(ActionEvent event) {
