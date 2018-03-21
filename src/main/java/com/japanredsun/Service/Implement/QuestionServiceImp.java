@@ -28,7 +28,7 @@ public class QuestionServiceImp implements QuestionService{
                         one.setStatus("Active");
                         break;
                     }
-                    case 2: {
+                    case 0: {
                         one.setStatus("Inactive");
                         break;
                     }

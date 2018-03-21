@@ -35,7 +35,7 @@ public class AdminPageController implements Initializable{
     public Button btnUpdate;
     public Button btnDelete;
 
-    private QuestionService service = new QuestionServiceImp();
+    protected QuestionService service = new QuestionServiceImp();
 
     protected ObservableList<Status> statuses = service.getStatusList();
 

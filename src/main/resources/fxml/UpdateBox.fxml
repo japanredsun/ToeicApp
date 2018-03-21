@@ -50,13 +50,13 @@
             </GridPane>
          </top>
          <bottom>
-            <HBox alignment="BOTTOM_RIGHT" prefHeight="39.0" prefWidth="838.0" spacing="10.0" BorderPane.alignment="CENTER">
+            <HBox alignment="BOTTOM_CENTER" prefHeight="39.0" prefWidth="838.0" spacing="10.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="btnUBSave" mnemonicParsing="false" styleClass="btnGreen" text="Save" textFill="WHITE">
+                  <Button fx:id="btnUBSave" mnemonicParsing="false" onAction="#saveQuestion" styleClass="btnGreen" text="Save" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font></Button>
-                  <Button fx:id="btnUBCLose" mnemonicParsing="false" styleClass="btnGreen" text="Close" textFill="WHITE">
+                  <Button fx:id="btnUBCLose" mnemonicParsing="false" onAction="#closeUpdateBox" styleClass="btnGreen" text="Close" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font></Button>
