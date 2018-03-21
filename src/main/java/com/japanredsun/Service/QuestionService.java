@@ -1,6 +1,8 @@
 package com.japanredsun.Service;
 
 import com.japanredsun.Model.Question;
+import com.japanredsun.Model.Status;
+import javafx.collections.ObservableList;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -15,4 +17,6 @@ public interface QuestionService {
     void saveQuestion(Question question);
 
     void deleteQuestion(long id) throws SQLException, ClassNotFoundException;
+
+    ObservableList<Status> getStatusList();
 }

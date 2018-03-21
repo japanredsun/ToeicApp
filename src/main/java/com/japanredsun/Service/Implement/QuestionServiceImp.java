@@ -3,7 +3,10 @@ package com.japanredsun.Service.Implement;
 import com.japanredsun.Dao.Implement.QuestionDAOImp;
 import com.japanredsun.Dao.QuestionDAO;
 import com.japanredsun.Model.Question;
+import com.japanredsun.Model.Status;
 import com.japanredsun.Service.QuestionService;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -65,5 +68,12 @@ public class QuestionServiceImp implements QuestionService{
         if(questionDAO.deleteQuestion(id)){
             System.out.printf("Delete %s success",id);
         }
+    }
+
+    @Override
+    public ObservableList<Status> getStatusList() {
+        Status active = new Status(1,"Active");
+        Status inactive = new Status(0,"Inactive");
+        return FXCollections.observableArrayList(active,inactive);
     }
 }
