@@ -23,7 +23,7 @@ public class QuestionDAOImp implements QuestionDAO {
 
     public List<Question> getAllQuestions() throws SQLException, ClassNotFoundException {
         List<Question> questionList = new ArrayList<Question>();
-        String sql ="SELECT * From questions WHERE status = 1";
+        String sql ="SELECT * From questions";
             ResultSet rs = dataProvider.executeReader(sql);
             while (rs.next()){
                 long id = rs.getLong("id");

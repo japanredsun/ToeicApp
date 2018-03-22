@@ -221,6 +221,8 @@ public class InsertBoxController extends AdminPageController implements Initiali
         Tab tab = new Tab("Question " +questionNumber);
         createTabContent(tab);
         tabPane.getTabs().add(tab);
+        SingleSelectionModel<Tab> selectionModel = tabPane.getSelectionModel();
+        selectionModel.select(questionNumber - 1);
     }
 
     public void removeTab(ActionEvent event) {

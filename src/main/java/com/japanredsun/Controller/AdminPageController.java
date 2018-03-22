@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -22,6 +23,7 @@ import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class AdminPageController implements Initializable{
@@ -97,6 +99,33 @@ public class AdminPageController implements Initializable{
     }
 
     public void deleteQuestion(ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Notice");
+        alert.setContentText("Do you want to save this question?");
 
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if((result.isPresent()) && (result.get() == ButtonType.OK)){
+            try {
+                service.deleteQuestion(selectedQuestion.getId());
+            } catch (SQLException e) {
+                Alert alert2 = new Alert(Alert.AlertType.WARNING);
+                alert2.setTitle("Warning");
+                // Header Text: null
+                alert2.setHeaderText(null);
+                alert2.setContentText(e.getMessage());
+                alert2.showAndWait();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+            Stage stage = (Stage) btnDelete.getScene().getWindow();
+            stage.close();
+            SceneManager sceneManager = new SceneManager();
+            try {
+                sceneManager.openNewWindowAndHide(FxmlView.ADMIN,event);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
