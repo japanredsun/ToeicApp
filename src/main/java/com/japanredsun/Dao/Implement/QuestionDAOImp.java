@@ -42,6 +42,28 @@ public class QuestionDAOImp implements QuestionDAO {
         return questionList;
     }
 
+
+    public List<Question> getActiveQuestions() throws SQLException, ClassNotFoundException {
+        List<Question> questionList = new ArrayList<Question>();
+        String sql ="SELECT * From questions WHERE active = 1";
+        ResultSet rs = dataProvider.executeReader(sql);
+        while (rs.next()){
+            long id = rs.getLong("id");
+            String type = rs.getString("type");
+            String paragraph = rs.getString("paragraph");
+            Date createdDate = rs.getDate("created_date");
+            String status = rs.getString("status");
+            List<QuestionDetails> questionDetailsList = questionDetailsDAO.getByQuestionId(id);
+
+            Question question = new Question(id,type,paragraph,createdDate,status,questionDetailsList);
+            questionList.add(question);
+            LOG.log(Level.INFO,"Select " + question.toString());
+        }
+        rs.close();
+        dataProvider.closeDB();
+        return questionList;
+    }
+
     public List<Question> getQuestionsByType(String type) throws SQLException, ClassNotFoundException {
         List<Question> questionList = new ArrayList<Question>();
         String sql = "SELECT * From questions WHERE type = ?";

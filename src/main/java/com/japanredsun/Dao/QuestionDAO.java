@@ -8,6 +8,8 @@ import java.util.List;
 public interface QuestionDAO {
     List<Question> getAllQuestions() throws SQLException, ClassNotFoundException;
 
+    List<Question> getActiveQuestions() throws SQLException, ClassNotFoundException;
+
     List<Question> getQuestionsByType(String type) throws SQLException, ClassNotFoundException;
 
     Question getQuestionById(long id) throws SQLException, ClassNotFoundException;
