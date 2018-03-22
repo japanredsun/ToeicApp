@@ -43,7 +43,6 @@ public class UpdateBoxController extends AdminPageController implements Initiali
     public TabPane tabPane;
 
     private ObservableList<QuestionDetails> list = getQuestionDetailList();
-    private List<QuestionDetails> newList = new ArrayList<>();
     private List<TextField> txtTextFieldList = new ArrayList<>();
     private List<TextArea> txtAnswerList = new ArrayList<>();
     private List<ToggleButton> btnTrueList = new ArrayList<>();

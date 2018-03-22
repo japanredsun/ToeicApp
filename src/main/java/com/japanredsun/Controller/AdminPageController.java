@@ -90,4 +90,13 @@ public class AdminPageController implements Initializable{
         SceneManager sceneManager = new SceneManager();
         sceneManager.openNewWindowAndHide(FxmlView.UPDATE,event);
     }
+
+    public void addNewQuestion(ActionEvent event) throws IOException {
+        SceneManager sceneManager = new SceneManager();
+        sceneManager.openNewWindowAndHide(FxmlView.INSERT_PAGE,event);
+    }
+
+    public void deleteQuestion(ActionEvent event) {
+
+    }
 }

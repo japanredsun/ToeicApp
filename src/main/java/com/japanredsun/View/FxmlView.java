@@ -93,10 +93,19 @@ public enum FxmlView {
         public String getTitle() {
             return "Listening Test";
         }
+    },
+    INSERT_PAGE{
+        @Override
+        public String getFxmlFile() {
+            return AppConfig.FXMLPATH + "InsertBox.fxml";
+        }
+
+        @Override
+        public String getTitle() {
+            return "Insert new question";
+        }
     };
     
-    
-
 
     public abstract String getFxmlFile();
     public abstract String getTitle();
