@@ -69,10 +69,10 @@
                             <font>
                                 <Font name="System Bold" size="20.0" />
                             </font></Label>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox fx:id="hBoxButton" alignment="BASELINE_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                      <children>
-                        <Button fx:id="btnAddTab" mnemonicParsing="false" text="Add" onAction="#addNewTab"/>
-                        <Button fx:id="btnRemoveTab" mnemonicParsing="false" text="Remove" onAction="#removeTab" />
+                        <Button fx:id="btnAddTab" mnemonicParsing="false" onAction="#addNewTab" styleClass="btnGreen" text="Add" textFill="WHITE" />
+                        <Button fx:id="btnRemoveTab" mnemonicParsing="false" onAction="#removeTab" styleClass="btnGreen" text="Remove" textFill="WHITE" />
                      </children>
                   </HBox>
                         <TabPane fx:id="tabPane" prefHeight="500.0" prefWidth="1280.0" tabClosingPolicy="UNAVAILABLE">
