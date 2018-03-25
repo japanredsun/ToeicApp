@@ -86,11 +86,11 @@
                               <Font size="15.0" />
                            </font></Button>
 <!--=======-->
-                  <!--<HBox fx:id="hBoxButton" alignment="BASELINE_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">-->
-                     <!--<children>-->
-                        <!--<Button fx:id="btnAddTab" mnemonicParsing="false" onAction="#addNewTab" styleClass="btnGreen" text="Add" textFill="WHITE" />-->
-                        <!--<Button fx:id="btnRemoveTab" mnemonicParsing="false" onAction="#removeTab" styleClass="btnGreen" text="Remove" textFill="WHITE" />-->
-<!--&gt;>>>>>> ef815bcf63545ea5101b906e525d21501a452a28-->
+                         <!--<HBox fx:id="hBoxButton" alignment="BASELINE_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">-->
+                         <!--<children>-->
+                         <!--<Button fx:id="btnAddTab" mnemonicParsing="false" onAction="#addNewTab" styleClass="btnGreen" text="Add" textFill="WHITE" />-->
+                         <!--<Button fx:id="btnRemoveTab" mnemonicParsing="false" onAction="#removeTab" styleClass="btnGreen" text="Remove" textFill="WHITE" />-->
+                         <!--&gt;>>>>>> ef815bcf63545ea5101b906e525d21501a452a28-->
                      </children>
                   </HBox>
                         <TabPane fx:id="tabPane" prefHeight="500.0" prefWidth="1280.0" styleClass="nobackground" tabClosingPolicy="UNAVAILABLE">
