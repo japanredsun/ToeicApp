@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="900.0" styleClass="background" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller=".ListeningTestPageController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="900.0" styleClass="background" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.japanredsun.Controller.ListeningTestPageController">
    <children>
       <VBox prefHeight="600.0" prefWidth="900.0">
          <children>
@@ -49,22 +50,22 @@
                   <RadioButton mnemonicParsing="false" GridPane.rowIndex="1" />
                   <RadioButton mnemonicParsing="false" GridPane.columnIndex="3" />
                   <RadioButton mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="2">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="2">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="5">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="5">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="5" GridPane.rowIndex="1">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -93,17 +94,25 @@
             </GridPane>
             <HBox alignment="BOTTOM_RIGHT" prefHeight="74.0" prefWidth="900.0" spacing="15.0">
                <children>
-                  <Button mnemonicParsing="false" styleClass="btnGreen" text="Stop" textFill="#fcfcfc">
+                  <Button mnemonicParsing="false" styleClass="btnGreen" text="Start" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" styleClass="btnGreen" text="Close" textFill="#fcfcfc">
+                  <Button mnemonicParsing="false" styleClass="btnGreen" text="Next" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#closeTestPage" styleClass="btnGreen" text="Close" textFill="#fcfcfc">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
                </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
             </HBox>
          </children>
       </VBox>

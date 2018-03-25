@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="554.0" prefWidth="798.0" styleClass="background" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.japanredsun.Controller.ManageUserPageController">
+   <children>
+      <VBox layoutX="-6.0" layoutY="-6.0" prefHeight="560.0" prefWidth="805.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="44.0" prefWidth="806.0" text="User List">
+               <font>
+                  <Font name="Tahoma Bold" size="35.0" />
+               </font>
+            </Label>
+            <HBox alignment="BOTTOM_RIGHT" prefHeight="75.0" prefWidth="781.0" spacing="10.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#switchhome" styleClass="btnGreen" stylesheets="@../style/style.css" text="Home" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#switchadd" styleClass="btnGreen" stylesheets="@../style/style.css" text="New" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#switchupdate" styleClass="btnGreen" stylesheets="@../style/style.css" text="Update" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" styleClass="btnGreen" stylesheets="@../style/style.css" text="Delete" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </HBox>
+            <TableView prefHeight="436.0" prefWidth="805.0" styleClass="backgroundlight">
+              <columns>
+                <TableColumn prefWidth="75.0" text="C1" />
+                <TableColumn prefWidth="75.0" text="C2" />
+              </columns>
+            </TableView>
+         </children>
+         <padding>
+            <Insets top="5.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

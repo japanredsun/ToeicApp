@@ -6,8 +6,13 @@ package com.japanredsun.Controller;
  * and open the template in the editor.
  */
 
+import com.japanredsun.Config.SceneManager;
+import com.japanredsun.View.FxmlView;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 /**
@@ -23,6 +28,16 @@ public class ListeningTestPageController extends AdminPageController implements 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }  
+    
+    @FXML
+    public void closeTestPage(ActionEvent event){
+        SceneManager scenemanager = new SceneManager();
+        try {
+            scenemanager.openNewWindowAndHide(FxmlView.START_TEST_PAGE, event);
+        } catch (IOException e) {
+            e.getMessage();
+        }
+    }
     
 }
