@@ -89,7 +89,7 @@
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" styleClass="btnGreen" text="Sign Out" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#signout" styleClass="btnGreen" text="Sign Out" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font>

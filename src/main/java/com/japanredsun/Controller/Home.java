@@ -67,5 +67,12 @@ public class Home implements Initializable{
             lberror.setText("Access Denied");
         }
     }
+    
+    @FXML
+    public void signout(ActionEvent event) throws IOException{
+        AppConfig.setLoginUser(null);
+        SceneManager scene = new SceneManager();
+        scene.openNewWindowAndHide(FxmlView.LOGIN, event);
+    }
 
 }
