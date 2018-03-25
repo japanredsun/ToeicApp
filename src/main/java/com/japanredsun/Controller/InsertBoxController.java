@@ -16,6 +16,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -34,6 +35,7 @@ public class InsertBoxController extends AdminPageController implements Initiali
     public TabPane tabPane;
     public Button btnAddTab;
     public Button btnRemoveTab;
+    public HBox hBoxButton;
 
     private int questionNumber = 1;
 
@@ -45,6 +47,7 @@ public class InsertBoxController extends AdminPageController implements Initiali
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         loadInsertBox();
+        hBoxButton.setPadding(new Insets(5));
     }
 
     public void loadInsertBox(){
