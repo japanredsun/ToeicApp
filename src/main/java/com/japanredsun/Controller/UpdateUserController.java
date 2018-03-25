@@ -13,27 +13,23 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.Button;
 
+public class UpdateUserController extends AdminPageController implements Initializable {
+    
+    public Button btnUpdate;
+    public Button btnCancel;
 
-public class ReadingTestPageController extends AdminPageController implements Initializable {
-
-    @FXML
-    private AnchorPane AnchorPane;
-
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }
+    }    
     
     @FXML
-    public void closeTestPage(ActionEvent event){
-        SceneManager scenemanager = new SceneManager();
+    public void switchmanageuser(ActionEvent event){
         try {
-            scenemanager.openNewWindowAndHide(FxmlView.START_TEST_PAGE, event);
+            SceneManager scenemanager = new SceneManager();
+            scenemanager.openNewWindowAndHide(FxmlView.MANAGE_USER_PAGE, event);
         } catch (IOException e) {
             e.getMessage();
         }

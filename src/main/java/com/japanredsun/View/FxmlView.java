@@ -104,6 +104,39 @@ public enum FxmlView {
         public String getTitle() {
             return "Insert new question";
         }
+    },
+    MANAGE_USER_PAGE{
+        @Override
+        public String getFxmlFile() {
+            return AppConfig.FXMLPATH + "ManageUserPage.fxml";
+        }
+
+        @Override
+        public String getTitle() {
+            return "Manage User Page";
+        }
+    },
+    INSERT_USER{
+        @Override
+        public String getFxmlFile() {
+            return AppConfig.FXMLPATH + "InsertUser.fxml";
+        }
+
+        @Override
+        public String getTitle() {
+            return "Insert new user";
+        }
+    },
+    UPDATE_USER{
+        @Override
+        public String getFxmlFile() {
+            return AppConfig.FXMLPATH + "UpdateUser.fxml";
+        }
+
+        @Override
+        public String getTitle() {
+            return "Update User";
+        }
     };
     
 

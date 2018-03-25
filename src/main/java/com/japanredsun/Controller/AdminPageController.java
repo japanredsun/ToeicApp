@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 
 public class AdminPageController implements Initializable{
     public TableView<Question> tbQuestion;
@@ -128,4 +129,15 @@ public class AdminPageController implements Initializable{
             }
         }
     }
+    
+    @FXML
+    public void switchhome(ActionEvent event){
+        SceneManager scenemanager = new SceneManager();
+        try {
+            scenemanager.openNewWindowAndHide(FxmlView.HOME, event);
+        } catch (IOException e) {
+            e.getMessage();
+        }
+    }
+    
 }

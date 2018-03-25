@@ -1,9 +1,10 @@
+package com.japanredsun.Controller;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.japanredsun.Controller;
 
 import com.japanredsun.Config.SceneManager;
 import com.japanredsun.View.FxmlView;
@@ -13,13 +14,14 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.Button;
 
 
-public class ReadingTestPageController extends AdminPageController implements Initializable {
-
-    @FXML
-    private AnchorPane AnchorPane;
+public class StartTestPageController extends AdminPageController implements Initializable {
+    
+    public Button btnstartlisten;
+    public Button btnstartreading;
+    public SceneManager scenemanager = new SceneManager();
 
     /**
      * Initializes the controller class.
@@ -27,13 +29,23 @@ public class ReadingTestPageController extends AdminPageController implements In
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+    }   
+    
+    @FXML
+    public void switchlisten(ActionEvent event) throws IOException{
+        scenemanager.openNewWindowAndHide(FxmlView.LISTENING_TEST_PAGE, event);
     }
     
     @FXML
-    public void closeTestPage(ActionEvent event){
+    public void switchreading(ActionEvent event) throws IOException{
+        scenemanager.openNewWindowAndHide(FxmlView.READING_TEST_PAGE, event);
+    }
+    
+    @FXML
+    public void switchhome(ActionEvent event){
         SceneManager scenemanager = new SceneManager();
         try {
-            scenemanager.openNewWindowAndHide(FxmlView.START_TEST_PAGE, event);
+            scenemanager.openNewWindowAndHide(FxmlView.HOME, event);
         } catch (IOException e) {
             e.getMessage();
         }

@@ -35,7 +35,6 @@ public class InsertBoxController extends AdminPageController implements Initiali
     public TabPane tabPane;
     public Button btnAddTab;
     public Button btnRemoveTab;
-    public HBox hBoxButton;
 
     private int questionNumber = 1;
 
@@ -47,7 +46,6 @@ public class InsertBoxController extends AdminPageController implements Initiali
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         loadInsertBox();
-        hBoxButton.setPadding(new Insets(5));
     }
 
     public void loadInsertBox(){
