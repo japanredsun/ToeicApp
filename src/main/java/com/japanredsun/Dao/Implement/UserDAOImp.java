@@ -18,7 +18,7 @@ public class UserDAOImp implements UserDAO {
 
     public List<User> getAllUsers() throws SQLException, ClassNotFoundException {
         List<User> users = new ArrayList<User>();
-        String sql = "SELECT * From users WHERE active = 1";
+        String sql = "SELECT * From users";
         ResultSet rs = null;
             rs = dataProvider.executeReader(sql);
             while (rs.next()){
