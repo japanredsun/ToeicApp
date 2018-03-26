@@ -46,11 +46,11 @@ public class Login implements Initializable {
                 if(userService.authenticate(username,password)){
     //                AnchorPane pane = FXMLLoader.load(getClass().getResource("/fxml/sample2.fxml"));
     //                rootPane.getChildren().setAll(pane);
-                    if(AppConfig.getLoginUser().getRole().equals("ADMIN")){
-                        sceneManager.openNewWindowAndHide(FxmlView.ADMIN, event);
-                    }else {
+//                    if(AppConfig.getLoginUser().getRole().equals("ADMIN")){
+//                        sceneManager.openNewWindowAndHide(FxmlView.ADMIN, event);
+//                    }else {
                         sceneManager.openNewWindowAndHide(FxmlView.HOME, event);
-                    }
+//                    }
                 }else {
                     lbError.setText("Sign in error");
                 }
