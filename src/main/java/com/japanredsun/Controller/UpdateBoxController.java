@@ -31,6 +31,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 
 public class UpdateBoxController extends AdminPageController implements Initializable{
 
@@ -41,6 +44,8 @@ public class UpdateBoxController extends AdminPageController implements Initiali
     public Button btnUBCLose;
     public AnchorPane paneUpdateBox;
     public TabPane tabPane;
+    public Font font = Font.font("System",FontWeight.BOLD,15);
+    public Font fontlight = Font.font("System",15);
 
     private ObservableList<QuestionDetails> list = getQuestionDetailList();
     private List<TextField> txtTextFieldList = new ArrayList<>();
@@ -72,10 +77,16 @@ public class UpdateBoxController extends AdminPageController implements Initiali
             //Tab content: Question + Answers
             BorderPane questionDetailPane = new BorderPane();
             GridPane paneTop = new GridPane();
+            Label lbques = new Label("Question:");
+            lbques.setFont(font);
+            Label lbaudio = new Label("Audio:");
+            lbaudio.setFont(font);
+            Label lbpic = new Label("Picture");
+            lbpic.setFont(font);
             paneTop.setAlignment(Pos.CENTER);
-            paneTop.add(new Label("Question"),0,0);
-            paneTop.add(new Label("Audio"),0,1);
-            paneTop.add(new Label("Picture"),0,2);
+            paneTop.add(lbques,0,0);
+            paneTop.add(lbaudio,0,1);
+            paneTop.add(lbpic,0,2);
 
             //Question
             TextField txtQuestion = new TextField();
@@ -102,11 +113,19 @@ public class UpdateBoxController extends AdminPageController implements Initiali
             //Answer
             List<Answer> answerList = question.getAnswers();
             GridPane paneMid = new GridPane();
+            Label lbid = new Label("ID");
+            lbid.setFont(fontlight);
+            Label lbanswer = new Label("Answer:");
+            lbanswer.setFont(fontlight);
+            Label lbaccu = new Label("Accuracy");
+            lbaccu.setFont(fontlight);
+            Label lbexplain = new Label("Explain:");
+            lbexplain.setFont(fontlight);
             paneMid.setAlignment(Pos.CENTER);
-            paneMid.add(new Label("ID"),0,0);
-            paneMid.add(new Label("Answer"),1,0);
-            paneMid.add(new Label("Accuracy"),2,0);
-            paneMid.add(new Label("Explain"),3,0);
+            paneMid.add(lbid,0,0);
+            paneMid.add(lbanswer,1,0);
+            paneMid.add(lbaccu,2,0);
+            paneMid.add(lbexplain,3,0);
 
             ToggleGroup toggleGroup = new ToggleGroup();
 
