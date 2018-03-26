@@ -102,7 +102,7 @@ public class AdminPageController implements Initializable{
     public void deleteQuestion(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Notice");
-        alert.setContentText("Do you want to save this question?");
+        alert.setContentText("Do you want to delete this question?");
 
         Optional<ButtonType> result = alert.showAndWait();
 
