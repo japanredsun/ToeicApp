@@ -7,25 +7,32 @@ public class User {
     private long id;
     private String username;
     private String password;
-    private int isActive;
+    private String isActive;
     private String role;
     private Date createdDate;
 
 
 
-    public User(String username, String password, int isActive, String role) {
+    public User(String username, String password, String isActive, String role) {
         this.username = username;
         this.password = password;
         this.isActive = isActive;
         this.role = role;
     }
 
-    public User(long id, String username, String password, String role, Date createdDate) {
+    public User(String username, String password, String role) {
+        this.username = username;
+        this.password = password;
+        this.role = role;
+    }
+
+    public User(long id, String username, String password, String role, Date createdDate, String isActive) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.role = role;
         this.createdDate = createdDate;
+        this.isActive = isActive;
     }
 
     public long getId() {
@@ -52,11 +59,11 @@ public class User {
         this.password = password;
     }
 
-    public int getIsActive() {
+    public String getIsActive() {
         return isActive;
     }
 
-    public void setIsActive(int isActive) {
+    public void setIsActive(String isActive) {
         this.isActive = isActive;
     }
 

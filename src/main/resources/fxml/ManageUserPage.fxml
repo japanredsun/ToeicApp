@@ -31,12 +31,12 @@
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnupdate" mnemonicParsing="false" onAction="#switchupdate" styleClass="btnGreen" stylesheets="@../style/style.css" text="Update" textFill="WHITE">
+                  <Button fx:id="btnupdate" disable="true" mnemonicParsing="false" onAction="#switchupdate" styleClass="btnGreen" stylesheets="@../style/style.css" text="Update" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btndelete" mnemonicParsing="false" styleClass="btnGreen" stylesheets="@../style/style.css" text="Delete" textFill="WHITE">
+                  <Button fx:id="btndelete" disable="true" mnemonicParsing="false" onAction="#deleteUser" styleClass="btnGreen" stylesheets="@../style/style.css" text="Delete" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -46,7 +46,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </HBox>
-            <TableView fx:id="tbUsers" prefHeight="436.0" prefWidth="805.0" styleClass="backgroundlight" >
+            <TableView fx:id="tbUsers" prefHeight="436.0" prefWidth="805.0" styleClass="backgroundlight">
                <columns>
                   <TableColumn fx:id="colId" prefWidth="75.0" text="ID" />
                   <TableColumn fx:id="colUsername" prefWidth="169.0" text="Username" />

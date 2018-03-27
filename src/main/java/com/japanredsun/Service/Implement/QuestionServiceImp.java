@@ -5,6 +5,7 @@ import com.japanredsun.Dao.QuestionDAO;
 import com.japanredsun.Model.Question;
 import com.japanredsun.Model.Status;
 import com.japanredsun.Service.QuestionService;
+import com.japanredsun.Service.Service;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -12,7 +13,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class QuestionServiceImp implements QuestionService{
+public class QuestionServiceImp extends Service implements QuestionService{
 
     private QuestionDAO questionDAO = new QuestionDAOImp();
 
@@ -71,9 +72,7 @@ public class QuestionServiceImp implements QuestionService{
     }
 
     @Override
-    public ObservableList<Status> getStatusList() {
-        Status active = new Status(1,"Active");
-        Status inactive = new Status(0,"Inactive");
-        return FXCollections.observableArrayList(active,inactive);
+    public ObservableList<Status> getStatus() {
+        return super.getStatus();
     }
 }

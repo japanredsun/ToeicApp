@@ -40,7 +40,7 @@ public class AdminPageController implements Initializable{
 
     protected QuestionService service = new QuestionServiceImp();
 
-    protected ObservableList<Status> statuses = service.getStatusList();
+    protected ObservableList<Status> statuses = service.getStatus();
 
     private ObservableList<Question> list = getQuestionList();
 
@@ -48,10 +48,6 @@ public class AdminPageController implements Initializable{
 
     public Question getSelectedQuestion() {
         return selectedQuestion;
-    }
-
-    public void setSelectedQuestion(Question selectedQuestion) {
-        AdminPageController.selectedQuestion = selectedQuestion;
     }
 
     public void initialize(URL location, ResourceBundle resources) {

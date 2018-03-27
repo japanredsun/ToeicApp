@@ -6,6 +6,7 @@
 package com.japanredsun.Controller;
 
 import com.japanredsun.Config.SceneManager;
+import com.japanredsun.Model.Status;
 import com.japanredsun.Model.User;
 import com.japanredsun.Service.Implement.UserServiceImp;
 import com.japanredsun.Service.UserService;
@@ -14,7 +15,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -24,6 +27,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 public class ManageUserPageController implements Initializable {
     
@@ -35,16 +39,42 @@ public class ManageUserPageController implements Initializable {
     public TableColumn<User,String> colUsername;
     public TableColumn<User,String> colPassword;
     public TableColumn<User,String> colRole;
-    public TableColumn<User,Integer> colStatus;
+    public TableColumn<User,String> colStatus;
     public TableColumn<User,Date> colCreatedDate;
 
-    private ObservableList<User> list = null;
+    protected UserService service = new UserServiceImp();
 
-    private UserService service = new UserServiceImp();
+    private ObservableList<User> list = getUsers();
+
+    private static User selectedUser;
+
+    public static User getSelectedUser() {
+        return selectedUser;
+    }
+
+    private ObservableList<Status> statuses = service.getStatus();
+
+    public ObservableList<Status> getStatuses() {
+        return statuses;
+    }
+
+    public ObservableList<String> roleList = getRoles();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         loadData();
+        tbUsers.setOnMousePressed(event -> {
+            selectedUser = tbUsers.getSelectionModel().getSelectedItem();
+            btnupdate.setDisable(false);
+            btndelete.setDisable(false);
+        });
+    }
+
+    private ObservableList<String> getRoles(){
+        List<String> roles = new ArrayList<>();
+        roles.add("ADMIN");
+        roles.add("USER");
+        return FXCollections.observableArrayList(roles);
     }
 
     private void loadData(){
@@ -52,9 +82,9 @@ public class ManageUserPageController implements Initializable {
         colUsername.setCellValueFactory(new PropertyValueFactory<User, String>("username"));
         colPassword.setCellValueFactory(new PropertyValueFactory<User, String>("password"));
         colCreatedDate.setCellValueFactory(new PropertyValueFactory<User, Date>("createdDate"));
-        colStatus.setCellValueFactory(new PropertyValueFactory<User, Integer>("active"));
+        colStatus.setCellValueFactory(new PropertyValueFactory<User, String>("isActive"));
         colRole.setCellValueFactory(new PropertyValueFactory<User, String>("role"));
-        tbUsers.setItems(getUsers());
+        tbUsers.setItems(list);
     }
 
     private ObservableList<User> getUsers(){
@@ -99,7 +129,36 @@ public class ManageUserPageController implements Initializable {
             e.getMessage();
         }
     }
-    
-    
-    
+
+
+    public void deleteUser(ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Notice");
+        alert.setContentText("Do you want to delete this user?");
+
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if((result.isPresent()) && (result.get() == ButtonType.OK)){
+            try {
+                service.detele(selectedUser.getId());
+            } catch (SQLException e) {
+                Alert alert2 = new Alert(Alert.AlertType.WARNING);
+                alert2.setTitle("Warning");
+                // Header Text: null
+                alert2.setHeaderText(null);
+                alert2.setContentText(e.getMessage());
+                alert2.showAndWait();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+            Stage stage = (Stage) btndelete.getScene().getWindow();
+            stage.close();
+            SceneManager sceneManager = new SceneManager();
+            try {
+                sceneManager.openNewWindowAndHide(FxmlView.MANAGE_USER_PAGE,event);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }

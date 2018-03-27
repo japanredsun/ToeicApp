@@ -14,4 +14,10 @@ public interface UserDAO {
 
     UserInfo getUserInfo(String username) throws SQLException, ClassNotFoundException;
 
+    void insert(User user) throws SQLException, ClassNotFoundException;
+
+    void update(User user) throws SQLException, ClassNotFoundException;
+
+    void delete(long id) throws SQLException, ClassNotFoundException;
+
 }
