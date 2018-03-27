@@ -31,7 +31,6 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
 public class InsertBoxController extends AdminPageController implements Initializable {
-    public TextField txtType;
     public TextArea txtPara;
     public ComboBox<Status> cbStatus;
     public Button btnUBSave;
@@ -41,6 +40,7 @@ public class InsertBoxController extends AdminPageController implements Initiali
     public Button btnRemoveTab;
     public Font font = Font.font("System",FontWeight.BOLD,15);
     public Font fontlight = Font.font("System",15);
+    public ComboBox<String> cbQuestionType;
 
     private int questionNumber = 1;
 
@@ -55,7 +55,8 @@ public class InsertBoxController extends AdminPageController implements Initiali
     }
 
     public void loadInsertBox(){
-        txtType.setPromptText("Question Type");
+        cbQuestionType.setPromptText("Choose question type");
+        cbQuestionType.setItems(service.getTypes());
         txtPara.setPromptText("Paragraph for reading type");
         cbStatus.setItems(statuses);
         cbStatus.getSelectionModel().select(0);
@@ -218,7 +219,7 @@ public class InsertBoxController extends AdminPageController implements Initiali
         }
         Question question = new Question();
         question.setId(0);
-        question.setType(txtType.getText());
+        question.setType(cbQuestionType.getSelectionModel().getSelectedItem());
         question.setParagraph(txtPara.getText());
         question.setStatus(String.valueOf(cbStatus.getSelectionModel().getSelectedItem().getCode()));
         question.setQuestions(questionDetailsList);

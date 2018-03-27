@@ -37,7 +37,6 @@ import javafx.scene.text.FontWeight;
 
 public class UpdateBoxController extends AdminPageController implements Initializable{
 
-    public TextField txtType;
     public TextArea txtPara;
     public ComboBox<Status> cbStatus;
     public Button btnUBSave;
@@ -46,6 +45,7 @@ public class UpdateBoxController extends AdminPageController implements Initiali
     public TabPane tabPane;
     public Font font = Font.font("System",FontWeight.BOLD,15);
     public Font fontlight = Font.font("System",15);
+    public ComboBox<String> cbQuestionType;
 
     private ObservableList<QuestionDetails> list = getQuestionDetailList();
     private List<TextField> txtTextFieldList = new ArrayList<>();
@@ -58,7 +58,8 @@ public class UpdateBoxController extends AdminPageController implements Initiali
         LoadData();
     }
     private void LoadData(){
-        txtType.setText(getSelectedQuestion().getType());
+        cbQuestionType.setItems(service.getTypes());
+        cbQuestionType.getSelectionModel().select(getSelectedQuestion().getType());
         txtPara.setText(getSelectedQuestion().getParagraph());
         cbStatus.setItems(statuses);
         String status = getSelectedQuestion().getStatus();
@@ -238,7 +239,7 @@ public class UpdateBoxController extends AdminPageController implements Initiali
             questionNumber++;
         }
 
-        getSelectedQuestion().setType(txtType.getText());
+        getSelectedQuestion().setType(cbQuestionType.getSelectionModel().getSelectedItem());
         getSelectedQuestion().setParagraph(txtPara.getText());
         getSelectedQuestion().setStatus(String.valueOf(cbStatus.getSelectionModel().getSelectedItem().getCode()));
         getSelectedQuestion().setQuestions(newQuestionDetailList);

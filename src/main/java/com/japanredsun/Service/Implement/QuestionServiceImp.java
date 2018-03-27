@@ -75,4 +75,9 @@ public class QuestionServiceImp extends Service implements QuestionService{
     public ObservableList<Status> getStatus() {
         return super.getStatus();
     }
+
+    @Override
+    public ObservableList<String> getTypes() {
+        return super.getTypes();
+    }
 }

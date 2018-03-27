@@ -48,7 +48,7 @@
                      <font>
                         <Font size="20.0" />
                      </font></Label>
-                  <TextField fx:id="txtType" GridPane.columnIndex="1" />
+                  <ComboBox fx:id="cbQuestionType" prefWidth="300.0" GridPane.columnIndex="1" />
                   <TextArea fx:id="txtPara" prefHeight="74.0" prefWidth="660.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <ComboBox fx:id="cbStatus" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                </children>

@@ -19,4 +19,6 @@ public interface QuestionService{
     void deleteQuestion(long id) throws SQLException, ClassNotFoundException;
 
     ObservableList<Status> getStatus();
+
+    ObservableList<String> getTypes();
 }

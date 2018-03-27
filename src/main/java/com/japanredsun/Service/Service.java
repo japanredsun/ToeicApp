@@ -10,4 +10,9 @@ public class Service {
         Status inactive = new Status(0,"Inactive");
         return FXCollections.observableArrayList(active,inactive);
     }
+    public ObservableList<String> getTypes(){
+        String type1 = "Listening";
+        String type2 = "Reading";
+        return FXCollections.observableArrayList(type1,type2);
+    }
 }
