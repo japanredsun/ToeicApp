@@ -149,8 +149,8 @@ public class QuestionDAOImp implements QuestionDAO {
             ps.setString(3,question.getStatus());
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
-            long id = rs.getInt(1);
             if(rs.next()){
+                long id = rs.getInt(1);
                 System.out.println("Added Question");
                 List<QuestionDetails> list = question.getQuestions();
                 for (QuestionDetails item :list
