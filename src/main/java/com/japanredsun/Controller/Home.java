@@ -34,10 +34,7 @@ public class Home implements Initializable{
 
 
     public void initialize(URL location, ResourceBundle resources) {
-//        lbUsername.setText(AppConfig.getLoginUser().getUsername() + " USER");
-//        System.out.println(AppConfig.getLoginUser().toString());
           txtid.setText(AppConfig.getLoginUser().getUsername());
-          txtpass.setText(AppConfig.getLoginUser().getPassword());
           txtrole.setText(AppConfig.getLoginUser().getRole());
     }
     
