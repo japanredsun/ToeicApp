@@ -67,7 +67,9 @@ public class QuestionDAOImp implements QuestionDAO {
     public List<Question> getQuestionsByType(String type) throws SQLException, ClassNotFoundException {
         List<Question> questionList = new ArrayList<Question>();
         String sql = "SELECT * From questions WHERE type = ?";
-            ResultSet rs = dataProvider.executeReader(sql);
+        PreparedStatement ps = dataProvider.getConn().prepareStatement(sql);
+        ps.setString(1,type);
+            ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 long id = rs.getLong("id");
                 String paragraph = rs.getString("paragraph");
@@ -84,10 +86,38 @@ public class QuestionDAOImp implements QuestionDAO {
         return questionList;
     }
 
+    @Override
+    public List<Question> getQuestionsByTest(String testType) throws SQLException, ClassNotFoundException {
+        List<Question> questionList = new ArrayList<Question>();
+        String sql = "SELECT * From questions WHERE type LIKE ?";
+        dataProvider.initializeDB();
+        PreparedStatement ps = dataProvider.getConn().prepareStatement(sql);
+        ps.setString(1,testType + "%");
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {
+            long id = rs.getLong("id");
+            String paragraph = rs.getString("paragraph");
+            String test = rs.getString("type");
+            Date createdDate = rs.getDate("created_date");
+            String status = rs.getString("status");
+            List<QuestionDetails> questionDetailsList = questionDetailsDAO.getByQuestionId(id);
+
+            Question question = new Question(id, test, paragraph, createdDate, status, questionDetailsList);
+            questionList.add(question);
+            LOG.log(Level.INFO,"Select " + question.toString());
+        }
+        rs.close();
+        dataProvider.closeDB();
+        return questionList;
+    }
+
     public Question getQuestionById(long id) throws SQLException, ClassNotFoundException {
         Question question = new Question();
         String sql = "SELECT * From questions WHERE id = ?";
-            ResultSet rs = dataProvider.executeReader(sql);
+        dataProvider.initializeDB();
+        PreparedStatement ps = dataProvider.getConn().prepareStatement(sql);
+        ps.setLong(1,id);
+            ResultSet rs = ps.executeQuery();
             if (rs.next()){
                 String type = rs.getString("type");
                 String paragraph = rs.getString("paragraph");

@@ -46,6 +46,11 @@ public class QuestionServiceImp extends Service implements QuestionService{
         return questionDAO.getQuestionsByType(type);
     }
 
+    @Override
+    public List<Question> getQuestionsByTest(String testType) throws SQLException, ClassNotFoundException {
+        return questionDAO.getQuestionsByTest(testType);
+    }
+
     public Question getQuestionById(long id) throws SQLException, ClassNotFoundException {
         return questionDAO.getQuestionById(id);
     }

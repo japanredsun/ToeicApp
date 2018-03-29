@@ -12,6 +12,8 @@ public interface QuestionService{
 
     List<Question> getQuestionsByType(String type) throws SQLException, ClassNotFoundException;
 
+    List<Question> getQuestionsByTest(String testType) throws SQLException, ClassNotFoundException;
+
     Question getQuestionById(long id) throws SQLException, ClassNotFoundException;
 
     void saveQuestion(Question question);
