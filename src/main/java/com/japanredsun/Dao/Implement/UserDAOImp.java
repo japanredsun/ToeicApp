@@ -65,7 +65,7 @@ public class UserDAOImp implements UserDAO {
 
     public UserInfo getUserInfo(String username) throws SQLException, ClassNotFoundException {
         dataProvider.initializeDB();
-        String sql = "SELECT totalpoint,grade FROM users WHERE username = ?";
+        String sql = "SELECT total_point,grade FROM users WHERE username = ?";
         PreparedStatement ps = dataProvider.getConn().prepareStatement(sql);
         ps.setString(1,username);
         ResultSet rs = ps.executeQuery();

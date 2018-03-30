@@ -24,19 +24,37 @@
                   <Font name="Tahoma Bold" size="40.0" />
                </font>
             </Label>
-            <Text id="quesNum" strokeType="OUTSIDE" strokeWidth="0.0" text="Question" wrappingWidth="158.341796875">
+            <Text fx:id="lbQuestionNum" strokeType="OUTSIDE" strokeWidth="0.0" text="Question" wrappingWidth="158.341796875">
                <font>
                   <Font size="25.0" />
                </font>
             </Text>
-            <BorderPane prefHeight="310.0" prefWidth="891.0" styleClass="backgroundlight">
-               <top>
-                  <Text id="question" strokeType="OUTSIDE" strokeWidth="0.0" text="Question Area" wrappingWidth="890.47509765625" BorderPane.alignment="CENTER">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Text>
-               </top>
+            <BorderPane fx:id="bdQuestionArea" prefHeight="310.0" prefWidth="891.0" styleClass="backgroundlight">
+               <left>
+                  <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label text="Total Point" />
+                        <Label fx:id="lbPoint" text="0" />
+                        <Label fx:id="notify" textFill="RED" />
+                     </children>
+                  </VBox>
+               </left>
+               <center>
+                  <VBox fx:id="vbQuestionArea" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Text id="question" fx:id="lbParagraph" layoutX="10.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paragraph (if exist)" wrappingWidth="890.47509765625">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Text>
+                        <Text id="question" fx:id="lbQuestion" strokeType="OUTSIDE" strokeWidth="0.0" text="Question Area" wrappingWidth="890.47509765625">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </VBox>
+               </center>
             </BorderPane>
             <Label prefHeight="38.0" prefWidth="92.0" text="Answer:">
                <font>
@@ -108,12 +126,7 @@
             </GridPane>
             <HBox alignment="BOTTOM_RIGHT" prefHeight="70.0" prefWidth="891.0" spacing="15.0">
                <children>
-                  <Button mnemonicParsing="false" styleClass="btnGreen" text="Start" textFill="WHITE">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" styleClass="btnGreen" text="Next" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#submitAnswer" styleClass="btnGreen" text="Next" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font>
