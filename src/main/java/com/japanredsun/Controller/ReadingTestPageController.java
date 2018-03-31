@@ -75,6 +75,8 @@ public class ReadingTestPageController implements Initializable {
 
     private List<QuestionDetails> questionDetailsList;
 
+    private Question currentQuestion;
+
     /**
      * Initializes the controller class.
      */
@@ -111,7 +113,7 @@ public class ReadingTestPageController implements Initializable {
 
     private void loadData() {
         if(questions.size() > 0){
-            Question currentQuestion = questions.get(new Random().nextInt(questions.size()));
+            currentQuestion = questions.get(new Random().nextInt(questions.size()));
             lbPoint.setText(String.valueOf(totalPoint));
             lbParagraph.setText(currentQuestion.getParagraph());
             questionDetailsList = currentQuestion.getQuestions();
@@ -119,7 +121,7 @@ public class ReadingTestPageController implements Initializable {
             loadQuestionDetail();
 
         }else {
-            Alert alert = new Alert(Alert.AlertType.ERROR,"No questions in database",new ButtonType("OK"));
+            Alert alert = new Alert(Alert.AlertType.ERROR,"No questions in database or no more question to do",new ButtonType("OK"));
             alert.showAndWait();
         }
     }
@@ -168,7 +170,7 @@ public class ReadingTestPageController implements Initializable {
 
     public void submitAnswer(ActionEvent event) {
         if(selectedAnswer.isRightAnswer()){
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"Correct Answer",new ButtonType("OK"));
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"Correct Answer \n" + selectedAnswer.getExplain(),new ButtonType("OK"));
             alert.showAndWait();
             totalPoint++;
             lbPoint.setText(String.valueOf(totalPoint));
@@ -176,8 +178,9 @@ public class ReadingTestPageController implements Initializable {
                 questionDetailNumberIndex = 0;
                 countQuestionDetails = 1;
                 questionDetailsList.clear();
+                questions.remove(currentQuestion);
                 questionNumber++;
-                if(isOutOfQuestion()){
+                if(questions.isEmpty()){
                     Alert alert2 = new Alert(Alert.AlertType.CONFIRMATION,"Out of question",new ButtonType("OK"));
                     alert2.showAndWait();
                 }else{
@@ -191,7 +194,7 @@ public class ReadingTestPageController implements Initializable {
                 loadQuestionDetail();
             }
         }else {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"Wrong Answer",new ButtonType("OK"));
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"Wrong Answer \n"+ selectedAnswer.getExplain(),new ButtonType("OK"));
             alert.showAndWait();
             if(totalPoint > 0){
                 totalPoint = totalPoint - 1;
@@ -199,9 +202,5 @@ public class ReadingTestPageController implements Initializable {
             }
         }
         //Update total Point
-    }
-
-    private boolean isOutOfQuestion(){
-        return questions.size() < questionNumber;
     }
 }

@@ -89,7 +89,7 @@ public class QuestionDAOImp implements QuestionDAO {
     @Override
     public List<Question> getQuestionsByTest(String testType) throws SQLException, ClassNotFoundException {
         List<Question> questionList = new ArrayList<Question>();
-        String sql = "SELECT * From questions WHERE type LIKE ?";
+        String sql = "SELECT * From questions WHERE status = 1 AND type LIKE ?";
         dataProvider.initializeDB();
         PreparedStatement ps = dataProvider.getConn().prepareStatement(sql);
         ps.setString(1,testType + "%");
