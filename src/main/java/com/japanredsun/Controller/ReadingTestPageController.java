@@ -77,6 +77,8 @@ public class ReadingTestPageController implements Initializable {
 
     private Question currentQuestion;
 
+    private RadioButton selectedRadio;
+
     /**
      * Initializes the controller class.
      */
@@ -103,6 +105,7 @@ public class ReadingTestPageController implements Initializable {
             public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
                 if (answer.getSelectedToggle() != null) {
                     selectedAnswer = (Answer) answer.getSelectedToggle().getUserData();
+                    selectedRadio = (RadioButton) answer.getSelectedToggle().getToggleGroup().getSelectedToggle();
                 }
             }
         });
@@ -184,14 +187,18 @@ public class ReadingTestPageController implements Initializable {
                     Alert alert2 = new Alert(Alert.AlertType.CONFIRMATION,"Out of question",new ButtonType("OK"));
                     alert2.showAndWait();
                 }else{
+                    selectedRadio.setSelected(false);
                     loadQuestionNumber();
                     loadData();
+
                 }
             }else {
                 questionDetailNumberIndex++;
                 questionNumber++;
+                selectedRadio.setSelected(false);
                 loadQuestionNumber();
                 loadQuestionDetail();
+
             }
         }else {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"Wrong Answer \n"+ selectedAnswer.getExplain(),new ButtonType("OK"));
