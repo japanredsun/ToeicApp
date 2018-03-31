@@ -20,4 +20,6 @@ public interface UserDAO {
 
     void delete(long id) throws SQLException, ClassNotFoundException;
 
+    void updateUserInfo(UserInfo userInfo) throws SQLException, ClassNotFoundException;
+
 }

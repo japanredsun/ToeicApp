@@ -125,7 +125,7 @@ public class AdminPageController implements Initializable{
             }
         }
     }
-    
+
     @FXML
     public void switchhome(ActionEvent event){
         SceneManager scenemanager = new SceneManager();
@@ -135,5 +135,5 @@ public class AdminPageController implements Initializable{
             e.getMessage();
         }
     }
-    
+
 }
