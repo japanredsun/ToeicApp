@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -15,9 +20,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="900.0" styleClass="background" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.japanredsun.Controller.ListeningTestPageController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="900.0" styleClass="background" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.japanredsun.Controller.ListeningTestPageController">
    <children>
-      <VBox prefHeight="600.0" prefWidth="900.0">
+      <VBox prefHeight="600.0" prefWidth="900.0" AnchorPane.leftAnchor="5.0">
          <children>
             <Label alignment="CENTER" prefHeight="45.0" prefWidth="901.0" text="Listening Test">
                <font>
@@ -30,9 +35,52 @@
                </font>
             </Text>
             <BorderPane prefHeight="310.0" prefWidth="900.0" styleClass="backgroundlight">
-               <top>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Queston Area" BorderPane.alignment="CENTER" />
-               </top>
+               <center>
+                  <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Picture">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Question Area">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </VBox>
+               </center>
+               <right>
+                  <VBox prefHeight="305.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <GridPane>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="139.0" minWidth="10.0" prefWidth="80.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="74.0" minWidth="10.0" prefWidth="20.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Total point:">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label text="0" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label GridPane.rowIndex="1" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </VBox>
+               </right>
             </BorderPane>
             <Label text="Answer:">
                <font>
@@ -42,11 +90,11 @@
             <GridPane prefHeight="100.0" prefWidth="900.0" styleClass="nobackground">
               <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="185.0" minWidth="0.0" prefWidth="22.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="185.0" minWidth="10.0" prefWidth="23.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="440.0" minWidth="10.0" prefWidth="394.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="185.0" minWidth="10.0" prefWidth="30.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="440.0" minWidth="10.0" prefWidth="387.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="135.0" minWidth="0.0" prefWidth="24.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="135.0" minWidth="10.0" prefWidth="23.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="454.0" minWidth="10.0" prefWidth="414.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="135.0" minWidth="10.0" prefWidth="30.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="454.0" minWidth="10.0" prefWidth="407.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -56,10 +104,22 @@
                   <RadioButton fx:id="cb1" mnemonicParsing="false">
                      <toggleGroup>
                         <ToggleGroup fx:id="answer" />
-                     </toggleGroup></RadioButton>
-                  <RadioButton fx:id="cb2" mnemonicParsing="false" toggleGroup="$answer" GridPane.rowIndex="1" />
-                  <RadioButton fx:id="cb3" mnemonicParsing="false" toggleGroup="$answer" GridPane.columnIndex="3" />
-                  <RadioButton fx:id="cb4" mnemonicParsing="false" toggleGroup="$answer" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                     </toggleGroup>
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding></RadioButton>
+                  <RadioButton fx:id="cb2" mnemonicParsing="false" toggleGroup="$answer" GridPane.rowIndex="1">
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding></RadioButton>
+                  <RadioButton fx:id="cb3" mnemonicParsing="false" toggleGroup="$answer" GridPane.columnIndex="3">
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding></RadioButton>
+                  <RadioButton fx:id="cb4" mnemonicParsing="false" toggleGroup="$answer" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding></RadioButton>
                   <Text fx:id="txtAnswer1" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="2">
                      <font>
                         <Font size="20.0" />
@@ -84,21 +144,33 @@
                      <font>
                         <Font size="20.0" />
                      </font>
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
                   </Label>
                   <Label text="C." GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
                         <Font size="20.0" />
                      </font>
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
                   </Label>
                   <Label styleClass="nobackground" text="B." GridPane.columnIndex="4">
                      <font>
                         <Font size="20.0" />
                      </font>
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
                   </Label>
                   <Label text="D." GridPane.columnIndex="4" GridPane.rowIndex="1">
                      <font>
                         <Font size="20.0" />
                      </font>
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
                   </Label>
                </children>
             </GridPane>
