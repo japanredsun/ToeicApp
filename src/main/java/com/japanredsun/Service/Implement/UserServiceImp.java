@@ -92,6 +92,11 @@ public class UserServiceImp extends Service implements UserService {
         userDAO.delete(id);
     }
 
+    @Override
+    public void updateUserInfo(UserInfo userInfo) throws SQLException, ClassNotFoundException {
+        userDAO.updateUserInfo(userInfo);
+    }
+
     //    public void test(){
 //        DataProviderImp dataProviderImp = new DataProviderImp();
 //        Label label = new Label();

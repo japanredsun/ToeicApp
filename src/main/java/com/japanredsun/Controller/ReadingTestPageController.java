@@ -30,6 +30,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
@@ -79,6 +81,7 @@ public class ReadingTestPageController implements Initializable {
 
     private RadioButton selectedRadio;
 
+    private ImageView imageView = new ImageView();
     /**
      * Initializes the controller class.
      */
@@ -109,6 +112,7 @@ public class ReadingTestPageController implements Initializable {
                 }
             }
         });
+        vbQuestionArea.getChildren().add(imageView);
         totalPoint = userInfo.getTotalPoint();
         lbQuestionNum.setText("Question " + questionNumber);
         loadData();
@@ -134,7 +138,13 @@ public class ReadingTestPageController implements Initializable {
         lbQuestion.setText(questionDetail.getQuestion());
         // if exist audio or picture
         // LOAD audio Picture HERE
-
+        String url = questionDetail.getPicturePath();
+        if(!url.isEmpty()){
+            Image image = new Image(questionDetail.getPicturePath());
+            imageView.setImage(image);
+            imageView.setFitHeight(300);
+            imageView.setFitWidth(400);
+        }
         //load answer
         List<Answer> answerList = questionDetail.getAnswers();
         Answer answer1 = answerList.get(0);
@@ -190,7 +200,6 @@ public class ReadingTestPageController implements Initializable {
                     selectedRadio.setSelected(false);
                     loadQuestionNumber();
                     loadData();
-
                 }
             }else {
                 questionDetailNumberIndex++;
@@ -208,6 +217,18 @@ public class ReadingTestPageController implements Initializable {
                 lbPoint.setText(String.valueOf(totalPoint));
             }
         }
+
         //Update total Point
+        UserInfo userInfo = new UserInfo();
+        userInfo.setUsername(AppConfig.getLoginUser().getUsername());
+        userInfo.setTotalPoint(totalPoint);
+        try {
+            userService.updateUserInfo(userInfo);
+        } catch (SQLException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR,e.getMessage(),new ButtonType("OK"));
+            alert.showAndWait();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }

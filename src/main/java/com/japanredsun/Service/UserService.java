@@ -22,4 +22,6 @@ public interface UserService {
     void save(User user) throws SQLException, ClassNotFoundException;
 
     void detele(long id) throws SQLException, ClassNotFoundException;
+
+    void updateUserInfo(UserInfo userInfo) throws SQLException, ClassNotFoundException;
 }

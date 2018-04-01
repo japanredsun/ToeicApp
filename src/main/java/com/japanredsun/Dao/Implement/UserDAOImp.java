@@ -123,4 +123,18 @@ public class UserDAOImp implements UserDAO {
         dataProvider.closeDB();
         LOG.log(Level.INFO,"Delete " + id);
     }
+
+    @Override
+    public void updateUserInfo(UserInfo userInfo) throws SQLException, ClassNotFoundException {
+        dataProvider.initializeDB();
+        String sql = "UPDATE users SET total_point=?, grade=? WHERE username=?";
+        PreparedStatement ps = dataProvider.getConn().prepareStatement(sql);
+        ps.setInt(1,userInfo.getTotalPoint());
+        ps.setString(2,userInfo.getGrade());
+        ps.setString(3,userInfo.getUsername());
+        ps.executeUpdate();
+        ps.close();
+        dataProvider.closeDB();
+        LOG.log(Level.INFO,"Update userInfo " + userInfo.getUsername());
+    }
 }
