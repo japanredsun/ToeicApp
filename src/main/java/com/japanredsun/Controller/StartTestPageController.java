@@ -17,10 +17,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 
 
-public class StartTestPageController extends AdminPageController implements Initializable {
-    
-    public Button btnstartlisten;
-    public Button btnstartreading;
+public class StartTestPageController implements Initializable {
+
     public SceneManager scenemanager = new SceneManager();
 
     /**

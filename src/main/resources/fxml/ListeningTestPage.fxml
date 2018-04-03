@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -20,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="background" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.japanredsun.Controller.ListeningTestPageController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="background" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.japanredsun.Controller.ListeningTestPageController">
    <children>
       <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -29,7 +25,7 @@
                   <Font name="Tahoma Bold" size="40.0" />
                </font>
             </Label>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Question" wrappingWidth="147.0">
+            <Text fx:id="lbQuestionNum" strokeType="OUTSIDE" strokeWidth="0.0" text="Question" wrappingWidth="147.0">
                <font>
                   <Font size="25.0" />
                </font>
@@ -56,7 +52,7 @@
                                     <Font size="15.0" />
                                  </font>
                               </Label>
-                              <Label text="0" GridPane.columnIndex="1">
+                              <Label fx:id="lbPoint" text="0" GridPane.columnIndex="1">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
@@ -70,14 +66,14 @@
                <center>
                   <ScrollPane hbarPolicy="NEVER" prefHeight="253.0" prefWidth="900.0" BorderPane.alignment="CENTER">
                      <content>
-                        <VBox prefHeight="268.0" prefWidth="900.0" styleClass="nobackground">
+                        <VBox fx:id="vbQuestionArea" prefHeight="268.0" prefWidth="900.0" styleClass="nobackground">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Picture">
+                              <Text fx:id="lbParagraph" strokeType="OUTSIDE" strokeWidth="0.0" text="Picture">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Text>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Question Area">
+                              <Text fx:id="lbQuestion" strokeType="OUTSIDE" strokeWidth="0.0" text="Question Area">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
@@ -120,11 +116,11 @@
                      <padding>
                         <Insets left="5.0" />
                      </padding></RadioButton>
-                  <RadioButton fx:id="cb2" mnemonicParsing="false" toggleGroup="$answer" GridPane.rowIndex="1">
+                  <RadioButton fx:id="cb3" mnemonicParsing="false" toggleGroup="$answer" GridPane.rowIndex="1">
                      <padding>
                         <Insets left="5.0" />
                      </padding></RadioButton>
-                  <RadioButton fx:id="cb3" mnemonicParsing="false" toggleGroup="$answer" GridPane.columnIndex="3">
+                  <RadioButton fx:id="cb2" mnemonicParsing="false" toggleGroup="$answer" GridPane.columnIndex="3">
                      <padding>
                         <Insets left="5.0" />
                      </padding></RadioButton>
@@ -179,17 +175,17 @@
             </GridPane>
             <HBox alignment="BOTTOM_RIGHT" prefHeight="74.0" prefWidth="900.0" spacing="15.0">
                <children>
-                  <Button mnemonicParsing="false" styleClass="btnGreen" text="Start Listen" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#guide" styleClass="btnGreen" text="Tutorial" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" styleClass="btnGreen" text="Listen Again" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#listenAgain" styleClass="btnGreen" text="Listen Again" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" styleClass="btnGreen" text="Next" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#submitAnswer" styleClass="btnGreen" text="Next" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font>
