@@ -17,7 +17,10 @@ import com.japanredsun.Service.Implement.UserServiceImp;
 import com.japanredsun.Service.QuestionService;
 import com.japanredsun.Service.UserService;
 import com.japanredsun.View.FxmlView;
+
+import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -142,15 +145,17 @@ public class ListeningTestPageController implements Initializable {
         lbQuestion.setText(questionDetail.getQuestion());
         // if exist audio or picture
         // LOAD audio Picture HERE
-        String url = questionDetail.getPicturePath();
+        String url = this.getClass().getResource(questionDetail.getPicturePath()).toString();
         if(!url.isEmpty()){
-            Image image = new Image(questionDetail.getPicturePath());
+            Image image = new Image(url);
             imageView.setImage(image);
             imageView.setFitHeight(300);
             imageView.setFitWidth(400);
         }
+
         audioURL = questionDetail.getAudioPath();
         playAudio(audioURL);
+
         //load answer
         List<Answer> answerList = questionDetail.getAnswers();
         Answer answer1 = answerList.get(0);
