@@ -8,6 +8,7 @@ package com.japanredsun.Controller;
 
 import com.japanredsun.AppConfig;
 import com.japanredsun.Config.SceneManager;
+import com.japanredsun.Main;
 import com.japanredsun.Model.Answer;
 import com.japanredsun.Model.Question;
 import com.japanredsun.Model.QuestionDetails;
@@ -145,7 +146,7 @@ public class ListeningTestPageController implements Initializable {
         lbQuestion.setText(questionDetail.getQuestion());
         // if exist audio or picture
         // LOAD audio Picture HERE
-        String url = this.getClass().getResource(questionDetail.getPicturePath()).toString();
+        String url = questionDetail.getPicturePath();
         if(!url.isEmpty()){
             Image image = new Image(url);
             imageView.setImage(image);
