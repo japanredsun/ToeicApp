@@ -141,7 +141,7 @@ public class ReadingTestPageController implements Initializable {
         // LOAD audio Picture HERE
         String url = questionDetail.getPicturePath();
         if(!url.isEmpty()){
-            Image image = new Image(url);
+            Image image = new Image(Main.class.getResource(url).toString());
             imageView.setImage(image);
             imageView.setFitHeight(300);
             imageView.setFitWidth(400);
