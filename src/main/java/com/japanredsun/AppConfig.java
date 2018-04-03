@@ -17,6 +17,10 @@ public class AppConfig {
     //Fxml Resource path
     public static final String FXMLPATH = "/fxml/";
 
+    //Resource path
+    public static final String AUDIO_PATH = "/audio/";
+    public static final String PICTURE_PATH = "/picture/";
+
     public static User getLoginUser() {
         return loginUser;
     }

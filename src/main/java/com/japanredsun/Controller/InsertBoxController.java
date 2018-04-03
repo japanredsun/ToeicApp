@@ -1,5 +1,6 @@
 package com.japanredsun.Controller;
 
+import com.japanredsun.AppConfig;
 import com.japanredsun.Config.SceneManager;
 import com.japanredsun.Model.Answer;
 import com.japanredsun.Model.Question;
@@ -183,9 +184,9 @@ public class InsertBoxController extends AdminPageController implements Initiali
                 if(txt.getId().equals("txtQuestion"+questionNumber)){
                     questionDetails.setQuestion(txt.getText());
                 } if(txt.getId().equals("txtAudio"+questionNumber)){
-                    questionDetails.setAudioPath(txt.getText());
+                    questionDetails.setAudioPath(AppConfig.AUDIO_PATH + txt.getText());
                 }else if(txt.getId().equals("txtPicture"+questionNumber)){
-                    questionDetails.setPicturePath(txt.getText());
+                    questionDetails.setPicturePath(AppConfig.PICTURE_PATH + txt.getText());
                 }
             }
             List<Answer> newAnswerList = new ArrayList<>();

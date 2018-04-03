@@ -1,5 +1,6 @@
 package com.japanredsun.Controller;
 
+import com.japanredsun.AppConfig;
 import com.japanredsun.Config.SceneManager;
 import com.japanredsun.Model.Answer;
 
@@ -201,9 +202,9 @@ public class UpdateBoxController extends AdminPageController implements Initiali
                 if(txt.getId().equals("txtQuestion"+questionNumber)){
                     question.setQuestion(txt.getText());
                 } if(txt.getId().equals("txtAudio"+questionNumber)){
-                    question.setAudioPath(txt.getText());
+                    question.setAudioPath(AppConfig.AUDIO_PATH + txt.getText());
                 }else if(txt.getId().equals("txtPicture"+questionNumber)){
-                    question.setPicturePath(txt.getText());
+                    question.setPicturePath(AppConfig.PICTURE_PATH + txt.getText());
                 }
             }
             List<Answer> newAnswerList = new ArrayList<>();
