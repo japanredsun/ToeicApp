@@ -115,14 +115,9 @@ public class AdminPageController implements Initializable{
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
-            Stage stage = (Stage) btnDelete.getScene().getWindow();
-            stage.close();
-            SceneManager sceneManager = new SceneManager();
-            try {
-                sceneManager.openNewWindowAndHide(FxmlView.ADMIN,event);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            // update list
+            list = getQuestionList();
+            tbQuestion.setItems(list);
         }
     }
 

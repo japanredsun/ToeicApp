@@ -151,14 +151,10 @@ public class ManageUserPageController implements Initializable {
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
-            Stage stage = (Stage) btndelete.getScene().getWindow();
-            stage.close();
-            SceneManager sceneManager = new SceneManager();
-            try {
-                sceneManager.openNewWindowAndHide(FxmlView.MANAGE_USER_PAGE,event);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+
+            //update list
+            list = getUsers();
+            tbUsers.setItems(list);
         }
     }
 }
