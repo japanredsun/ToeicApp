@@ -23,6 +23,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
 public class Login implements Initializable {
 
@@ -66,8 +70,40 @@ public class Login implements Initializable {
 
 
     }
-
+    
     public void initialize(URL location, ResourceBundle resources) {
+       
+    }
 
+    @FXML
+    private void enter(KeyEvent event) {
+        
+    if (event.getCode() == KeyCode.ENTER) {
+        String username = txtUserName.getText();
+        String password = txtPassword.getText();
+        if(!username.equals("") || !password.equals("")){
+            try {
+                if(userService.authenticate(username,password)){
+    //                AnchorPane pane = FXMLLoader.load(getClass().getResource("/fxml/sample2.fxml"));
+    //                rootPane.getChildren().setAll(pane);
+//                    if(AppConfig.getLoginUser().getRole().equals("ADMIN")){
+//                        sceneManager.openNewWindowAndHide(FxmlView.ADMIN, event);
+//                    }else {
+                        sceneManager.openNewWindowAndHideKeyEvent(FxmlView.HOME, event);
+//                    }
+                }else {
+                    lbError.setText("Sign in error");
+                }
+            } catch (SQLException e) {
+               lbError.setText(e.getMessage());
+            } catch (ClassNotFoundException e) {
+                lbError.setText(e.getMessage());
+            } catch (IOException ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else {
+            lbError.setText("Fill the blank!");
+        }
+    }
     }
 }
