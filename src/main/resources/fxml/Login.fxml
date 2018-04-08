@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -9,31 +15,36 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.japanredsun.Controller.Login">
-   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="300.0" stroke="BLACK" strokeType="INSIDE" width="425.0" />
-    <Button fx:id="btnSwitch" layoutX="131.0" layoutY="211.0" mnemonicParsing="false" onAction="#switchScene" prefHeight="55.0" prefWidth="122.0" styleClass="btnGreen" text="Login" textFill="WHITE">
-      <effect>
-         <Glow />
-      </effect>
-      <font>
-         <Font name="Tahoma" size="21.0" />
-      </font></Button>
-   <TextField fx:id="txtUserName" layoutX="70.0" layoutY="115.0" prefHeight="25.0" prefWidth="243.0" promptText="Username">
-      <font>
-         <Font name="Tahoma" size="15.0" />
-      </font></TextField>
-   <PasswordField fx:id="txtPassword" layoutX="72.0" layoutY="160.0" prefHeight="25.0" prefWidth="243.0" promptText="Password">
-      <font>
-         <Font name="Tahoma" size="15.0" />
-      </font></PasswordField>
-   <Label fx:id="lbError" layoutX="161.0" layoutY="60.0" textFill="#e85151">
-      <font>
-         <Font name="Tahoma" size="19.0" />
-      </font>
-   </Label>
-   <Label layoutX="72.0" layoutY="53.0" text="Login" textFill="WHITE">
-      <font>
-         <Font name="Tahoma" size="29.0" />
-      </font>
-   </Label>
+<AnchorPane fx:id="rootPane" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.japanredsun.Controller.Login">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="300.0" stroke="BLACK" strokeType="INSIDE" width="425.0" />
+       <Button fx:id="btnSwitch" layoutX="131.0" layoutY="211.0" mnemonicParsing="false" onAction="#switchScene" onKeyPressed="#enter" prefHeight="55.0" prefWidth="122.0" styleClass="btnGreen" text="Login" textFill="WHITE">
+         <effect>
+            <Glow />
+         </effect>
+         <font>
+            <Font name="Tahoma" size="21.0" />
+         </font>
+      </Button>
+      <TextField fx:id="txtUserName" layoutX="70.0" layoutY="115.0" onKeyPressed="#enter" prefHeight="25.0" prefWidth="243.0" promptText="Username">
+         <font>
+            <Font name="Tahoma" size="15.0" />
+         </font>
+      </TextField>
+      <PasswordField fx:id="txtPassword" layoutX="72.0" layoutY="160.0" onKeyPressed="#enter" prefHeight="25.0" prefWidth="243.0" promptText="Password">
+         <font>
+            <Font name="Tahoma" size="15.0" />
+         </font>
+      </PasswordField>
+      <Label fx:id="lbError" layoutX="161.0" layoutY="60.0" textFill="#e85151">
+         <font>
+            <Font name="Tahoma" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="72.0" layoutY="53.0" text="Login" textFill="WHITE">
+         <font>
+            <Font name="Tahoma" size="29.0" />
+         </font>
+      </Label>
+   </children>
 </AnchorPane>
