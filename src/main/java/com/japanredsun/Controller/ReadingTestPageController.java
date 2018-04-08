@@ -149,19 +149,19 @@ public class ReadingTestPageController implements Initializable {
         //load answer
         List<Answer> answerList = questionDetail.getAnswers();
         Answer answer1 = answerList.get(0);
-        txtAnswer1.setText(answer1.getAnswer());
+        txtAnswer1.setText(answer1.getAnswer().trim());
         cb1.setUserData(answer1);
 
         Answer answer2 = answerList.get(1);
-        txtAnswer2.setText(answer2.getAnswer());
+        txtAnswer2.setText(answer2.getAnswer().trim());
         cb2.setUserData(answer2);
 
         Answer answer3 = answerList.get(2);
-        txtAnswer3.setText(answer3.getAnswer());
+        txtAnswer3.setText(answer3.getAnswer().trim());
         cb3.setUserData(answer3);
 
         Answer answer4 = answerList.get(3);
-        txtAnswer4.setText(answer4.getAnswer());
+        txtAnswer4.setText(answer4.getAnswer().trim());
         cb4.setUserData(answer4);
 
 

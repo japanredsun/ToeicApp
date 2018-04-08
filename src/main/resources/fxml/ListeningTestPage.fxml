@@ -175,12 +175,12 @@
             </GridPane>
             <HBox alignment="BOTTOM_RIGHT" prefHeight="74.0" prefWidth="900.0" spacing="15.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#guide" styleClass="btnGreen" text="Tutorial" textFill="WHITE">
+                  <Button fx:id="btnTut" mnemonicParsing="false" onAction="#guide" styleClass="btnGreen" text="Tutorial" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#listenAgain" styleClass="btnGreen" text="Listen Again" textFill="WHITE">
+                  <Button fx:id="btnAgain" mnemonicParsing="false" onAction="#listenAgain" styleClass="btnGreen" text="Listen Again" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font>

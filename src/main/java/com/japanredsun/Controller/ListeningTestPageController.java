@@ -63,6 +63,8 @@ public class ListeningTestPageController implements Initializable {
     public Text lbQuestionNum;
     public Label lbPoint;
     public Text lbParagraph;
+    public Button btnTut;
+    public Button btnAgain;
 
 
     private QuestionService service = new QuestionServiceImp();
@@ -92,6 +94,8 @@ public class ListeningTestPageController implements Initializable {
     private ImageView imageView = new ImageView();
 
     private String audioURL;
+
+    private AudioClip audioClip;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -181,14 +185,31 @@ public class ListeningTestPageController implements Initializable {
     }
 
     private void playAudio(String url){
-        if(!url.equals("")){
-            AudioClip note = new AudioClip(this.getClass().getResource(url).toString());
-            note.play();
-        }else {
-            Alert alert = new Alert(Alert.AlertType.ERROR,"No audio path found!",new ButtonType("OK"));
-            alert.showAndWait();
-            System.out.println("No audio found!");
-        }
+            if(!url.equals("")){
+                audioClip = new AudioClip(this.getClass().getResource(url).toString());
+                audioClip.play();
+                btnAgain.setOnMouseClicked(e -> {
+                    if(audioClip.isPlaying()){
+                        audioClip.stop();
+                        audioClip.play();
+                    }else {
+                        audioClip.play();
+                    }
+                });
+
+                btnTut.setOnMouseClicked(e -> {
+                    if(audioClip.isPlaying()){
+                        audioClip.stop();
+                        audioClip.play();
+                    }else {
+                        audioClip.play();
+                    }
+                });
+            }else {
+                Alert alert = new Alert(Alert.AlertType.ERROR,"No audio path found!",new ButtonType("OK"));
+                alert.showAndWait();
+                System.out.println("No audio found!");
+            }
     }
     
     @FXML
@@ -204,19 +225,34 @@ public class ListeningTestPageController implements Initializable {
     public void guide(ActionEvent event) {
         String type = currentQuestion.getType();
         if(type.equals(service.getTypes().get(0))){
-            playAudio("");
+            if(audioClip.isPlaying()){
+                audioClip.stop();
+                playAudio("/audio/Part1.mp3");
+            }
         }else if (type.equals(service.getTypes().get(1))){
-            playAudio("");
+            if(audioClip.isPlaying()){
+                audioClip.stop();
+                playAudio("/audio/Part2.mp3");
+            }
         }else if(type.equals(service.getTypes().get(2))){
-            playAudio("");
+            if(audioClip.isPlaying()) {
+                audioClip.stop();
+                playAudio("/audio/Part3.mp3");
+            }
         }else if(type.equals(service.getTypes().get(3))){
-            playAudio("");
+            if(audioClip.isPlaying()) {
+                audioClip.stop();
+                playAudio("/audio/Part4.mp3");
+            }
         }
     }
 
 
     public void listenAgain(ActionEvent event) {
-        playAudio(audioURL);
+        if(audioClip.isPlaying()){
+            audioClip.stop();
+            playAudio(audioURL);
+        }
     }
 
     public void submitAnswer(ActionEvent event) {

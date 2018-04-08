@@ -202,9 +202,9 @@ public class UpdateBoxController extends AdminPageController implements Initiali
                 if(txt.getId().equals("txtQuestion"+questionNumber)){
                     question.setQuestion(txt.getText());
                 } if(txt.getId().equals("txtAudio"+questionNumber)){
-                    question.setAudioPath(AppConfig.AUDIO_PATH + txt.getText());
+                    question.setAudioPath(txt.getText());
                 }else if(txt.getId().equals("txtPicture"+questionNumber)){
-                    question.setPicturePath(AppConfig.PICTURE_PATH + txt.getText());
+                    question.setPicturePath(txt.getText());
                 }
             }
             List<Answer> newAnswerList = new ArrayList<>();

@@ -184,9 +184,9 @@ public class InsertBoxController extends AdminPageController implements Initiali
                 if(txt.getId().equals("txtQuestion"+questionNumber)){
                     questionDetails.setQuestion(txt.getText());
                 } if(txt.getId().equals("txtAudio"+questionNumber)){
-                    questionDetails.setAudioPath(AppConfig.AUDIO_PATH + txt.getText());
+                    questionDetails.setAudioPath(txt.getText());
                 }else if(txt.getId().equals("txtPicture"+questionNumber)){
-                    questionDetails.setPicturePath(AppConfig.PICTURE_PATH + txt.getText());
+                    questionDetails.setPicturePath(txt.getText());
                 }
             }
             List<Answer> newAnswerList = new ArrayList<>();
