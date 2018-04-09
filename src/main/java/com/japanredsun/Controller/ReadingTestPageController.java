@@ -183,53 +183,56 @@ public class ReadingTestPageController implements Initializable {
     }
 
     public void submitAnswer(ActionEvent event) {
-        if(selectedAnswer.isRightAnswer()){
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"Correct Answer \n" + selectedAnswer.getExplain(),new ButtonType("OK"));
-            alert.showAndWait();
-            totalPoint++;
-            lbPoint.setText(String.valueOf(totalPoint));
-            if(questionDetailNumberIndex + 1 == countQuestionDetails){
-                questionDetailNumberIndex = 0;
-                countQuestionDetails = 1;
-                questionDetailsList.clear();
-                questions.remove(currentQuestion);
-                questionNumber++;
-                if(questions.isEmpty()){
-                    Alert alert2 = new Alert(Alert.AlertType.CONFIRMATION,"Out of question",new ButtonType("OK"));
-                    alert2.showAndWait();
-                }else{
+        if(selectedAnswer != null){
+            if(selectedAnswer.isRightAnswer()){
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"Correct Answer \n" + selectedAnswer.getExplain(),new ButtonType("OK"));
+                alert.showAndWait();
+                totalPoint++;
+                lbPoint.setText(String.valueOf(totalPoint));
+                if(questionDetailNumberIndex + 1 == countQuestionDetails){
+                    questionDetailNumberIndex = 0;
+                    countQuestionDetails = 1;
+                    questionDetailsList.clear();
+                    questions.remove(currentQuestion);
+                    questionNumber++;
+                    if(questions.isEmpty()){
+                        Alert alert2 = new Alert(Alert.AlertType.CONFIRMATION,"Out of question",new ButtonType("OK"));
+                        alert2.showAndWait();
+                    }else{
+                        selectedRadio.setSelected(false);
+                        loadQuestionNumber();
+                        loadData();
+                    }
+                }else {
+                    questionDetailNumberIndex++;
+                    questionNumber++;
                     selectedRadio.setSelected(false);
                     loadQuestionNumber();
-                    loadData();
+                    loadQuestionDetail();
+
                 }
             }else {
-                questionDetailNumberIndex++;
-                questionNumber++;
-                selectedRadio.setSelected(false);
-                loadQuestionNumber();
-                loadQuestionDetail();
-
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"Wrong Answer \n"+ selectedAnswer.getExplain(),new ButtonType("OK"));
+                alert.showAndWait();
+                if(totalPoint > 0){
+                    totalPoint = totalPoint - 1;
+                    lbPoint.setText(String.valueOf(totalPoint));
+                }
             }
-        }else {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"Wrong Answer \n"+ selectedAnswer.getExplain(),new ButtonType("OK"));
-            alert.showAndWait();
-            if(totalPoint > 0){
-                totalPoint = totalPoint - 1;
-                lbPoint.setText(String.valueOf(totalPoint));
+
+            //Update total Point
+            UserInfo userInfo = new UserInfo();
+            userInfo.setUsername(AppConfig.getLoginUser().getUsername());
+            userInfo.setTotalPoint(totalPoint);
+            try {
+                userService.updateUserInfo(userInfo);
+            } catch (SQLException e) {
+                Alert alert = new Alert(Alert.AlertType.ERROR,e.getMessage(),new ButtonType("OK"));
+                alert.showAndWait();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
             }
         }
 
-        //Update total Point
-        UserInfo userInfo = new UserInfo();
-        userInfo.setUsername(AppConfig.getLoginUser().getUsername());
-        userInfo.setTotalPoint(totalPoint);
-        try {
-            userService.updateUserInfo(userInfo);
-        } catch (SQLException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR,e.getMessage(),new ButtonType("OK"));
-            alert.showAndWait();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
     }
 }
