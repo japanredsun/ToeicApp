@@ -3,17 +3,13 @@ package com.japanredsun.Service.Implement;
 import com.japanredsun.Dao.Implement.QuestionDAOImp;
 import com.japanredsun.Dao.QuestionDAO;
 import com.japanredsun.Model.Question;
-import com.japanredsun.Model.Status;
 import com.japanredsun.Service.QuestionService;
-import com.japanredsun.Service.Service;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class QuestionServiceImp extends Service implements QuestionService{
+public class QuestionServiceImpImp extends ServiceImp implements QuestionService{
 
     private QuestionDAO questionDAO = new QuestionDAOImp();
 
@@ -74,15 +70,5 @@ public class QuestionServiceImp extends Service implements QuestionService{
         if(questionDAO.deleteQuestion(id)){
             System.out.printf("Delete %s success",id);
         }
-    }
-
-    @Override
-    public ObservableList<Status> getStatus() {
-        return super.getStatus();
-    }
-
-    @Override
-    public ObservableList<String> getTypes() {
-        return super.getTypes();
     }
 }

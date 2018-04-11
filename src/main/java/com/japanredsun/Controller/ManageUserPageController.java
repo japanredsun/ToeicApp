@@ -8,7 +8,7 @@ package com.japanredsun.Controller;
 import com.japanredsun.Config.SceneManager;
 import com.japanredsun.Model.Status;
 import com.japanredsun.Model.User;
-import com.japanredsun.Service.Implement.UserServiceImp;
+import com.japanredsun.Service.Implement.UserServiceImpImp;
 import com.japanredsun.Service.UserService;
 import com.japanredsun.View.FxmlView;
 import java.io.IOException;
@@ -27,7 +27,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
 
 public class ManageUserPageController implements Initializable {
     
@@ -42,7 +41,7 @@ public class ManageUserPageController implements Initializable {
     public TableColumn<User,String> colStatus;
     public TableColumn<User,Date> colCreatedDate;
 
-    protected UserService service = new UserServiceImp();
+    protected UserService service = new UserServiceImpImp();
 
     private ObservableList<User> list = getUsers();
 
@@ -52,7 +51,7 @@ public class ManageUserPageController implements Initializable {
         return selectedUser;
     }
 
-    private ObservableList<Status> statuses = service.getStatus();
+    private ObservableList<Status> statuses = service.getStatuses();
 
     public ObservableList<Status> getStatuses() {
         return statuses;

@@ -1,23 +1,17 @@
 package com.japanredsun.Controller;
 
-import com.japanredsun.AppConfig;
 import com.japanredsun.Config.SceneManager;
-import com.japanredsun.Service.Implement.UserServiceImp;
+import com.japanredsun.Service.Implement.UserServiceImpImp;
 import com.japanredsun.Service.UserService;
 import com.japanredsun.View.FxmlView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -30,7 +24,7 @@ import javafx.scene.input.KeyEvent;
 
 public class Login implements Initializable {
 
-    private UserService userService = new UserServiceImp();
+    private UserService userService = new UserServiceImpImp();
 
     private SceneManager sceneManager = new SceneManager();
 

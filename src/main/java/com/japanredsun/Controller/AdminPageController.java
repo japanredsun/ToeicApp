@@ -1,10 +1,9 @@
 package com.japanredsun.Controller;
 
-import com.japanredsun.AppConfig;
 import com.japanredsun.Config.SceneManager;
 import com.japanredsun.Model.Question;
 import com.japanredsun.Model.Status;
-import com.japanredsun.Service.Implement.QuestionServiceImp;
+import com.japanredsun.Service.Implement.QuestionServiceImpImp;
 import com.japanredsun.Service.QuestionService;
 import com.japanredsun.View.FxmlView;
 import javafx.collections.FXCollections;
@@ -15,13 +14,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -38,9 +35,9 @@ public class AdminPageController implements Initializable{
     public Button btnUpdate;
     public Button btnDelete;
 
-    protected QuestionService service = new QuestionServiceImp();
+    protected QuestionService service = new QuestionServiceImpImp();
 
-    protected ObservableList<Status> statuses = service.getStatus();
+    protected ObservableList<Status> statuses = service.getStatuses();
 
     private ObservableList<Question> list = getQuestionList();
 

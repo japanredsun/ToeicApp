@@ -1,23 +1,6 @@
 package com.japanredsun;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import com.japanredsun.Dao.Implement.QuestionDAOImp;
-import com.japanredsun.Dao.Implement.QuestionDetailsDAOImp;
-import com.japanredsun.Dao.QuestionDAO;
-import com.japanredsun.Dao.QuestionDetailsDAO;
-import com.japanredsun.Model.Answer;
 import com.japanredsun.Model.Question;
-import com.japanredsun.Model.QuestionDetails;
-import com.japanredsun.Model.User;
-import com.japanredsun.Service.Implement.UserServiceImp;
-import com.japanredsun.Service.UserService;
-
-import java.lang.reflect.Type;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class Main2 {
     public static void main(String[] args){

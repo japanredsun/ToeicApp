@@ -7,7 +7,7 @@ import javafx.collections.ObservableList;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface QuestionService{
+public interface QuestionService extends Service{
     List<Question> getAllQuestions() throws SQLException, ClassNotFoundException;
 
     List<Question> getQuestionsByType(String type) throws SQLException, ClassNotFoundException;
@@ -19,8 +19,4 @@ public interface QuestionService{
     void saveQuestion(Question question);
 
     void deleteQuestion(long id) throws SQLException, ClassNotFoundException;
-
-    ObservableList<Status> getStatus();
-
-    ObservableList<String> getTypes();
 }

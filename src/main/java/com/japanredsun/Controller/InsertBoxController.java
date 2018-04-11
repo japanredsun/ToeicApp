@@ -1,15 +1,11 @@
 package com.japanredsun.Controller;
 
-import com.japanredsun.AppConfig;
 import com.japanredsun.Config.SceneManager;
 import com.japanredsun.Model.Answer;
 import com.japanredsun.Model.Question;
 import com.japanredsun.Model.QuestionDetails;
 import com.japanredsun.Model.Status;
-import com.japanredsun.Service.Implement.QuestionServiceImp;
-import com.japanredsun.Service.QuestionService;
 import com.japanredsun.View.FxmlView;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
@@ -17,7 +13,6 @@ import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -26,8 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import javafx.scene.layout.Background;
-import javafx.scene.paint.Color;
+
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 

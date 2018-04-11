@@ -12,8 +12,8 @@ import com.japanredsun.Model.Answer;
 import com.japanredsun.Model.Question;
 import com.japanredsun.Model.QuestionDetails;
 import com.japanredsun.Model.UserInfo;
-import com.japanredsun.Service.Implement.QuestionServiceImp;
-import com.japanredsun.Service.Implement.UserServiceImp;
+import com.japanredsun.Service.Implement.QuestionServiceImpImp;
+import com.japanredsun.Service.Implement.UserServiceImpImp;
 import com.japanredsun.Service.QuestionService;
 import com.japanredsun.Service.UserService;
 import com.japanredsun.View.FxmlView;
@@ -33,7 +33,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -58,9 +57,9 @@ public class ReadingTestPageController implements Initializable {
     public Text lbParagraph;
     public VBox vbQuestionArea;
 
-    private QuestionService service = new QuestionServiceImp();
+    private QuestionService service = new QuestionServiceImpImp();
 
-    private UserService userService = new UserServiceImp();
+    private UserService userService = new UserServiceImpImp();
 
     private List<Question> questions = new ArrayList<>();
 

@@ -8,7 +8,7 @@ import javafx.collections.ObservableList;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface UserService {
+public interface UserService extends Service{
     List<User> getAllUsers() throws SQLException, ClassNotFoundException;
 
     User getUserByUsername(String username) throws SQLException, ClassNotFoundException;
@@ -16,8 +16,6 @@ public interface UserService {
     boolean authenticate(String username, String password) throws SQLException, ClassNotFoundException;
 
     UserInfo getUserInfo(String username) throws SQLException, ClassNotFoundException;
-
-    ObservableList<Status> getStatus();
 
     void save(User user) throws SQLException, ClassNotFoundException;
 
