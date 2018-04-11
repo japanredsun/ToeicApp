@@ -1,6 +1,7 @@
 import com.japanredsun.Dao.Implement.QuestionDAOImp;
 import com.japanredsun.Dao.QuestionDAO;
 import com.japanredsun.Model.Question;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.sql.SQLException;
@@ -15,15 +16,12 @@ public class QuestionDAOTest {
     @Test
     public void getAllQuestions() throws SQLException, ClassNotFoundException {
         List<Question> list = questionDAO.getAllQuestions();
-        boolean isTrue = false;
-        if(list.size() > 0){
-            isTrue = true;
-        }
-        assertEquals(true,isTrue);
+        Assert.assertNotNull(list);
     }
 
     @Test
     public void getActiveQuestions() {
+
     }
 
     @Test
