@@ -19,18 +19,9 @@ import javafx.stage.Stage;
 
 public class Home implements Initializable{
     public AnchorPane rootPane;
-
-    public Label lbUsername;
-    
-    
-    
     public Button btnStart;
-    public Button btnManage;
-    public Button btnManageUser;
-    public Button btnSignout;
     public Label lberror;
     public Text txtid;
-    public Text txtpass;
     public Text txtrole;
 
 

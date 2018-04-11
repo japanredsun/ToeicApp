@@ -20,12 +20,12 @@ public class ServiceImp  implements Service {
         return types;
     }
 
-    public  ObservableList<Status> createStatus(){
+    private   ObservableList<Status> createStatus(){
         Status active = new Status(1,"Active");
         Status inactive = new Status(0,"Inactive");
         return FXCollections.observableArrayList(active,inactive);
     }
-    public ObservableList<String> createType(){
+    private ObservableList<String> createType(){
         String type1 = "Listening - Part 1";
         String type2 = "Listening - Part 2";
         String type3 = "Listening - Part 3";

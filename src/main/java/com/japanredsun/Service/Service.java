@@ -8,8 +8,4 @@ public interface Service {
      ObservableList<Status> getStatuses();
 
      ObservableList<String> getTypes();
-
-     ObservableList<Status> createStatus();
-
-     ObservableList<String> createType();
 }
