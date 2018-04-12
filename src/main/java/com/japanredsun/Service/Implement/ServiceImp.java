@@ -1,15 +1,29 @@
 package com.japanredsun.Service.Implement;
 
+import com.japanredsun.Model.Badge;
 import com.japanredsun.Model.Status;
 import com.japanredsun.Service.Service;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 public class ServiceImp  implements Service {
 
-    private ObservableList<Status> statuses = createStatus();
+    private ObservableList<Status> statuses;
 
-    private ObservableList<String> types = createType();
+    private ObservableList<String> types;
+
+    private List<Badge> badges;
+
+    public ServiceImp() {
+        badges = createBadges();
+        statuses = createStatus();
+        types = createType();
+    }
 
 
     public ObservableList<Status> getStatuses() {
@@ -18,6 +32,50 @@ public class ServiceImp  implements Service {
 
     public ObservableList<String> getTypes() {
         return types;
+    }
+
+    @Override
+    public Badge evaluate(int point) {
+        Badge badge = null;
+        if(point == 0 || point < 25){
+            badge = badges.get(0);
+        }else if(point == 25 || point < 50){
+            badge = badges.get(1);
+        }else if(point == 50 || point < 100){
+            badge = badges.get(2);
+        }else if(point > 100){
+            badge = badges.get(3);
+        }
+        return badge;
+    }
+
+    public Double calculatePb(Badge badge, Integer myPoint){
+        double pb = 0;
+        Badge nextBadge = null;
+        for(int i = 0; i < badges.size(); i++){
+            nextBadge = badges.get(i);
+            if(badge.equals(nextBadge)){
+                nextBadge = badges.get(i+1);
+                break;
+            }else if(badge.equals(badges.get(badges.size() - 1))){
+                break;
+            }
+        }
+        if(nextBadge != null && myPoint > 0){
+            pb = (double) myPoint / nextBadge.getPoint();
+        }
+        return pb;
+    }
+
+    private List<Badge> createBadges(){
+        List<Badge> list = new ArrayList<>();
+        Badge badge1 = new Badge("Noob",0,"");
+        Badge badge2 = new Badge("Beginner",25,"");
+        Badge badge3 = new Badge("Intermediate",50,"");
+        Badge badge4 = new Badge("Advanced",100,"");
+        Collections.addAll(list,badge1,badge2,badge3,badge4);
+        Collections.sort(list);
+        return list;
     }
 
     private   ObservableList<Status> createStatus(){

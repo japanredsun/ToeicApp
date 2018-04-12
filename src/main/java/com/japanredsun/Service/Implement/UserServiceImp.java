@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserServiceImpImp extends ServiceImp implements UserService {
+public class UserServiceImp extends ServiceImp implements UserService {
 
     private UserDAO userDAO = new UserDAOImp();
 

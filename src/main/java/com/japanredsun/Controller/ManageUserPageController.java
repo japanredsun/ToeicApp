@@ -8,7 +8,7 @@ package com.japanredsun.Controller;
 import com.japanredsun.Config.SceneManager;
 import com.japanredsun.Model.Status;
 import com.japanredsun.Model.User;
-import com.japanredsun.Service.Implement.UserServiceImpImp;
+import com.japanredsun.Service.Implement.UserServiceImp;
 import com.japanredsun.Service.UserService;
 import com.japanredsun.View.FxmlView;
 import java.io.IOException;
@@ -41,7 +41,7 @@ public class ManageUserPageController implements Initializable {
     public TableColumn<User,String> colStatus;
     public TableColumn<User,Date> colCreatedDate;
 
-    protected UserService service = new UserServiceImpImp();
+    protected UserService service = new UserServiceImp();
 
     private ObservableList<User> list = getUsers();
 
