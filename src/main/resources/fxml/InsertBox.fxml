@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
@@ -15,7 +21,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="paneUpdateBox" prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.japanredsun.Controller.InsertBoxController">
+<AnchorPane fx:id="paneUpdateBox" prefHeight="720.0" prefWidth="1280.0" styleClass="background" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.japanredsun.Controller.InsertBoxController">
     <children>
         <BorderPane prefHeight="720.0" prefWidth="1280.0" AnchorPane.leftAnchor="0.0">
             <top>
@@ -43,23 +49,37 @@
                             <font>
                                 <Font size="20.0" />
                             </font></Label>
-                        <TextArea fx:id="txtPara" prefHeight="99.0" prefWidth="742.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <ComboBox fx:id="cbStatus" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <ComboBox fx:id="cbQuestionType" prefWidth="300.0" GridPane.columnIndex="1" />
+                        <TextArea fx:id="txtPara" prefHeight="99.0" prefWidth="742.0" promptText="Enter paragraph" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <ComboBox fx:id="cbStatus" prefWidth="150.0" promptText="Choose status" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <ComboBox fx:id="cbQuestionType" prefWidth="300.0" promptText="Choose question type" GridPane.columnIndex="1" />
                     </children>
                 </GridPane>
             </top>
             <bottom>
                 <HBox alignment="BOTTOM_CENTER" prefHeight="39.0" prefWidth="838.0" spacing="10.0" BorderPane.alignment="CENTER">
                     <children>
-                        <Button fx:id="btnUBSave" mnemonicParsing="false" onAction="#saveQuestion" styleClass="btnGreen" text="Save" textFill="WHITE">
+                        <Button fx:id="btnUBSave" mnemonicParsing="false" onAction="#saveQuestion" styleClass="custom-button" text="Save" textFill="WHITE">
                             <font>
                                 <Font size="15.0" />
-                            </font></Button>
-                        <Button fx:id="btnUBCLose" mnemonicParsing="false" onAction="#closeInsertBox" styleClass="btnGreen" text="Close" textFill="WHITE">
+                            </font>
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icon/Save-icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                        <Button fx:id="btnUBCLose" mnemonicParsing="false" onAction="#closeInsertBox" styleClass="custom-button" text="Close" textFill="WHITE">
                             <font>
                                 <Font size="15.0" />
-                            </font></Button>
+                            </font>
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icon/Button-Close-icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
                     </children></HBox>
             </bottom>
             <center>
@@ -71,25 +91,32 @@
                             </font></Label>
                   <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                      <children>
-                        <Button fx:id="btnAddTab" mnemonicParsing="false" onAction="#addNewTab" styleClass="btnGreen" text="Add" textFill="WHITE">
+                        <Button fx:id="btnAddTab" mnemonicParsing="false" onAction="#addNewTab" prefHeight="35.0" prefWidth="60.0" styleClass="custom-button" text="Add" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font></Button>
-                        <Button fx:id="btnRemoveTab" mnemonicParsing="false" onAction="#removeTab" styleClass="btnGreen" text="Remove" textFill="WHITE">
+                        <Button fx:id="btnRemoveTab" mnemonicParsing="false" onAction="#removeTab" prefHeight="35.0" prefWidth="85.0" styleClass="custom-button" text="Remove" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font></Button>
                      </children>
                   </HBox>
                         <TabPane fx:id="tabPane" prefHeight="500.0" prefWidth="1280.0" styleClass="nobackground" tabClosingPolicy="UNAVAILABLE">
-
-                        </TabPane>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets></TabPane>
                     </children>
                 </VBox>
             </center>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
         </BorderPane>
     </children>
    <padding>
       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
    </padding>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
 </AnchorPane>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -10,33 +11,54 @@
 
 <AnchorPane id="AnchorPane" prefHeight="344.0" prefWidth="542.0" styleClass="background" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.japanredsun.Controller.StartTestPageController">
    <children>
-      <VBox layoutX="-4.0" prefHeight="400.0" prefWidth="600.0">
+      <VBox layoutX="-4.0" prefHeight="410.0" prefWidth="606.0">
          <children>
             <Label alignment="CENTER" prefHeight="105.0" prefWidth="600.0" text="Start Test">
                <font>
                   <Font name="Tahoma Bold" size="55.0" />
                </font>
             </Label>
-            <HBox alignment="CENTER" prefHeight="210.0" prefWidth="600.0" spacing="15.0">
+            <HBox alignment="CENTER" prefHeight="210.0" prefWidth="614.0" spacing="15.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#switchlisten" prefHeight="54.0" prefWidth="250.0" styleClass="btnGreen" text="Start Listening Test" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#switchlisten" prefHeight="80.0" prefWidth="260.0" style="-fx-font-size: 20;" styleClass="custom-button" text="Start Listening Test" textFill="WHITE">
                      <font>
                         <Font size="25.0" />
                      </font>
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icon/listen-icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#switchreading" prefHeight="54.0" prefWidth="250.0" styleClass="btnGreen" text="Start Reading Test" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#switchreading" prefHeight="80.0" prefWidth="260.0" style="-fx-font-size: 20;" styleClass="custom-button" text="Start Reading Test" textFill="WHITE">
                      <font>
                         <Font size="25.0" />
                      </font>
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icon/read-icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
                </children>
             </HBox>
             <HBox alignment="BOTTOM_RIGHT" prefHeight="86.0" prefWidth="600.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#switchhome" styleClass="btnGreen" text="Home" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#switchhome" styleClass="custom-button" text="Home" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font>
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icon/home.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
                </children>
             </HBox>

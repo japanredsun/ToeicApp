@@ -15,3 +15,27 @@
 .nobackground{
     -fx-background-color: white;
 }
+
+.custom-button{
+    -fx-font: bold 15px "Arial";
+    -fx-border-radius: 10;
+    -fx-background-color: #3cbc53;
+    -fx-background-insets: 0,1,2;
+    -fx-text-fill: white;
+}
+
+.custom-button:pressed{
+    -fx-font: bold 15px "Arial";
+    -fx-border-radius: 10;
+    -fx-background-color: #3cbc53;
+    -fx-background-insets: 0,1,2;
+    -fx-text-fill:blue;
+}
+
+.custom-button:hover{
+    -fx-font: bold 15px "Arial";
+    -fx-border-radius: 10;
+    -fx-background-color: #3cbc53;
+    -fx-background-insets: 0,1,2;
+    -fx-text-fill:blue;   
+}

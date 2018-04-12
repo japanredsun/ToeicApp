@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.effect.*?>
@@ -18,7 +19,7 @@
 <AnchorPane fx:id="rootPane" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.japanredsun.Controller.Login">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="300.0" stroke="BLACK" strokeType="INSIDE" width="425.0" />
-       <Button fx:id="btnSwitch" layoutX="131.0" layoutY="211.0" mnemonicParsing="false" onAction="#switchScene" onKeyPressed="#enter" prefHeight="55.0" prefWidth="122.0" styleClass="btnGreen" text="Login" textFill="WHITE">
+       <Button fx:id="btnSwitch" alignment="CENTER" layoutX="131.0" layoutY="211.0" mnemonicParsing="false" onAction="#switchScene" onKeyPressed="#enter" prefHeight="50.0" prefWidth="110.0" style="-fx-font-size: 20;" styleClass="custom-button" text="Enter" textFill="WHITE">
          <effect>
             <Glow />
          </effect>
@@ -41,7 +42,7 @@
             <Font name="Tahoma" size="19.0" />
          </font>
       </Label>
-      <Label layoutX="72.0" layoutY="53.0" text="Login" textFill="WHITE">
+      <Label layoutX="72.0" layoutY="53.0" text="Sign In" textFill="WHITE">
          <font>
             <Font name="Tahoma" size="29.0" />
          </font>

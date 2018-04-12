@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -26,25 +27,53 @@
             </Label>
             <HBox alignment="BOTTOM_RIGHT" prefHeight="75.0" prefWidth="781.0" spacing="10.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#switchhome" styleClass="btnGreen" stylesheets="@../style/style.css" text="Home" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#switchhome" prefHeight="45.0" prefWidth="110.0" styleClass="custom-button" stylesheets="@../style/style.css" text="Home" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font>
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true" styleClass="custom-button">
+                           <image>
+                              <Image url="@../icon/home.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
-                  <Button fx:id="btnadd" mnemonicParsing="false" onAction="#switchadd" styleClass="btnGreen" stylesheets="@../style/style.css" text="New" textFill="WHITE">
+                  <Button fx:id="btnadd" mnemonicParsing="false" onAction="#switchadd" prefHeight="45.0" prefWidth="110.0" styleClass="custom-button" stylesheets="@../style/style.css" text="New" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font>
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icon/Add-icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
-                  <Button fx:id="btnupdate" disable="true" mnemonicParsing="false" onAction="#switchupdate" styleClass="btnGreen" stylesheets="@../style/style.css" text="Update" textFill="WHITE">
+                  <Button fx:id="btnupdate" disable="true" mnemonicParsing="false" onAction="#switchupdate" prefHeight="45.0" prefWidth="110.0" styleClass="custom-button" stylesheets="@../style/style.css" text="Update" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font>
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icon/edit-icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
-                  <Button fx:id="btndelete" disable="true" mnemonicParsing="false" onAction="#deleteUser" styleClass="btnGreen" stylesheets="@../style/style.css" text="Delete" textFill="WHITE">
+                  <Button fx:id="btndelete" disable="true" mnemonicParsing="false" onAction="#deleteUser" prefHeight="45.0" prefWidth="110.0" styleClass="custom-button" stylesheets="@../style/style.css" text="Delete" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font>
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icon/delete-file-icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
                </children>
                <padding>

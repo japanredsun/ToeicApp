@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -22,32 +23,60 @@
                   <Font name="Tahoma Bold" size="35.0" />
                </font>
             </Label>
-            <HBox alignment="BOTTOM_RIGHT" prefHeight="99.0" prefWidth="1280.0" spacing="15.0">
+            <HBox alignment="BOTTOM_RIGHT" prefHeight="125.0" prefWidth="1280.0" spacing="15.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#switchhome" styleClass="btnGreen" text="Home" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#switchhome" prefHeight="45.0" prefWidth="110.0" styleClass="custom-button" text="Home" textFill="WHITE">
                      <font>
                         <Font size="20.0" />
                      </font>
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icon/home.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
-                  <Button fx:id="btnNew" mnemonicParsing="false" onAction="#addNewQuestion" styleClass="btnGreen" stylesheets="@../style/style.css" text="New" textFill="#fcfcfc">
+                  <Button fx:id="btnNew" mnemonicParsing="false" onAction="#addNewQuestion" prefHeight="45.0" prefWidth="110.0" styleClass="custom-button" stylesheets="@../style/style.css" text="New" textFill="#fcfcfc">
                      <font>
                         <Font size="20.0" />
-                     </font></Button>
-                  <Button fx:id="btnUpdate" disable="true" mnemonicParsing="false" onAction="#ShowUpdateBox" styleClass="btnGreen" stylesheets="@../style/style.css" text="Update" textFill="#fcfcfc">
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icon/Add-icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button fx:id="btnUpdate" disable="true" mnemonicParsing="false" onAction="#ShowUpdateBox" prefHeight="45.0" prefWidth="110.0" styleClass="custom-button" stylesheets="@../style/style.css" text="Update" textFill="#fcfcfc">
                      <font>
                         <Font size="20.0" />
-                     </font></Button>
-                  <Button fx:id="btnDelete" disable="true" mnemonicParsing="false" onAction="#deleteQuestion" styleClass="btnGreen" stylesheets="@../style/style.css" text="Delete" textFill="#fcfcfc">
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icon/edit-icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button fx:id="btnDelete" disable="true" mnemonicParsing="false" onAction="#deleteQuestion" prefHeight="45.0" prefWidth="110.0" styleClass="custom-button" stylesheets="@../style/style.css" text="Delete" textFill="#fcfcfc">
                      <font>
                         <Font size="20.0" />
-                     </font></Button>
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icon/delete-file-icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
                </children>
             </HBox>
          </children>
       </VBox>
    </top>
    <center>
-      <TableView fx:id="tbQuestion" prefHeight="601.0" prefWidth="1280.0" styleClass="backgroundlight" stylesheets="@../style/style.css" BorderPane.alignment="CENTER">
+      <TableView fx:id="tbQuestion" prefHeight="544.0" prefWidth="1280.0" styleClass="backgroundlight" stylesheets="@../style/style.css" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn fx:id="colId" minWidth="50.0" prefWidth="91.0" text="ID" />
           <TableColumn fx:id="colType" minWidth="100.0" prefWidth="131.0" text="Type" />

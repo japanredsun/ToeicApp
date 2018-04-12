@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -179,15 +180,29 @@
             </GridPane>
             <HBox alignment="BOTTOM_RIGHT" prefHeight="70.0" prefWidth="891.0" spacing="15.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#submitAnswer" styleClass="btnGreen" text="Next" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#submitAnswer" prefHeight="45.0" prefWidth="110.0" styleClass="custom-button" text="Next" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font>
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icon/next-icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#closeTestPage" styleClass="btnGreen" text="Close" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#closeTestPage" prefHeight="45.0" prefWidth="110.0" styleClass="custom-button" text="Close" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font>
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icon/Button-Close-icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
                </children>
                <VBox.margin>
