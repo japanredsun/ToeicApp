@@ -180,7 +180,7 @@
             </GridPane>
             <HBox alignment="BOTTOM_RIGHT" prefHeight="70.0" prefWidth="891.0" spacing="15.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#submitAnswer" styleClass="btnGreen" text="Next" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#submitAnswer" prefHeight="45.0" prefWidth="110.0" styleClass="custom-button" text="Next" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -192,7 +192,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#closeTestPage" styleClass="btnGreen" text="Close" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#closeTestPage" prefHeight="45.0" prefWidth="110.0" styleClass="custom-button" text="Close" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font>
