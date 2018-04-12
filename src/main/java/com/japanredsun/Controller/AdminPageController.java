@@ -3,7 +3,7 @@ package com.japanredsun.Controller;
 import com.japanredsun.Config.SceneManager;
 import com.japanredsun.Model.Question;
 import com.japanredsun.Model.Status;
-import com.japanredsun.Service.Implement.QuestionServiceImpImp;
+import com.japanredsun.Service.Implement.QuestionServiceImp;
 import com.japanredsun.Service.QuestionService;
 import com.japanredsun.View.FxmlView;
 import javafx.collections.FXCollections;
@@ -35,7 +35,7 @@ public class AdminPageController implements Initializable{
     public Button btnUpdate;
     public Button btnDelete;
 
-    protected QuestionService service = new QuestionServiceImpImp();
+    protected QuestionService service = new QuestionServiceImp();
 
     protected ObservableList<Status> statuses = service.getStatuses();
 

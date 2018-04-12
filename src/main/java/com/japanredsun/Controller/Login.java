@@ -1,7 +1,7 @@
 package com.japanredsun.Controller;
 
 import com.japanredsun.Config.SceneManager;
-import com.japanredsun.Service.Implement.UserServiceImpImp;
+import com.japanredsun.Service.Implement.UserServiceImp;
 import com.japanredsun.Service.UserService;
 import com.japanredsun.View.FxmlView;
 import javafx.event.ActionEvent;
@@ -24,7 +24,7 @@ import javafx.scene.input.KeyEvent;
 
 public class Login implements Initializable {
 
-    private UserService userService = new UserServiceImpImp();
+    private UserService userService = new UserServiceImp();
 
     private SceneManager sceneManager = new SceneManager();
 

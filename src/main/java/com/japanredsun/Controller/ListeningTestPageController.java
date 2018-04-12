@@ -13,8 +13,8 @@ import com.japanredsun.Model.Answer;
 import com.japanredsun.Model.Question;
 import com.japanredsun.Model.QuestionDetails;
 import com.japanredsun.Model.UserInfo;
-import com.japanredsun.Service.Implement.QuestionServiceImpImp;
-import com.japanredsun.Service.Implement.UserServiceImpImp;
+import com.japanredsun.Service.Implement.QuestionServiceImp;
+import com.japanredsun.Service.Implement.UserServiceImp;
 import com.japanredsun.Service.QuestionService;
 import com.japanredsun.Service.UserService;
 import com.japanredsun.View.FxmlView;
@@ -65,9 +65,9 @@ public class ListeningTestPageController implements Initializable {
     public Button btnAgain;
 
 
-    private QuestionService service = new QuestionServiceImpImp();
+    private QuestionService service = new QuestionServiceImp();
 
-    private UserService userService = new UserServiceImpImp();
+    private UserService userService = new UserServiceImp();
 
     private List<Question> questions = new ArrayList<>();
 

@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class QuestionServiceImpImp extends ServiceImp implements QuestionService{
+public class QuestionServiceImp extends ServiceImp implements QuestionService{
 
     private QuestionDAO questionDAO = new QuestionDAOImp();
 
