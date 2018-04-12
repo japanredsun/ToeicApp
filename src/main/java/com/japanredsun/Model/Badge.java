@@ -2,14 +2,24 @@ package com.japanredsun.Model;
 
 public class Badge implements Comparable<Badge> {
 
+    private long id;
     private String grade;
     private Integer point;
     private String imageURL;
 
-    public Badge(String grade, Integer point, String imageURL) {
+    public Badge(long id, String grade, Integer point, String imageURL) {
+        this.id = id;
         this.grade = grade;
         this.point = point;
         this.imageURL = imageURL;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getGrade() {
@@ -38,7 +48,7 @@ public class Badge implements Comparable<Badge> {
 
     @Override
     public int compareTo(Badge comparedBadge) {
-        int comparedPoint = comparedBadge.getPoint();
-        return this.point - comparedPoint;
+        long comparedPoint = comparedBadge.getId();
+        return (int) (this.id - comparedPoint);
     }
 }

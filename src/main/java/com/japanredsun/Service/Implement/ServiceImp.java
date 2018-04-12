@@ -62,17 +62,18 @@ public class ServiceImp  implements Service {
             }
         }
         if(nextBadge != null && myPoint > 0){
-            pb = (double) myPoint / nextBadge.getPoint();
+            int base = badge.getPoint();
+            pb = (double) (myPoint - base) / (nextBadge.getPoint() - base);
         }
         return pb;
     }
 
     private List<Badge> createBadges(){
         List<Badge> list = new ArrayList<>();
-        Badge badge1 = new Badge("Noob",0,"");
-        Badge badge2 = new Badge("Beginner",25,"");
-        Badge badge3 = new Badge("Intermediate",50,"");
-        Badge badge4 = new Badge("Advanced",100,"");
+        Badge badge1 = new Badge(1,"Noob",0,"");
+        Badge badge2 = new Badge(2,"Beginner",25,"");
+        Badge badge3 = new Badge(3,"Intermediate",50,"");
+        Badge badge4 = new Badge(4,"Advanced",100,"");
         Collections.addAll(list,badge1,badge2,badge3,badge4);
         Collections.sort(list);
         return list;
