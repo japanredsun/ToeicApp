@@ -70,10 +70,10 @@ public class ServiceImp  implements Service {
 
     private List<Badge> createBadges(){
         List<Badge> list = new ArrayList<>();
-        Badge badge1 = new Badge(1,"Noob",0,"");
-        Badge badge2 = new Badge(2,"Beginner",25,"");
-        Badge badge3 = new Badge(3,"Intermediate",50,"");
-        Badge badge4 = new Badge(4,"Advanced",100,"");
+        Badge badge1 = new Badge(1,"Noob",0,"/badges/badge-noob.png");
+        Badge badge2 = new Badge(2,"Beginner",25,"/badges/badge-beginner.png");
+        Badge badge3 = new Badge(3,"Intermediate",50,"/badges/badge-inter.png");
+        Badge badge4 = new Badge(4,"Advanced",100,"/badges/badge-advance.png");
         Collections.addAll(list,badge1,badge2,badge3,badge4);
         Collections.sort(list);
         return list;
