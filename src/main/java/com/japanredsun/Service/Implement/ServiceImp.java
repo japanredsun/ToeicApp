@@ -37,13 +37,13 @@ public class ServiceImp  implements Service {
     @Override
     public Badge evaluate(int point) {
         Badge badge = null;
-        if(point == 0 || point < 25){
+        if(point >= 0 && point < 25){
             badge = badges.get(0);
-        }else if(point == 25 || point < 50){
+        }else if(point >= 25 && point < 50){
             badge = badges.get(1);
-        }else if(point == 50 || point < 100){
+        }else if(point >= 50 && point < 100){
             badge = badges.get(2);
-        }else if(point > 100){
+        }else if(point >= 100){
             badge = badges.get(3);
         }
         return badge;
