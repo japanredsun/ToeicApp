@@ -2,6 +2,7 @@ package com.japanredsun.Controller;
 
 import com.japanredsun.AppConfig;
 import com.japanredsun.Config.SceneManager;
+import com.japanredsun.Main;
 import com.japanredsun.Model.Badge;
 import com.japanredsun.Model.UserInfo;
 import com.japanredsun.Service.Implement.UserServiceImp;
@@ -19,6 +20,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 
@@ -33,6 +35,7 @@ public class Home implements Initializable{
     public HBox hbPoints;
     public Label lbPointView;
     public Label lbLevel;
+    public ImageView imBadge;
 
     private UserService service = new UserServiceImp();
 
@@ -63,6 +66,9 @@ public class Home implements Initializable{
         double value = service.calculatePb(myBadge,userInfo.getTotalPoint());
         pbPoint.setProgress(value);
         lbPointView.setText(userInfo.getTotalPoint().toString());
+        String badgeurl = myBadge.getImageURL();
+        Image image = new Image(Main.class.getResource(badgeurl).toString());
+        imBadge.setImage(image);
     }
     
     @FXML
