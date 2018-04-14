@@ -23,7 +23,7 @@ public class QuestionDAOImp implements QuestionDAO {
 
     public List<Question> getAllQuestions() throws SQLException, ClassNotFoundException {
         List<Question> questionList = new ArrayList<Question>();
-        String sql ="SELECT * From questions";
+        String sql ="SELECT * From questions WHERE status = 1 OR status =0";
             ResultSet rs = dataProvider.executeReader(sql);
             while (rs.next()){
                 long id = rs.getLong("id");
@@ -45,7 +45,7 @@ public class QuestionDAOImp implements QuestionDAO {
 
     public List<Question> getActiveQuestions() throws SQLException, ClassNotFoundException {
         List<Question> questionList = new ArrayList<Question>();
-        String sql ="SELECT * From questions WHERE active = 1";
+        String sql ="SELECT * From questions WHERE status = 1";
         ResultSet rs = dataProvider.executeReader(sql);
         while (rs.next()){
             long id = rs.getLong("id");
@@ -65,6 +65,7 @@ public class QuestionDAOImp implements QuestionDAO {
     }
 
     public List<Question> getQuestionsByType(String type) throws SQLException, ClassNotFoundException {
+        dataProvider.initializeDB();
         List<Question> questionList = new ArrayList<Question>();
         String sql = "SELECT * From questions WHERE type = ?";
         PreparedStatement ps = dataProvider.getConn().prepareStatement(sql);
@@ -201,18 +202,13 @@ public class QuestionDAOImp implements QuestionDAO {
     }
 
     public boolean deleteQuestion(long id) throws SQLException, ClassNotFoundException {
-        String sql = "DELETE From questions WHERE id = ?";
-        String sql2 = "DELETE From question_detail WHERE question_id = ?";
+        String sql = "UPDATE questions SET status = ? WHERE id = ?";
             dataProvider.initializeDB();
             PreparedStatement ps = dataProvider.getConn().prepareStatement(sql);
-            ps.setLong(1,id);
+            ps.setString(1,"2");
+            ps.setLong(2,id);
             ps.executeUpdate();
             ps.close();
-
-            PreparedStatement ps2 = dataProvider.getConn().prepareStatement(sql2);
-            ps2.setLong(1,id);
-            ps2.executeUpdate();
-            ps2.close();
 
             LOG.log(Level.INFO,"Deleted question " + id);
             dataProvider.closeDB();

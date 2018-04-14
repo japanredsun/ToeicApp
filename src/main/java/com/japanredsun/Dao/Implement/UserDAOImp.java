@@ -115,7 +115,7 @@ public class UserDAOImp implements UserDAO {
     @Override
     public void delete(long id) throws SQLException, ClassNotFoundException {
         dataProvider.initializeDB();
-        String sql ="DELETE FROM users WHERE id=?";
+        String sql ="DELETE from users WHERE id=?";
         PreparedStatement ps = dataProvider.getConn().prepareStatement(sql);
         ps.setLong(1,id);
         ps.executeUpdate();

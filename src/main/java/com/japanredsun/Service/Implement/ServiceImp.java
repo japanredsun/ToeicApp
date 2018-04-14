@@ -58,6 +58,7 @@ public class ServiceImp  implements Service {
                 nextBadge = badges.get(i+1);
                 break;
             }else if(badge.equals(badges.get(badges.size() - 1))){
+                nextBadge = null;
                 break;
             }
         }
