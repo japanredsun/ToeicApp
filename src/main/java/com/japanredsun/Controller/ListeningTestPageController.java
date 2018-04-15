@@ -212,14 +212,16 @@ public class ListeningTestPageController implements Initializable {
     
     @FXML
     public void closeTestPage(ActionEvent event){
-        if(audioClip.isPlaying()){
-            audioClip.stop();
-        }
-        SceneManager scenemanager = new SceneManager();
-        try {
-            scenemanager.openNewWindowAndHide(FxmlView.START_TEST_PAGE, event);
-        } catch (IOException e) {
-            e.getMessage();
+        if(audioClip != null){
+            if(audioClip.isPlaying()){
+                audioClip.stop();
+            }
+            SceneManager scenemanager = new SceneManager();
+            try {
+                scenemanager.openNewWindowAndHide(FxmlView.START_TEST_PAGE, event);
+            } catch (IOException e) {
+                e.getMessage();
+            }
         }
     }
 
