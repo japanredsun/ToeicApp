@@ -36,6 +36,10 @@ public class Home implements Initializable{
     public Label lbPointView;
     public Label lbLevel;
     public ImageView imBadge;
+    public Button btnManageU;
+    public Button btnManageQ;
+    public HBox hbBottom;
+    public HBox hbTop;
 
     private UserService service = new UserServiceImp();
 
@@ -61,6 +65,12 @@ public class Home implements Initializable{
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+
+        if(!AppConfig.getLoginUser().getRole().equals("ADMIN")){
+            hbTop.getChildren().remove(btnManageQ);
+            hbBottom.getChildren().remove(btnManageU);
+        }
+
         this.myBadge = service.evaluate(userInfo.getTotalPoint());
         lbGrade.setText(myBadge.getGrade());
         double value = service.calculatePb(myBadge,userInfo.getTotalPoint());
